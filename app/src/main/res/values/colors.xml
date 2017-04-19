@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="highlight_pressed">#98DFF3</drawable>
+
+    <color name="AddorRemoveButtonTextColor">#ffffff</color>
+    <color name="DoneButtonTextColor">#ffffff</color>
+    <color name="logincolor.title">#ffffff</color>
+    <color name="additionalactivitynavbar">#ffffff</color>
+    <color name="vendoractivitynavigationbar">#ffffff</color>
+    <color name="login.color">#278e68</color>
+    <color name="vendor.color">#1CB3AE</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#4B5CB9</color>
+    <color name="colorAccent">#607D8B</color>
+
+    <color name="colorSecondary">#00897B</color>
+    <color name="colorSecondaryDark">#00796B</color>
+    <color name="colorBccent">#607D8B</color>
+
+    <color name="colorTertiary">#37474F</color>
+    <color name="colorTertiaryDark">#455A64</color>
+    <color name="colorCccent">#607D8B</color>
+
+    <color name="colorNursery">#00897B</color>
+    <color name="colorNurseryDark">#00897B</color>
+    <color name="foodmenuactivitynavigationbar">#ffffff</color>
+    <color name="colorDccent">#00897B</color>
+    <color name="foodactivityblacktexts">#212121</color>
+
+    <color name="loginbuttoncolor">#2979FF</color>
+</resources>

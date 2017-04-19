@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:descendantFocusability="blocksDescendants"
+    android:textAlignment="gravity"
+    android:nestedScrollingEnabled="true"
+    android:accessibilityLiveRegion="assertive"
+    android:visibility="visible">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/name"
+        android:id="@+id/textmodel2"
+        android:layout_below="@+id/imagemodel2"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_alignParentBottom="false"
+        android:allowUndo="false"
+        android:textAlignment="center"
+        android:clickable="false"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        app:civ_border_color="#ffffff"
+        app:civ_border_width="2dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:id="@+id/imagemodel2"
+        android:src="@mipmap/ic_launcher"
+        android:background="@drawable/fa_imagemodel_roundfill"
+        android:translationZ="20dp"
+        android:textAlignment="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:outlineProvider="background"
+        android:cropToPadding="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
+        android:visibility="visible"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#2ab652">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/Istpricebutton"
+        android:textSize="20dp"
+        android:layout_marginTop="39dp"
+        android:hint="select"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:allowUndo="false"
+        android:clickable="false"
+        android:background="@drawable/fa_foodprice_buttons_circleside"
+        android:contextClickable="false"
+        android:layout_alignParentTop="true"
+        android:fontFamily="14pt"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/Secondpricebutton"
+        android:textSize="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@drawable/fa_foodprice_buttons_circleside"
+        android:layout_alignTop="@+id/Istpricebutton"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="14pt"
+        android:hint="select"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/Thirdpricebutton"
+        android:background="@drawable/fa_foodprice_buttons_circleside"
+        android:layout_marginTop="82dp"
+        android:fontFamily="14pt"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textSize="20dp"
+        android:hint="select"
+        android:layout_below="@+id/Istpricebutton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/Fourthpricebutton"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textSize="20dp"
+        android:background="@drawable/fa_foodprice_buttons_circleside"
+        android:fontFamily="14pt"
+        android:hint="select"
+        android:layout_above="@+id/Fifthpricebutton"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/Thirdpricebutton"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/Fifthpricebutton"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textSize="20dp"
+        android:background="@drawable/fa_foodprice_buttons_circleside"
+        android:layout_marginTop="91dp"
+        android:fontFamily="14pt"
+        android:hint="select"
+        android:layout_below="@+id/Thirdpricebutton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/Sixthpricebutton"
+        android:textSize="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@drawable/fa_foodprice_buttons_circleside"
+        android:hint="select"
+        android:fontFamily="14pt"
+        android:layout_alignTop="@+id/Fifthpricebutton"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"/>
+
+</RelativeLayout>

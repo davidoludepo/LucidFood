@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="500dp">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:paddingLeft="10dp"
+            android:id="@+id/radiohead"
+            android:orientation="vertical">
+
+
+            <RadioButton
+                android:id="@+id/one"
+                style="@style/Checkbox"
+                android:textSize="20dp"
+                android:text="One Plate Only" />
+
+            <RadioButton
+                android:id="@+id/two"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Two Plates"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/three"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Three Plates" />
+
+            <RadioButton
+                android:id="@+id/four"
+                style="@style/Checkbox"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Four Plates" />
+
+            <RadioButton
+                android:id="@+id/five"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Five Plates" />
+
+            <RadioButton
+                android:id="@+id/six"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Six Plates" />
+
+            <RadioButton
+                android:id="@+id/seven"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Seven Plates" />
+
+            <RadioButton
+                android:id="@+id/eight"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Eight Plates" />
+
+            <RadioButton
+                android:id="@+id/nine"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Nine Plates" />
+
+            <RadioButton
+                android:id="@+id/ten"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Ten Plates" />
+
+            <RadioButton
+                android:id="@+id/eleven"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Eleven Plates" />
+
+            <RadioButton
+                android:id="@+id/twelve"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Twelve Plates" />
+
+            <RadioButton
+                android:id="@+id/thirteen"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Thirteen Plates" />
+
+            <RadioButton
+                android:id="@+id/fourteen"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Fourteen Plates" />
+
+            <RadioButton
+                android:id="@+id/fifteen"
+                style="@style/Checkbox"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Fifteen Plates" />
+
+            <RadioButton
+                android:id="@+id/sixteen"
+                style="@style/Checkbox"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Sixteen Plates" />
+
+            <RadioButton
+                android:id="@+id/seventeen"
+                style="@style/Checkbox"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Seventeen Plates" />
+
+            <RadioButton
+                android:id="@+id/eighteen"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Eighteen Plates" />
+
+            <RadioButton
+                android:id="@+id/nineteen"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Nineteen Plates" />
+
+            <RadioButton
+                android:id="@+id/twenty"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Twenty Plates" />
+
+            <RadioButton
+                android:id="@+id/twentyone"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Twentyone Plates" />
+
+            <RadioButton
+                android:id="@+id/twentytwo"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Twentytwo Plates" />
+
+            <RadioButton
+                android:id="@+id/twentythree"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Twentythree Plates" />
+
+            <RadioButton
+                android:id="@+id/twentyfour"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Twentyfour Plates" />
+
+            <RadioButton
+                android:id="@+id/twentyfive"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="Twentyfive Plates" />
+
+            <RadioButton
+                android:id="@+id/twentysix"
+                style="@style/Checkbox"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Twentysix Plates" />
+
+            <RadioButton
+                android:id="@+id/twentyseven"
+                style="@style/Checkbox"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Twentyseven Plates" />
+
+            <RadioButton
+                android:id="@+id/twentyeight"
+                style="@style/Checkbox"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Twentyeight Plates" />
+
+            <RadioButton
+                android:id="@+id/twentynine"
+                style="@style/Checkbox"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Twentynine Plates" />
+
+            <RadioButton
+                android:id="@+id/thirty"
+                style="@style/Checkbox"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Thirty Plates" />
+        </RadioGroup>
+
+    </ScrollView>
+
+</LinearLayout>

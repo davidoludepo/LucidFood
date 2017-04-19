@@ -1,0 +1,43 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- For ripple effect -->
+        <item name="android:colorControlHighlight">#ff000000</item>
+    </style>
+
+    <style name="FoodmenuActivity" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorNursery</item>
+        <item name="colorPrimaryDark">@color/colorNurseryDark</item>
+        <item name="colorAccent">@color/colorDccent</item>
+        <item name="android:navigationBarColor">@color/colorDccent</item>
+    </style>
+
+    <style name="VendorActivity" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/colorSecondary</item>
+        <item name="android:colorPrimaryDark">@color/colorSecondaryDark</item>
+        <item name="android:colorAccent">@color/colorCccent</item>
+        <item name="android:navigationBarColor">@color/colorDccent</item>
+    </style>
+
+    <style name="LoginActivity" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:navigationBarColor">@color/colorDccent</item>
+    </style>
+
+    <style name="ServingActivity" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:navigationBarColor">@color/colorDccent</item>
+    </style>
+
+    <style name="Checkbox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>

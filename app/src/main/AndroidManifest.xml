@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.icdatofcusgmail.lucidfood">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:isGame="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".VendorActivity"
+            android:screenOrientation="reversePortrait"
+            android:theme="@style/VendorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/LoginActivity"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".FoodmenuActivity"
+            android:theme="@style/FoodmenuActivity" />
+        <activity
+            android:name=".FoodhistoryActivity"
+            android:parentActivityName=".FoodmenuActivity">
+        </activity>
+
+        <activity
+            android:name=".ServingActivity"
+            android:screenOrientation="reversePortrait"
+            android:theme="@style/ServingActivity" />
+
+        <service
+            android:name=".FoodServicing"
+            android:exported="false">
+        </service>
+    </application>
+
+</manifest>

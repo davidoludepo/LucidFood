@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_foodstuffmenu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.icdatofcusgmail.lucidfood.FoodmenuActivity">
+
+    <include
+        android:id="@+id/toolbarfoodmenuactivity"
+        layout="@layout/toolbar_foodmenuactivity"
+        android:layout_height="65dp"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/toolbarfoodmenuactivitylogo" />
+
+    <include
+        android:id="@+id/toolbarfoodmenuactivitylogo"
+        layout="@layout/toolbar_fodmenuactivitylogo"
+        android:layout_height="65dp"
+        android:layout_width="match_parent"/>
+
+    <fragment
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:name="com.icdatofcusgmail.lucidfood.FoodavailableFragment"
+        android:id="@+id/fragmentfoodavailable"
+        tools:layout="@layout/foodmenufragment_foodavailable"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbarfoodmenuactivity"
+        android:layout_above="@+id/fragmentselectplatenumberandpurchase"
+        tools:ignore="RtlCompat" />
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:name="com.icdatofcusgmail.lucidfood.FoodpriceFragment"
+        android:id="@+id/fragmentfoodprice"
+        android:layout_toEndOf="@+id/fragmentfoodavailable"
+        tools:layout="@layout/foodmenufragment2_foodprice"
+        android:layout_toRightOf="@+id/fragmentfoodavailable"
+        android:layout_below="@+id/toolbarfoodmenuactivity"/>
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:name="com.icdatofcusgmail.lucidfood.ChosenfoodFragment"
+        android:id="@+id/fragmentchosenfood"
+        tools:layout="@layout/foodmenufragment3_chosenfood"
+        android:layout_below="@+id/fragmentfoodprice"
+        android:layout_toEndOf="@+id/fragmentfoodavailable"
+        android:layout_above="@+id/fragment4"
+        android:layout_toRightOf="@+id/fragmentfoodavailable" />
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:name="com.icdatofcusgmail.lucidfood.PlatecountConfirmpurchaseFragment"
+        android:id="@+id/fragmentselectplatenumberandpurchase"
+        android:layout_alignParentStart="true"
+        tools:layout="@layout/foodmenufragment4_pc_cp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
+
+    <fragment
+        android:layout_width="200dp"
+        android:layout_height="170dp"
+        android:name="com.icdatofcusgmail.lucidfood.ChosenplateCounter"
+        android:id="@+id/fragmentcounter"
+        android:layout_alignBottom="@+id/fragmentselectplatenumberandpurchase"
+        android:layout_centerHorizontal="true"
+        tools:layout="@layout/foodmenufragment5_chosenplate_counter" />
+</RelativeLayout>

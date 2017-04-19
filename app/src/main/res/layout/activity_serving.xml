@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#81D4FA"
+    tools:context="com.icdatofcusgmail.lucidfood.ServingActivity"
+    android:nestedScrollingEnabled="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/servingLinearLayoutOne"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Please Serve the Recipient"
+            android:textSize="25dp"
+            android:id="@+id/textView"
+            android:layout_gravity="center"
+            android:layout_alignParentLeft="true"  />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:id="@+id/servingLinearLayoutTwo"
+        android:layout_below="@+id/servingLinearLayoutOne">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/plate1"
+            android:text="Plate 1"
+            android:textSize="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/sa_plate_textview_activity"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/plate2"
+            android:text="Plate 2"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/sa_plate_textview_activity"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/plate3"
+            android:text="Plate 3"
+            android:textSize="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/sa_plate_textview_activity"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:id="@+id/servingLinearLayoutThree"
+        android:layout_below="@+id/servingLinearLayoutTwo">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plate 4"
+            android:id="@+id/plate4"
+            android:textSize="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/sa_plate_textview_activity"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plate 5"
+            android:id="@+id/plate5"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/sa_plate_textview_activity"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plate 6"
+            android:id="@+id/plate6"
+            android:textSize="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/sa_plate_textview_activity"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/servingLinearLayoutThree"
+        android:id="@+id/servingLinearLayoutFour">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plate 7"
+            android:id="@+id/plate7"
+            android:textSize="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/sa_plate_textview_activity"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plate 8"
+            android:id="@+id/plate8"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/sa_plate_textview_activity"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plate 9"
+            android:id="@+id/plate9"
+            android:textSize="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/sa_plate_textview_activity"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:layout_below="@+id/servingLinearLayoutFour"
+        android:id="@+id/servingLinearLayoutFive">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plate 10"
+            android:id="@+id/plate10"
+            android:textSize="25dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/sa_plate_textview_activity"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SERVED"
+        android:id="@+id/button909"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="NextTransactionPlease"
+        android:layout_alignParentRight="true" />
+
+    <!--TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="PlatPack"
+        android:id="@+id/plate_or_pack"
+        android:background="#cb6060"
+        android:layout_marginTop="124dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" /-->
+
+    <!--TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="with"
+        android:layout_below="@+id/plate_or_pack"
+        android:layout_toLeftOf="@+id/textView2"
+        android:layout_toStartOf="@+id/textView2" /-->
+</RelativeLayout>

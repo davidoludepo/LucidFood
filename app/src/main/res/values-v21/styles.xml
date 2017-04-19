@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+                <!-- Customize your theme here. -->
+                <item name="colorPrimary">@color/colorPrimary</item>
+                <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+                <item name="colorAccent">@color/colorAccent</item>
+
+                <!-- For ripple effect -->
+                <item name="android:colorControlHighlight">#ff000000</item>
+        </style>
+
+        <style name="MainActivity" parent="Theme.AppCompat.Light.NoActionBar">
+
+                <item name="colorPrimary">@color/colorNursery</item>
+                <item name="colorPrimaryDark">@color/colorNurseryDark</item>
+                <item name="colorAccent">@color/colorDccent</item>
+                <item name="android:navigationBarColor">@color/colorCccent</item>
+        </style>
+
+        <style name="ServingActivity" parent="Theme.AppCompat.Light.NoActionBar">
+                <item name="android:navigationBarColor">@color/logincolor.title</item>
+        </style>
+
+        <style name="LoginActivity" parent="Theme.AppCompat.Light.NoActionBar">
+                <item name="windowActionBar">false</item>
+                <item name="windowNoTitle">true</item>
+                <item name="android:navigationBarColor">@color/additionalactivitynavbar</item>
+        </style>
+
+        <style name="VendorActivity" parent="Theme.AppCompat.Light.NoActionBar">
+                <item name="android:colorPrimary">@color/colorSecondary</item>
+                <item name="android:colorPrimaryDark">@color/colorSecondaryDark</item>
+                <item name="android:colorAccent">@color/colorCccent</item>
+                <item name="android:navigationBarColor">@color/vendoractivitynavigationbar</item>
+        </style>
+
+        <style name="FoodmenuActivity" parent="Theme.AppCompat.Light.NoActionBar">
+
+                <item name="colorPrimary">@color/colorNursery</item>
+                <item name="colorPrimaryDark">@color/colorNurseryDark</item>
+                <item name="colorAccent">@color/colorDccent</item>
+                <item name="android:navigationBarColor">@color/foodmenuactivitynavigationbar</item>
+                <item name="android:textColorPrimary">@color/foodactivityblacktexts</item>
+                <item name="android:textColorSecondary">@color/foodmenuactivitynavigationbar</item>
+        </style>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff009688">
+
+    <CheckBox
+        android:text=" Buy in Pack (s)"
+        android:textSize="20dp"
+        android:letterSpacing=".2"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/sendpackalso"
+        android:layout_marginStart="33dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="33dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true" />
+
+</RelativeLayout>

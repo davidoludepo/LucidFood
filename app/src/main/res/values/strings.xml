@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">LucidFood</string>
+    <string name="display_items">ITEMS</string>
+    <string name="goto_login">DONE</string>
+    <string name="done">SendData</string>
+    <string name="cancel">Cancel</string>
+    <string name="okay">Okay</string>
+    <string name="name">FAModel</string>
+
+    <string-array name="AorR">
+        <item>Add Items</item>
+        <item>Remove Items</item>
+    </string-array>
+
+    <string-array name="platenumbers">
+        <item>One Plate</item>
+        <item>Two Plates</item>
+        <item>Three Plates</item>
+        <item>Four Plates</item>
+        <item>Five Plates</item>
+    </string-array>
+
+    <string-array name="amount">
+        <item>150 naira White Rice</item>
+        <item>150 naira Jollof Rice</item>
+        <item>150 naira Fried Rice</item>
+        <item>100 naira Beef</item>
+        <item>300 naira Chicken</item>
+        <item>100 naira MoiMoi</item>
+        <item>50 naira Plantain</item>
+        <item>50 naira Egg</item>
+        <item>100 naira Sides</item>
+        <item>50 naira Beans</item>
+    </string-array>
+
+    <string-array name="amount2">
+        <item>200 naira White Rice</item>
+        <item>200 naira Jollof Rice</item>
+        <item>200 naira Fried Rice</item>
+        <item>200 naira Beef(2)</item>
+        <item>600 naira Chicken(2)</item>
+        <item>200 naira MoiMoi(2)</item>
+        <item>100 naira Plantain</item>
+        <item>100 naira Egg(2)</item>
+        <item>150 naira Sides</item>
+        <item>100 naira Beans</item>
+    </string-array>
+
+    <string-array name="amount3">
+        <item>250 naira White Rice</item>
+        <item>250 naira Jollof Rice</item>
+        <item>250 naira Fried Rice</item>
+        <item>300 naira Beef(3)</item>
+        <item>900 naira Chicken(3)</item>
+        <item>300 naira MoiMoi(3)</item>
+        <item>150 naira Plantain</item>
+        <item>150 naira Egg(3)</item>
+        <item>200 naira Sides</item>
+        <item>150 naira Beans</item>
+    </string-array>
+
+    <string-array name="amount4">
+        <item>300 naira White Rice</item>
+        <item>300 naira Jollof Rice</item>
+        <item>300 naira Fried Rice</item>
+        <item>400 naira Beef(4)</item>
+        <item>1200 naira Chicken(4)</item>
+        <item>400 naira MoiMoi(4)</item>
+        <item>200 naira Plantain</item>
+        <item>200 naira Egg(4)</item>
+        <item>250 naira Sides</item>
+        <item>200 naira Beans</item>
+    </string-array>
+
+    <string-array name="amount5">
+        <item>350 naira White Rice</item>
+        <item>350 naira Jollof Rice</item>
+        <item>350 naira Fried Rice</item>
+        <item>500 naira Beef(5)</item>
+        <item>1500 naira Chicken(5)</item>
+        <item>500 naira MoiMoi(5)</item>
+        <item>250 naira Plantain</item>
+        <item>250 naira Egg(5)</item>
+        <item>300 naira Sides</item>
+        <item>250 naira Beans</item>
+    </string-array>
+
+    <string-array name="amount6">
+        <item>400 naira White Rice</item>
+        <item>400 naira Jollof Rice</item>
+        <item>400 naira Fried Rice</item>
+        <item>600 naira Beef(6)</item>
+        <item>1800 naira Chicken(6)</item>
+        <item>600 naira MoiMoi(6)</item>
+        <item>300 naira Plantain</item>
+        <item>300 naira Egg(6)</item>
+        <item>400 naira Sides</item>
+        <item>300 naira Beans</item>
+    </string-array>
+</resources>
