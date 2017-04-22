@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -12,11 +13,15 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
@@ -25,12 +30,115 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
 
     private Toolbar toolbar_foodmenu;
     private RelativeLayout relative;
+    private TextView textView, textView2nd, textView3rd, textView4th, textView5th, textView6th, textView7th, textView8th, textView9th, textView10th;
+    private Button ConfirmPurchaze;
+    private CheckBox checkBoxx;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foodmenu);
         Log.d("FoodmenuActivity","onCreate invoked");
+
+        textView = (Button) findViewById(R.id.Istchosenbutton);
+        textView2nd = (Button) findViewById(R.id.Secondchosenbutton);
+        textView3rd = (Button) findViewById(R.id.Thirdchosenbutton);
+        textView4th = (Button) findViewById(R.id.Fourthchosenbutton);
+        textView5th = (Button) findViewById(R.id.Fifthchosenbutton);
+        textView6th = (Button) findViewById(R.id.Sixthchosenbutton);
+        textView7th = (Button) findViewById(R.id.Seventhchosenbutton);
+        textView8th = (Button) findViewById(R.id.Eightchosenbutton);
+        textView9th = (Button) findViewById(R.id.Ninthchosenbutton);
+        textView10th = (Button) findViewById(R.id.Tenthchosenbutton);
+
+        ConfirmPurchaze = (Button) findViewById(R.id.button20000);
+
+        ConfirmPurchaze.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder  builder = new AlertDialog.Builder(FoodmenuActivity.this);
+                builder.setTitle("Confirm Purchase");
+
+                checkBoxx = (CheckBox) findViewById(R.id.sendpackalso);
+                builder.setMessage("The items you selected will be bought by clicking \nDONE");
+                LayoutInflater inflater=FoodmenuActivity.this.getLayoutInflater();
+                View view=inflater.inflate(R.layout.fa_confirmpurchase_dialogue, null);
+                builder.setView(view)
+                        .setCancelable(false);
+
+                builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        StyleableToast NotConfirmed = new StyleableToast(getApplicationContext(), "Transaction not Confirmed", Toast.LENGTH_SHORT).spinIcon();
+                        NotConfirmed.setBackgroundColor(Color.parseColor("#FF5A5F"));
+                        NotConfirmed.setTextColor(Color.WHITE);
+                        NotConfirmed.show();
+                    }
+                });
+                builder.setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        StyleableToast TranCompleted = new StyleableToast(getApplicationContext(), "Transaction Verified", Toast.LENGTH_SHORT).spinIcon();
+                        TranCompleted.setBackgroundColor(Color.parseColor("#FF5A5F"));
+                        TranCompleted.setTextColor(Color.WHITE);
+                        TranCompleted.setIcon(R.drawable.fa_confirmpurchasetoasticon);
+                        TranCompleted.show();
+
+
+                        Intent intent = new Intent(getBaseContext(), ServingActivity.class);
+
+                        Bundle dweezy = new Bundle();
+                        dweezy.putString("favouritism", textView.getText().toString());
+                        intent.putExtras(dweezy);
+
+                        Bundle tobi = new Bundle();
+                        tobi.putString("genius", textView2nd.getText().toString());
+                        intent.putExtras(tobi);
+
+                        Bundle emmanuel = new Bundle();
+                        emmanuel.putString("generous", textView3rd.getText().toString());
+                        intent.putExtras(emmanuel);
+
+                        Bundle joseph = new Bundle();
+                        joseph.putString("focused", textView4th.getText().toString());
+                        intent.putExtras(joseph);
+
+                        Bundle godwin = new Bundle();
+                        godwin.putString("creativebeast", textView5th.getText().toString());
+                        intent.putExtras(godwin);
+
+                        Bundle funmilayo = new Bundle();
+                        funmilayo.putString("bestmom", textView6th.getText().toString());
+                        intent.putExtras(funmilayo);
+
+                        Bundle james = new Bundle();
+                        james.putString("bestdad", textView7th.getText().toString());
+                        intent.putExtras(james);
+
+                        Bundle tomilola = new Bundle();
+                        tomilola.putString("biggersis", textView8th.getText().toString());
+                        intent.putExtras(tomilola);
+
+                        Bundle opeyemi = new Bundle();
+                        opeyemi.putString("biggestsis", textView9th.getText().toString());
+                        intent.putExtras(opeyemi);
+
+                        Bundle david = new Bundle();
+                        david.putString("dhalson", textView10th.getText().toString());
+                        intent.putExtras(david);
+
+                        startActivity(intent);
+
+                        finish();
+                    }
+                })
+                .setIcon(R.drawable.a_announcement);
+                Dialog dialog = builder.create();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.LTGRAY));
+                dialog.show();
+            }
+        });
 
      //   requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -151,12 +259,11 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
         PCdialogue.show(manager, "PlateCount");
     }
 
-    public void ConfirmMyPurchase(View view) {
+   /* public void ConfirmMyPurchase(View view) {
         FragmentManager director = getFragmentManager();
         ConfirmPurchase CMPdialogue = new ConfirmPurchase();
         CMPdialogue.show(director, "ConfirmPurchase");
-
-    }
+    } */
 
     @Override
     public void onBackPressed() {

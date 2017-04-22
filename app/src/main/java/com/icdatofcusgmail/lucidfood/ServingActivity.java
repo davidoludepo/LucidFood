@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 public class ServingActivity extends AppCompatActivity {
 
-
     /** Build Internal-Storage here and External-Storage here for
      * bought foods using the tutorials
      * InternalDataStorage
@@ -22,6 +21,9 @@ public class ServingActivity extends AppCompatActivity {
      * @param savedInstanceState
      */
 
+
+    TextView textViewun, textViewdo, textViewtrois, textViewquartz, textViewfive, textViewsix, textViewsept, textVieweight, textViewnous, textViewten;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,22 +31,104 @@ public class ServingActivity extends AppCompatActivity {
         Log.d("ServingActivity","onCreate invoked");
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
+        textViewun = (TextView) findViewById(R.id.plate1);
+        textViewdo = (TextView) findViewById(R.id.plate2);
+        textViewtrois = (TextView) findViewById(R.id.plate3);
+        textViewquartz = (TextView) findViewById(R.id.plate4);
+        textViewfive = (TextView) findViewById(R.id.plate5);
+        textViewsix = (TextView) findViewById(R.id.plate6);
+        textViewsept = (TextView) findViewById(R.id.plate7);
+        textVieweight = (TextView) findViewById(R.id.plate8);
+        textViewnous = (TextView) findViewById(R.id.plate9);
+        textViewten = (TextView) findViewById(R.id.plate10);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(getResources().getColor(android.R.color.transparent));
         }
-        TextView textView = (TextView) findViewById(R.id.plate1);
-        TextView textView2 = (TextView) findViewById(R.id.plate2);
-        TextView textView3 = (TextView) findViewById(R.id.plate3);
-        TextView textView4 = (TextView) findViewById(R.id.plate4);
-        TextView textView5 = (TextView) findViewById(R.id.plate5);
-        TextView textView6 = (TextView) findViewById(R.id.plate6);
-        TextView textView7 = (TextView) findViewById(R.id.plate7);
-        TextView textView8 = (TextView) findViewById(R.id.plate8);
-        TextView textView9 = (TextView) findViewById(R.id.plate9);
-        TextView textView10 = (TextView) findViewById(R.id.plate10);
 
+      /*  if (textViewun.getText().toString().isEmpty()) {
+            textViewun.setVisibility(View.GONE);
+        } else { */
+            textViewun = (TextView) findViewById(R.id.plate1);
+            Bundle dweezy = getIntent().getExtras();
+            textViewun.setText(dweezy.getString("favouritism"));
+       // }
+
+     //   if (textViewdo.getText().toString().isEmpty()) {
+       //     textViewdo.setVisibility(View.GONE);
+     //   } else {
+            textViewdo = (TextView) findViewById(R.id.plate2);
+            Bundle tobi = getIntent().getExtras();
+            textViewdo.setText(tobi.getString("genius"));
+      //  }
+
+     //   if (textViewtrois.getText().toString().isEmpty()) {
+     //       textViewtrois.setVisibility(View.GONE);
+     //   } else {
+            textViewtrois = (TextView) findViewById(R.id.plate3);
+            Bundle emmanuel = getIntent().getExtras();
+            textViewtrois.setText(emmanuel.getString("generous"));
+     //   }
+
+    //    if (textViewquartz.getText().toString().isEmpty()) {
+     //       textViewquartz.setVisibility(View.GONE);
+     //   } else {
+            textViewquartz = (TextView) findViewById(R.id.plate4);
+            Bundle joseph = getIntent().getExtras();
+            textViewquartz.setText(joseph.getString("focused"));
+    //    }
+
+    //    if (textViewfive.getText().toString().isEmpty()) {
+    //        textViewfive.setVisibility(View.GONE);
+    //    } else {
+            textViewfive = (TextView) findViewById(R.id.plate5);
+            Bundle godwin = getIntent().getExtras();
+            textViewfive.setText(godwin.getString("creativebeast"));
+    //    }
+
+   //     if (textViewsix.getText().toString().isEmpty()) {
+   //         textViewsix.setVisibility(View.GONE);
+   //     } else {
+            textViewsix = (TextView) findViewById(R.id.plate6);
+            Bundle funmilayo = getIntent().getExtras();
+            textViewsix.setText(funmilayo.getString("bestmom"));
+   //     }
+
+   //     if (textViewsept.getText().toString().isEmpty()) {
+   //         textViewsept.setVisibility(View.GONE);
+  //      } else {
+            textViewsept = (TextView) findViewById(R.id.plate7);
+            Bundle james = getIntent().getExtras();
+            textViewsept.setText(james.getString("bestdad"));
+  //      }
+
+  //      if (textVieweight.getText().toString().isEmpty()) {
+   //         textVieweight.setVisibility(View.GONE);
+   //     } else {
+            textVieweight = (TextView) findViewById(R.id.plate8);
+            Bundle tomilola = getIntent().getExtras();
+            textVieweight.setText(tomilola.getString("biggersis"));
+   //     }
+
+   //     if (textViewnous.getText().toString().isEmpty()) {
+   //         textViewnous.setVisibility(View.GONE);
+   //     } else {
+            textViewnous = (TextView) findViewById(R.id.plate9);
+            Bundle opeyemi = getIntent().getExtras();
+            textViewnous.setText(opeyemi.getString("biggestsis"));
+   //     }
+
+  //      if (textViewten.getText().toString().isEmpty()) {
+  //          textViewten.setVisibility(View.GONE);
+  //      } else {
+            textViewten = (TextView) findViewById(R.id.plate10);
+            Bundle david = getIntent().getExtras();
+            textViewten.setText(david.getString("dhalson"));
+  //      }
     }
 
     public void NextTransactionPlease (View view) {
