@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.SearchView;
 
 import java.util.ArrayList;
 
@@ -58,7 +57,7 @@ public class FoodavailableFragment extends Fragment implements AdapterView.OnIte
         teams.add(new Team(names[8], images[8]));
         teams.add(new Team(names[9], images[9]));
 
-        SearchView searchView = (SearchView) getActivity().findViewById(R.id.searchView);
+     //   SearchView searchView = (SearchView) getActivity().findViewById(R.id.searchView);
         return teams;
     }
 

@@ -1,10 +1,12 @@
 package com.icdatofcusgmail.lucidfood;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -27,6 +29,7 @@ import java.util.Random;
 
 public class LoginActivity extends AppCompatActivity {
 
+    PowerManager.WakeLock wakeLock;
     int intRandom;
     TextView reporterPassword, reporterUsername, textRandom;
     ArrayList<String> arrayRandom;
@@ -39,11 +42,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Log.d("LoginActivity","onCreate invoked"); 
-
+        Log.d("LoginActivity","onCreate invoked");
+        PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "deprecatedmyfoot");
+        wakeLock.acquire();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(getResources().getColor(android.R.color.transparent));
         }
@@ -108,15 +112,12 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable no) {
-               // login.setVisibility(View.VISIBLE);
-
                 if (no.length()==0) {
                     reporterUsername.setText("Not Entered");
                     clearAllUsername.setVisibility(View.INVISIBLE);
                 }
                 if (no.length()>0)
                     reporterUsername.setText(" ");
-
             }
         });
 
@@ -156,6 +157,7 @@ public class LoginActivity extends AppCompatActivity {
             Bundle bundle = new Bundle();
             intent.putExtras(bundle);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
         } else if (UsernameField.getText().toString().isEmpty() && PasswordField.getText().toString().isEmpty()) {
             StyleableToast EmptyFields = new StyleableToast(getApplicationContext(), "Please enter your Credentials", Toast.LENGTH_SHORT).spinIcon();
             EmptyFields.setBackgroundColor(Color.parseColor("#FF5A5F"));
@@ -199,7 +201,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(getApplicationContext(), VendorActivity.class);
                 startActivity(intent);
-            }
+             }
         });
         alertDialog.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
             @Override
@@ -222,12 +224,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.d("LoginActivity","onResume invoked");
+        wakeLock.acquire();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.d("LoginActivity","onPause invoked");
+        wakeLock.release();
     }
 
     @Override

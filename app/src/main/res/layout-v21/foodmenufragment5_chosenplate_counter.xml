@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.icdatofcusgmail.lucidfood.ChosenplateCounter"
+    android:background="#1ab3a4"
+    android:elevation="20dp">
+
+    <com.icdatofcusgmail.lucidfood.EasyMoneyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/calc_space_Counter_FoodmenuFragment5_FoodmenuActivityv21"
+        android:id="@+id/counter"
+        android:inputType="numberDecimal"
+        app:show_currency="true"
+        app:show_commas="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp" />
+
+    <Spinner android:id="@+id/spinnerCurrency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:entries="@array/currency_array"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:visibility="invisible">
+    </Spinner>
+</RelativeLayout>

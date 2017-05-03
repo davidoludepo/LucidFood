@@ -8,17 +8,17 @@
         android:checkable="true"
         app:showAsAction="always"
         android:orderInCategory="100"
-        android:title="Plate Saved"/>
+        android:title="@string/plate_saved_FoodmenuActivity_Toolbar"/>
 
     <item
         android:icon="@drawable/a_showsaved"
         android:id="@+id/saved_plate"
         app:showAsAction="always"
         android:orderInCategory="200"
-        android:title="Saved Plate Selected"/>
+        android:title="@string/saved_plate_selected_FoodmenuActivity_Toolbar"/>
 
     <item
         android:id="@+id/check_balance"
         app:showAsAction="never"
-        android:title="Check Balance" />
+        android:title="@string/check_balance_FoodmenuActivity_Toolbar" />
 </menu>

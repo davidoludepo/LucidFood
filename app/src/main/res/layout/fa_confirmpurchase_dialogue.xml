@@ -4,12 +4,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff009688">
+    android:background="@color/FA_ConfirmPurchaseLayout">
 
     <CheckBox
-        android:text=" Buy in Pack (s)"
-        android:textSize="20dp"
-        android:letterSpacing=".2"
+        android:text="@string/Checkbox_buy_in_pack_FoodActivity"
+        android:textSize="20sp"
+        android:checked="true"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:id="@+id/sendpackalso"

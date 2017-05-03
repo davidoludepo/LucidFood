@@ -151,7 +151,7 @@ public class ChosenfoodFragment extends Fragment {
         super.onAttach(activity);
         try {
             onPriceSetListener = (OnPriceSetListener) activity;
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
     }

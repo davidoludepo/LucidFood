@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_vendor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/vendor.color"
+    android:background="@color/Vendor.Color"
     android:focusableInTouchMode="false"
     android:fitsSystemWindows="true"
     tools:context="com.icdatofcusgmail.lucidfood.VendorActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/placeholder">
+    </FrameLayout>
 
     <include
         android:id="@+id/toolbar_vendoractivity"
@@ -30,7 +37,7 @@
         android:layout_height="wrap_content"
         android:text="@string/display_items"
         android:background="@drawable/va_round_buttonedge"
-        android:textColor="@color/AddorRemoveButtonTextColor"
+        android:textColor="@color/AddOrRemoveButtonTextColor"
         android:textSize="20sp"
         android:onClick="OCAddorRemove"
         android:id="@+id/displayAddorRemoveDialogue"
@@ -55,7 +62,8 @@
         android:layout_alignBaseline="@+id/displayAddorRemoveDialogue"
         android:layout_alignBottom="@+id/displayAddorRemoveDialogue"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        tools:ignore="RelativeOverlap" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -64,6 +72,32 @@
         android:onClick="OCDynamicPlateCount"
         android:background="@drawable/oval_dynamicplatecount"
         android:layout_alignBottom="@+id/displayAddorRemoveDialogue"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/dynamicplatecount" />
+
+    <!--Button
+        android:text="Clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/clr"
+        android:visibility="gone"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/displayAddorRemoveLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="77dp"
+        android:layout_marginEnd="77dp" />
+
+    <Button
+        android:text="All"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/alll"
+        android:visibility="gone"
+        android:layout_below="@+id/clr"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp" /-->
 
 </RelativeLayout>

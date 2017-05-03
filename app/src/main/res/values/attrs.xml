@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SmoothCheckBox">
+        <attr name="duration" format="integer" />
+        <attr name="strikeWidth" format="dimension|reference" />
+        <attr name="borderColor" format="color|reference" />
+        <attr name="trimColor" format="color|reference" />
+        <attr name="tickColor" format="color|reference" />
+        <attr name="tickWidth" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="EasyMoneyWidgets">
+        <attr name="currency_symbol" format="string"/>
+        <attr name="show_currency" format="boolean"/>
+        <attr name="show_commas" format="boolean"/>
+    </declare-styleable>
+</resources>

@@ -6,11 +6,99 @@
     <string name="cancel">Cancel</string>
     <string name="okay">Okay</string>
     <string name="name">FAModel</string>
+    <string name="hello_amazing">Hello Amazing</string>
+    <string name="icdat_christ">icdat.christ</string>
+    <string name="pin_4_digits">pin (4 digits)</string>
+    <string name="access">Access</string>
+    <string name="not_entered">Not Entered</string>
+    <string name="not_entered2">Not Entered</string>
+    <string name="clearall">ClearAll</string>
+    <string name="clearalll">ClearAll</string>
+    <string name="clearallv21">ClearAllv21</string>
+    <string name="clearalllv21">ClearAllv21</string>
+    <string name="dynamicplatecount">DynamicPlateCount</string>
+    <string name="please_serve_the_recipient__ServingActivity">Please Serve the Recipient</string>
+    <string name="buttonserved_ServingActivity">SERVED</string>
+    <string name="please_serve_the_recipient_v21_ServingActivity">Please Serve the Recipient</string>
+    <string name="buttonservedv21_ServingActivity">SERVED</string>
+    <string name="Checkbox_buy_in_pack_FoodActivity">Buy in Pack(s)</string>
+    <string name="ButtonHintSelect_FoodPrice_FoodActivity">select</string>
+    <string name="ButtonHintSelect2_FoodPrice_FoodActivity">select</string>
+    <string name="ButtonHintSelect3_FoodPrice_FoodActivity">select</string>
+    <string name="ButtonHintSelect4_FoodPrice_FoodActivity">select</string>
+    <string name="ButtonHintSelect5_FoodPrice_FoodActivity">select</string>
+    <string name="ButtonHintSelect6_FoodPrice_FoodActivity">select</string>
+    <string name="ButtonHintSelectv23_FoodPrice_FoodActivity">select</string>
+    <string name="ButtonHintSelectv23_FoodPrice_FoodActivity2">select</string>
+    <string name="ButtonHintSelectv23_FoodPrice_FoodActivity_3">select</string>
+    <string name="ButtonHintSelectv23_FoodPrice_FoodActivity_4">select</string>
+    <string name="ButtonHintSelectv23_FoodPrice_FoodActivity_5">select</string>
+    <string name="istchosendeletebuttoncontent1">IstchosendeletebuttonCONTENT</string>
+    <string name="secondchosendeletebuttoncontent2">SecondchosendeletebuttonCONTENT</string>
+    <string name="thirdchosendeletebuttoncontent3">ThirdchosendeletebuttonCONTENT</string>
+    <string name="fourthchosendeletebutton4">Fourthchosendeletebutton</string>
+    <string name="fifthchosendeletebuttoncontent5">FifthchosendeletebuttonCONTENT</string>
+    <string name="sixthchosendeletebuttoncontent6">SixthchosendeletebuttonCONTENT</string>
+    <string name="seventhch_osendeletebuttoncontent7">SeventhchosendeletebuttonCONTENT</string>
+    <string name="eightchosendeletebuttoncontent8">EightchosendeletebuttonCONTENT</string>
+    <string name="ninthchosendeleltebuttoncontent9">NinthchosendeleltebuttonCONTENT</string>
+    <string name="tenthchosendeletebuttoncontent10">TenthchosendeletebuttonCONTENT</string>
+    <string name="istchosendeletebuttoncontentv21_1">IstchosendeletebuttonCONTENT</string>
+    <string name="secondchosendeletebuttoncontentv21_2">SecondchosendeletebuttonCONTENT</string>
+    <string name="thirdchosendeletebuttoncontentv21_3">ThirdchosendeletebuttonCONTENT</string>
+    <string name="fourthchosendeletebuttoncontentv21_4">FourthchosendeletebuttonCONTENT</string>
+    <string name="fifthchosendeletebuttoncontentv21_5">FifthchosendeletebuttonCONTENT</string>
+    <string name="sixthchosendeletebuttoncontentv21_6">SixthchosendeletebuttonCONTENT</string>
+    <string name="seventhchosendeletebuttoncontentv21_7">SeventhchosendeletebuttonCONTENT</string>
+    <string name="eightchosendeletebuttoncontentv21_8">EightchosendeletebuttonCONTENT</string>
+    <string name="ninthchosendeleltebuttoncontentv21_9">NinthchosendeleltebuttonCONTENT</string>
+    <string name="tenthchosendeletebuttoncontentv21_10">TenthchosendeletebuttonCONTENT</string>
+    <string name="purchasebutton_FoodmenuFragment4_FoodmenuActivity">Purchase</string>
+    <string name="plate_count_FoodmenuFragment4_FoodmenuActivityv21">Plate Count</string>
+    <string name="plate_count_FoodmenuFragment4_FoodmenuActvity">Plate Count</string>
+    <string name="calc_space_Counter_FoodmenuFragment5_FoodmenuActivityv21">Calc. Space</string>
+    <string name="calc_space_Counter_FoodmenuFragment5_FoodmenuActivity">Calc. Space</string>
+    <string name="one_plate_only_Dynamic_Platecount__VendorActivity_1">One Plate Only</string>
+    <string name="two_plates_only_Dynamic_Platecount__VendorActivity_2">Two Plates</string>
+    <string name="three_plates_only_Dynamic_Platecount__VendorActivity_3">Three Plates</string>
+    <string name="four_plates_only_Dynamic_Platecount__VendorActivity_4">Four Plates</string>
+    <string name="five_plates_only_Dynamic_Platecount__VendorActivity_5">Five Plates</string>
+    <string name="six_plates_only_Dynamic_Platecount__VendorActivity_6">Six Plates</string>
+    <string name="seven_plates_only_Dynamic_Platecount__VendorActivity_7">Seven Plates</string>
+    <string name="eight_plates_only_Dynamic_Platecount__VendorActivity_8">Eight Plates</string>
+    <string name="nine_plates_only_Dynamic_Platecount__VendorActivity_9">Nine Plates</string>
+    <string name="ten_plates_only_Dynamic_Platecount__VendorActivity_10">Ten Plates</string>
+    <string name="eleven_plates_only_Dynamic_Platecount__VendorActivity_11">Eleven Plates</string>
+    <string name="twelve_plates_only_Dynamic_Platecount__VendorActivity_12">Twelve Plates</string>
+    <string name="thirteen_plates_only_Dynamic_Platecount__VendorActivity_13">Thirteen Plates</string>
+    <string name="fourteen_plates_only_Dynamic_Platecount__VendorActivity_14">Fourteen Plates</string>
+    <string name="fifteen_plates_only_Dynamic_Platecount__VendorActivity_15">Fifteen Plates</string>
+    <string name="sixteen_plates_only_Dynamic_Platecount__VendorActivity_16">Sixteen Plates</string>
+    <string name="seventeen_plates_only_Dynamic_Platecount__VendorActivity_17">Seventeen Plates</string>
+    <string name="eighteen_plates_only_Dynamic_Platecount__VendorActivity_18">Eighteen Plates</string>
+    <string name="nineteen_plates_only_Dynamic_Platecount__VendorActivity_19">Nineteen Plates</string>
+    <string name="twenty_plates_only_Dynamic_Platecount__VendorActivity_20">Twenty Plates</string>
+    <string name="twentyone_plates_only_Dynamic_Platecount__VendorActivity_21">Twentyone Plates</string>
+    <string name="twentytwo_plates_only_Dynamic_Platecount__VendorActivity_22">Twentytwo Plates</string>
+    <string name="twentythree_plates_only_Dynamic_Platecount__VendorActivity_23">Twentythree Plates</string>
+    <string name="twentyfour_plates_only_Dynamic_Platecount__VendorActivity_24">Twentyfour Plates</string>
+    <string name="twentyfive_plates_only_Dynamic_Platecount__VendorActivity_25">Twentyfive Plates</string>
+    <string name="twentysix_plates_only_Dynamic_Platecount__VendorActivity_26">Twentysix Plates</string>
+    <string name="twentyseven_plates_only_Dynamic_Platecount__VendorActivity_27">Twentyseven Plates</string>
+    <string name="twentyeight_plates_only_Dynamic_Platecount__VendorActivity_28">Twentyeight Plates</string>
+    <string name="twentynine_plates_only_Dynamic_Platecount__VendorActivity_29">Twentynine Plates</string>
+    <string name="thirty_plates_only_Dynamic_Platecount__VendorActivity_30">Thirty Plates</string>
+    <string name="TextViewname_Gridview_VendorActivity">Name</string>
+    <string name="TextViewname_Gridviewv21_VendorActivity">Name</string>
+    <string name="plate_saved_FoodmenuActivity_Toolbar">Plate Saved</string>
+    <string name="saved_plate_selected_FoodmenuActivity_Toolbar">Saved Plate Selected</string>
+    <string name="check_balance_FoodmenuActivity_Toolbar">Check Balance</string>
 
     <string-array name="AorR">
         <item>Add Items</item>
         <item>Remove Items</item>
     </string-array>
+
 
     <string-array name="platenumbers">
         <item>One Plate</item>
@@ -97,4 +185,8 @@
         <item>400 naira Sides</item>
         <item>300 naira Beans</item>
     </string-array>
+
+    <array name="currency_array">
+        <item>Naira (₦)</item>
+    </array>
 </resources>

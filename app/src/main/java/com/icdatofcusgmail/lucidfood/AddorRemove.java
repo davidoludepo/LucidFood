@@ -28,7 +28,6 @@ public class AddorRemove extends DialogFragment {
                     AddItems.setBackgroundColor(Color.parseColor("#FF5A5F"));
                     AddItems.setTextColor(Color.WHITE);
                     AddItems.show();
-
                 }
                 if (which == 1) {
                     StyleableToast RemoveItems = new StyleableToast(getActivity(), "Removing Items", Toast.LENGTH_SHORT).spinIcon();
@@ -36,10 +35,14 @@ public class AddorRemove extends DialogFragment {
                     RemoveItems.setTextColor(Color.WHITE);
                     RemoveItems.show();
                 }
-                VendorFragment.ShowInThis.setVisibility(View.VISIBLE);
+                VendorActivity.ShowInThis.setVisibility(View.VISIBLE);
             }
         });
         setCancelable(true);
+        AlertDialog alertDialog = builder.create();
+       // alertDialog.getWindow().getAttributes().windowAnimations=R.style.SetDialogAnimation;
+        alertDialog.show();
+        alertDialog.dismiss();
         return builder.create();
     }
 }
