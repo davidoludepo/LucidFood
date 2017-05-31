@@ -1,4 +1,4 @@
-package com.icdatofcusgmail.lucidfood;
+package com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive;
 
 import android.content.Context;
 import android.os.Parcelable;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.icdatofcusgmail.lucidfood.VendorActivityArchive.Icdat;
+import com.icdatofcusgmail.lucidfood.R;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.icdatofcusgmail.lucidfood;
+package com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -11,8 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.icdatofcusgmail.lucidfood.R;
+
 /**
  * Created by DAVID OGUNDEPO on 03/27/2017.
+ *
  */
 
 public class FoodpriceFragment extends Fragment {
@@ -54,11 +57,6 @@ public class FoodpriceFragment extends Fragment {
                 onNameSetListener.setName(Name);
             }
         });
-       // Animation in = AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left);
-       // Animation out = AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_out_right);
-
-
-
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

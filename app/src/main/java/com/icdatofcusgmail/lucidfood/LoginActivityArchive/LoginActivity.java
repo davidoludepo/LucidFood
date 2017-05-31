@@ -1,4 +1,4 @@
-package com.icdatofcusgmail.lucidfood;
+package com.icdatofcusgmail.lucidfood.LoginActivityArchive;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -23,6 +23,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.FoodmenuActivity;
+import com.icdatofcusgmail.lucidfood.R;
+import com.icdatofcusgmail.lucidfood.VendorActivityArchive.Icdat;
+import com.icdatofcusgmail.lucidfood.VendorActivityArchive.VendorActivity;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 import java.util.ArrayList;
@@ -517,7 +521,7 @@ public class LoginActivity extends AppCompatActivity {
             VeriefiedKorQ.show();
 
             StephenCurry = getIntent().getParcelableArrayListExtra("BabaOsheyGanni");
-            Intent outTent = new Intent(this, FoodmenuActivity.class);
+            Intent outTent = new Intent(getApplicationContext(), FoodmenuActivity.class);
             Bundle bundle = new Bundle();
             bundle.putString("king", UsernameField.getText().toString());
             outTent.putExtra("selectedItems", parcel);
@@ -617,4 +621,5 @@ public class LoginActivity extends AppCompatActivity {
         super.onDestroy();
         Log.d("LoginActivity","onDestroy invoked");
     }
+
 }

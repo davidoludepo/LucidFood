@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.icdatofcusgmail.lucidfood.ChosenplateCounter"
+    tools:context="com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.ChosenplateCounter"
     android:background="#1ab3a4">
 
     <TextView

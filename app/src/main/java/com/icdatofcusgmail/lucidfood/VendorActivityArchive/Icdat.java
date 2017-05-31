@@ -1,7 +1,9 @@
-package com.icdatofcusgmail.lucidfood;
+package com.icdatofcusgmail.lucidfood.VendorActivityArchive;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import com.icdatofcusgmail.lucidfood.SmoothCheckBox;
 
 /**
  * Created by DAVID OGUNDEPO on 03/27/2017.
@@ -14,15 +16,12 @@ public class Icdat implements Parcelable{
     private String foodname;
     private int foodimage;
     private boolean selected = true;
-
-  //  private MySubIcdat mInfo;
     private SmoothCheckBox smooth;
 
     private Icdat (Parcel in) {
         foodname = in.readString();
         foodimage = in.readInt();
         selected = in.readByte() != 0;
-//        mInfo = in.readParcelable(MySubIcdat.class.getClassLoader());
     }
 
     public Icdat() {
@@ -65,7 +64,7 @@ public class Icdat implements Parcelable{
         this.foodname = foodname;
     }
 
-    int getFoodimage() {
+    public int getFoodimage() {
         return foodimage;
     }
 
@@ -92,9 +91,5 @@ public class Icdat implements Parcelable{
         dest.writeString(foodname);
         dest.writeInt(foodimage);
         dest.writeByte((byte) (selected ? 1 : 0));
-      //  dest.writeParcelableArray(new Parcelable[]{(Parcelable) mInfo}, flags);
     }
-
-//    private class MySubIcdat {
-//    }
 }

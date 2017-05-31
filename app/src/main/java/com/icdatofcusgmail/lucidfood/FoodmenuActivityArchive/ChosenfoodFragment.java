@@ -1,4 +1,4 @@
-package com.icdatofcusgmail.lucidfood;
+package com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.icdatofcusgmail.lucidfood.R;
 
 /**
  * Created by DAVID OGUNDEPO on 03/28/2017.

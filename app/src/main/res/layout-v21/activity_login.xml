@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.icdatofcusgmail.lucidfood.LoginActivity"
+    tools:context="com.icdatofcusgmail.lucidfood.LoginActivityArchive.LoginActivity"
     android:background="@drawable/c_loginactivity">
 
     <LinearLayout

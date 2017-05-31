@@ -1,4 +1,4 @@
-package com.icdatofcusgmail.lucidfood;
+package com.icdatofcusgmail.lucidfood.ServingActivityArchve;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,6 +13,11 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.icdatofcusgmail.lucidfood.FoodServicing;
+import com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.FoodmenuActivity;
+import com.icdatofcusgmail.lucidfood.R;
+import com.icdatofcusgmail.lucidfood.VendorActivityArchive.VendorActivity;
 
 public class ServingActivity extends AppCompatActivity {
 

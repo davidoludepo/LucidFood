@@ -1,4 +1,4 @@
-package com.icdatofcusgmail.lucidfood;
+package com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive;
 
 import android.app.Fragment;
 import android.content.res.Resources;
@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.icdatofcusgmail.lucidfood.VendorActivityArchive.Icdat;
+import com.icdatofcusgmail.lucidfood.R;
+import com.icdatofcusgmail.lucidfood.VendorActivityArchive.VendorAdapter;
 
 import java.util.ArrayList;
 
@@ -66,12 +70,11 @@ public class FoodavailableFragment extends Fragment implements AdapterView.OnIte
         teams.add(new Team(names[8], images[8]));
         teams.add(new Team(names[9], images[9]));
 
-     //   SearchView searchView = (SearchView) getActivity().findViewById(R.id.searchView);
         return teams;
     }   */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        communicator.respond(position);
+        communicator.respond(position & 7);
     }
     public void changeData(int f) {
         Resources resources = getResources();

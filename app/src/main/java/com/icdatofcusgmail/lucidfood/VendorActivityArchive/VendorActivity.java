@@ -1,4 +1,4 @@
-package com.icdatofcusgmail.lucidfood;
+package com.icdatofcusgmail.lucidfood.VendorActivityArchive;
 
 import android.app.Dialog;
 import android.app.FragmentManager;
@@ -33,6 +33,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.icdatofcusgmail.lucidfood.FoodServicing;
+import com.icdatofcusgmail.lucidfood.LoginActivityArchive.LoginActivity;
+import com.icdatofcusgmail.lucidfood.R;
+import com.icdatofcusgmail.lucidfood.SmoothCheckBox;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 import java.util.ArrayList;
@@ -40,18 +44,17 @@ import java.util.ArrayList;
 public class VendorActivity extends AppCompatActivity implements /*Communicator, */ View.OnClickListener, AdapterView.OnItemClickListener, RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener {
 
     SmoothCheckBox smoothy;
-    static RadioGroup radioGroup;
+    public static RadioGroup radioGroup;
     RadioButton oneissmalljoor, twook, threeok, fourok, fiveok, sixok, sevenok, eightok, nineok, tenok, elevenok, twelveok, thirteenok, fourteenok, fifteenok, sixteenok, seventeenok, eighteenok, nineteenok, twentyok, twentyoneok, twentytwook, twentythreeok, twentyfourok, twentyfiveok, twentysixok, twentysevenok, twentyeightok, twentynineok, thirtyisenoughjoor;
     PowerManager.WakeLock wakeLock;
     Toolbar toolbar_vendor;
     VendorAdapter vendorAdapter;
-    static GridView ShowInThis;
-    static CheckBox All;
-    static TextView itemsState, pleaseWork, itemsBeenSelected;
+    public static GridView ShowInThis;
+    public static CheckBox All;
+    public static TextView itemsState, pleaseWork, itemsBeenSelected;
     Button PassDataAlso;
-    final String [] foodnames = new String[]{"White Rice", "Jollof Rice", "Fried Rice", "Beef", "Chicken", "Moi Moi", "Beans", "Egg", "Coleslaw", "Plantain"};
+    final String[] foodnames = new String[]{"White Rice", "Jollof Rice", "Fried Rice", "Beef", "Chicken", "Moi Moi", "Beans", "Egg", "Coleslaw", "Plantain"};
     int[] foodimages = {R.drawable.c_whiterice, R.drawable.c_jollof, R.drawable.c_friedrice, R.drawable.c_beef, R.drawable.c_chicken, R.drawable.c_moimoi, R.drawable.c_beans, R.drawable.c_egg, R.drawable.c_coleslaw, R.drawable.c_plantain};
-  //  private List<Map<String, String>> data = new ArrayList<>();
 
     SharedPreferences MyOkPlatesPrefences;
     SharedPreferences.Editor MyOkPlatesEditor;
@@ -92,13 +95,13 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor);
-        Log.d("VendorActivity","onCreate invoked");
+        Log.d("VendorActivity", "onCreate invoked");
 
         MyOkPlatesPrefences = getSharedPreferences(PREF_NICK_NAME, Context.MODE_PRIVATE);
         MyOkPlatesEditor = MyOkPlatesPrefences.edit();
 
         PassDataAlso = (Button) findViewById(R.id.getMeNextActivity);
-      //  PassDataAlso.setEnabled(false);
+        //  PassDataAlso.setEnabled(false);
 
         PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "deprecatedmyfoot");
@@ -138,7 +141,6 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
         ShowInThis.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE);
         vendorAdapter = new VendorAdapter(getApplicationContext(), getIcdats());
         ShowInThis.setAdapter(vendorAdapter);
-    //    vendorAdapter.setData(data);
 
         smoothy = (SmoothCheckBox) findViewById(R.id.smoothie);
 
@@ -162,7 +164,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
 
             @Override
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-               return false;
+                return false;
             }
 
             @Override
@@ -198,6 +200,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
 
         return icdats;
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.vendoractivitycontextualmenumain, menu);
@@ -236,55 +239,49 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
     }
 
 
-   @Override
+    @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 //       final String s = (String) vendorAdapter.getItem(position).getFoodname();
 
-       if (view.getTag() instanceof VendorAdapter.ViewHolder) {
-           VendorAdapter.ViewHolder holder = (VendorAdapter.ViewHolder) view.getTag();
-           holder.smooth.toggle();
-       }
+        if (view.getTag() instanceof VendorAdapter.ViewHolder) {
+            VendorAdapter.ViewHolder holder = (VendorAdapter.ViewHolder) view.getTag();
+            holder.smooth.toggle();
+        }
 
-       TextView textView = (TextView) view.getTag(R.id.textmodel);
-       SmoothCheckBox checkBox = (SmoothCheckBox) view.getTag(R.id.smoothie);
-       ImageView imageView = (ImageView) view.getTag(R.id.imagemodel);
+        TextView textView = (TextView) view.getTag(R.id.textmodel);
+        SmoothCheckBox checkBox = (SmoothCheckBox) view.getTag(R.id.smoothie);
+        ImageView imageView = (ImageView) view.getTag(R.id.imagemodel);
 
-       StyleableToast JustFooddiamonds = new StyleableToast(view.getContext(), foodnames[position] + " " + isCheckedOrNot(checkBox), Toast.LENGTH_SHORT);
-       JustFooddiamonds.setBackgroundColor(Color.parseColor("#FF5A5F"));
-       JustFooddiamonds.setTextColor(Color.WHITE);
-       JustFooddiamonds.show();
+        StyleableToast JustFooddiamonds = new StyleableToast(view.getContext(), foodnames[position] + " " + isCheckedOrNot(checkBox), Toast.LENGTH_SHORT);
+        JustFooddiamonds.setBackgroundColor(Color.parseColor("#FF5A5F"));
+        JustFooddiamonds.setTextColor(Color.WHITE);
+        JustFooddiamonds.show();
 
-   }
-//    } Icdat icdat = getIcdats().get(position);
-//
-//    String mealSelected = "Selected Foods are:  ";
-//    Toast.makeText(this, icdat.getFoodname(), Toast.LENGTH_SHORT).show();
-//
-//    // foodnames[position] = mealSelected.toCharArray().toString();
-//
-//    for (int me = 0; me< ShowInThis.getCount(); me++) {
-//        if (ShowInThis.isItemChecked(me)) {
-//            //   mealSelected = String.valueOf(getIcdats().size());
-//            //         mealSelected += ShowInThis.getItemAtPosition(me) + ", ";
-//            mealSelected += icdat.getFoodname() + ", ";
-//        }
-//
-//    }
-//    itemsBeenSelected.setVisibility(View.VISIBLE);
-//    itemsBeenSelected.setText(mealSelected);
-//
-//    final int checkedCount = ShowInThis.getCheckedItemCount();
-//
-//    if (checkedCount < 2) {
-//        pleaseWork.setText(checkedCount + " item Selected" + "");
-//        vendorAdapter.toggleSelection(position);
-//    }
-//
-//    else if (checkedCount > 1) {
-//        pleaseWork.setText(checkedCount + " items Selected" + "");
-//        vendorAdapter.toggleSelection(position);
-//    }
+        Icdat icdat = getIcdats().get(position);
+
+        String mealSelected = "Selected Foods are:  ";
+        Toast.makeText(this, icdat.getFoodname(), Toast.LENGTH_SHORT).show();
+
+        for (int me = 0; me < ShowInThis.getCount(); me++) {
+            if (ShowInThis.isItemChecked(me)) {
+                mealSelected += icdat.getFoodname() + ", ";
+            }
+
+        }
+        itemsBeenSelected.setVisibility(View.VISIBLE);
+        itemsBeenSelected.setText(mealSelected);
+
+        final int checkedCount = ShowInThis.getCheckedItemCount();
+
+        if (checkedCount < 2) {
+            pleaseWork.setText(checkedCount + " item Selected" + "");
+            vendorAdapter.toggleSelection(position);
+        } else if (checkedCount > 1) {
+            pleaseWork.setText(checkedCount + " items Selected" + "");
+            vendorAdapter.toggleSelection(position);
+        }
+    }
 
     private String isCheckedOrNot(SmoothCheckBox checkbox) {
         if(checkbox.isChecked())
@@ -1848,7 +1845,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
         destroyer.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-               // moveTaskToBack(true);
+
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addCategory(Intent.CATEGORY_HOME);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -1876,18 +1873,5 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-// if (buttonView.getId()==R.id.checkboxAll && isChecked)
-//            smoothy.setChecked(true);
-//        if (buttonView.getId()==R.id.checkboxAll && !isChecked)
-//            smoothy.setChecked(false);
     }
-
-  /*  @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        for (int i = 0; i < data.size(); i++) {
-            if (vendorAdapter.getIsSelected().get(i))
-            vendorAdapter.getIsSelected().put(i, true);
-        }
-        vendorAdapter.notifyDataSetChanged();
-    }   */
 }

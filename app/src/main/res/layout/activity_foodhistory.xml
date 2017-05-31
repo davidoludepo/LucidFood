@@ -13,7 +13,7 @@
     android:orientation="horizontal"
     app:cardCornerRadius="20dp"
     app:cardUseCompatPadding="true"
-    tools:context="com.icdatofcusgmail.lucidfood.FoodhistoryActivity">
+    tools:context="com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.FoodhistoryActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

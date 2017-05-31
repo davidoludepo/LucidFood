@@ -9,7 +9,7 @@
     android:background="@color/Vendor.Color"
     android:focusableInTouchMode="false"
     android:fitsSystemWindows="true"
-    tools:context="com.icdatofcusgmail.lucidfood.VendorActivity">
+    tools:context="com.icdatofcusgmail.lucidfood.VendorActivityArchive.VendorActivity">
 
     <include
         android:id="@+id/ToolbarVendorActivity"
@@ -110,7 +110,7 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="900dp"
-        android:name="com.icdatofcusgmail.lucidfood.VendorFragment"
+        android:name="com.icdatofcusgmail.lucidfood.VendorActivityArchive.VendorFragment"
         android:id="@+id/displayAddorRemoveLayout"
         android:layout="@layout/fragment_vendor"
         tools:layout="@layout/fragment_vendor"

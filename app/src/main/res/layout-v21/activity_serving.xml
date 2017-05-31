@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#81D4FA"
-    tools:context="com.icdatofcusgmail.lucidfood.ServingActivity"
+    tools:context="com.icdatofcusgmail.lucidfood.ServingActivityArchve.ServingActivity"
     android:nestedScrollingEnabled="true">
 
     <LinearLayout

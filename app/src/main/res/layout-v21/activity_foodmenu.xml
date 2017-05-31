@@ -5,7 +5,7 @@
     android:id="@+id/activity_Foodmenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.icdatofcusgmail.lucidfood.FoodmenuActivity">
+    tools:context="com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.FoodmenuActivity">
 
     <include
         android:id="@+id/ToolbarFoodmenuActivity"
@@ -85,7 +85,7 @@
     <fragment
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:name="com.icdatofcusgmail.lucidfood.FoodavailableFragment"
+        android:name="com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.FoodavailableFragment"
         android:id="@+id/FragmentFoodavailable"
         tools:layout="@layout/foodmenufragment_foodavailable"
         android:layout_alignParentStart="true"
@@ -96,7 +96,7 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="170dp"
-        android:name="com.icdatofcusgmail.lucidfood.PlatecountConfirmpurchaseFragment"
+        android:name="com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.PlatecountConfirmpurchaseFragment"
         android:id="@+id/FragmentSelectPlatenumberandPurchase"
         android:layout_alignParentStart="true"
         tools:layout="@layout/foodmenufragment4_pc_cp"
@@ -106,7 +106,7 @@
     <fragment
         android:layout_width="200dp"
         android:layout_height="170dp"
-        android:name="com.icdatofcusgmail.lucidfood.ChosenplateCounter"
+        android:name="com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.ChosenplateCounter"
         android:id="@+id/FragmentCounter"
         android:layout_alignBottom="@+id/FragmentSelectPlatenumberandPurchase"
         android:layout_centerHorizontal="true"
@@ -115,7 +115,7 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:name="com.icdatofcusgmail.lucidfood.ChosenfoodFragment"
+        android:name="com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.ChosenfoodFragment"
         android:id="@+id/FragmentChosenfood"
         tools:layout="@layout/foodmenufragment3_chosenfood"
         android:layout_above="@+id/FragmentSelectPlatenumberandPurchase"
@@ -127,7 +127,7 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:name="com.icdatofcusgmail.lucidfood.FoodpriceFragment"
+        android:name="com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.FoodpriceFragment"
         android:id="@+id/FragmentFoodprice"
         tools:layout="@layout/foodmenufragment2_foodprice"
         android:layout_above="@+id/FragmentChosenfood"

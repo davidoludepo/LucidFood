@@ -16,9 +16,6 @@ public class FoodhistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_foodhistory);
         Log.d("FoodhistoryActivity","onCreate invoked");
 
-    //    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-    //    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-       // getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -33,12 +30,6 @@ public class FoodhistoryActivity extends AppCompatActivity {
         Log.d("FoodhistoryActivity","onResume invoked");
 
         textView = (TextView) findViewById(R.id.history);
-
-   //     Bundle bundle = getIntent().getExtras();
-   //     textView.setText(bundle.getString("string"));
-
-
-      //  textView = (TextView) findViewById(R.id.history);
 
         Intent intent = getIntent();
         String[] str = intent.getStringArrayExtra("string");

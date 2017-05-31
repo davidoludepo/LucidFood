@@ -1,4 +1,4 @@
-package com.icdatofcusgmail.lucidfood;
+package com.icdatofcusgmail.lucidfood.VendorActivityArchive;
 
 import android.content.Context;
 import android.util.SparseBooleanArray;
@@ -11,6 +11,9 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.icdatofcusgmail.lucidfood.R;
+import com.icdatofcusgmail.lucidfood.SmoothCheckBox;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -132,19 +135,6 @@ public class VendorAdapter extends BaseAdapter implements Filterable {
             holder.imageView = (ImageView) convertView.findViewById(R.id.imagemodel);
             holder.smooth = (SmoothCheckBox) convertView.findViewById(R.id.smoothie);
 
-            //This gives toast if smoothie is clicked directly [i.e. not the image been selected,
-            //will know after fooditems are parsed to listview in foodmenu activity
-
-           /* holder.smooth.setOnCheckedChangeListener(new SmoothCheckBox.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(SmoothCheckBox smoothCheckBox, boolean isChecked) {
-                    if (isChecked) {
-                        Toast.makeText(c, "This is cooler", Toast.LENGTH_SHORT).show();
-                        getCount();
-                    }
-                }
-            }); */
-
             convertView.setTag(holder);
             convertView.setTag(R.id.textmodel, holder.textView);
             convertView.setTag(R.id.imagemodel, holder.imageView);
@@ -161,35 +151,20 @@ public class VendorAdapter extends BaseAdapter implements Filterable {
 
         //Our Views
         ImageView smile = (ImageView) convertView.findViewById(R.id.imagemodel);
-        smile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (PhilFvsEithin.size() > 0 && PhilFvsEithin.contains(icdat))
-                    Toast.makeText(c, "Already Added", Toast.LENGTH_SHORT).show();
-                else
-                    PhilFvsEithin.add(icdat);
-            }
-        });
 
         TextView laugh = (TextView) convertView.findViewById(R.id.textmodel);
-        laugh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (PhilFvsEithin.size() > 0 && PhilFvsEithin.contains(icdat))
-                    Toast.makeText(c, "Already Added now", Toast.LENGTH_SHORT).show();
-                else
-                    PhilFvsEithin.add(icdat);
-            }
-        });
 
         SmoothCheckBox smoothCheckBox = (SmoothCheckBox) convertView.findViewById(R.id.smoothie);
         smoothCheckBox.setOnCheckedChangeListener(new SmoothCheckBox.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(SmoothCheckBox smoothCheckBox, boolean isChecked) {
-                if (isChecked)
-                    PhilFvsEithin.add(icdat);
+                if (isChecked && PhilFvsEithin.size() > 0 && PhilFvsEithin.contains(icdat)) {
+                    Toast.makeText(c, "Already Added now", Toast.LENGTH_SHORT).show();
+                PhilFvsEithin.remove(icdat);
+                }
                 else
-                    PhilFvsEithin.remove(icdat);
+                    PhilFvsEithin.add(icdat);
+
             }
         });
 
@@ -199,15 +174,6 @@ public class VendorAdapter extends BaseAdapter implements Filterable {
         laugh.setText(icdats.get(position).getFoodname());
       //  smoothCheckBox.setChecked(true);
         holder.smooth.setTag(icdat);
-//    smoothCheckBox.setChecked(icdats.get(position).getSmooth());
-
-
-//        convertView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//             //   setItemCheckBoxStatus(v, position);  Preventing 1 item selected, 2 items selected
-//            }
-//        });
         return convertView;
     }
 
@@ -250,18 +216,8 @@ public class VendorAdapter extends BaseAdapter implements Filterable {
         notifyDataSetChanged();
     }
 
-
     public SparseBooleanArray getSelectedIds() {
         return mSelectedItemsIds;
     }
-
-/*    public Map<Integer,Boolean> getIsSelected() {
-        return isCheckMap;
-    }
-
-    public void setIsSelected(HashMap<Integer,Boolean> isSelected) {
-        this.isCheckMap = isSelected;
-    }   */
-
 
 }

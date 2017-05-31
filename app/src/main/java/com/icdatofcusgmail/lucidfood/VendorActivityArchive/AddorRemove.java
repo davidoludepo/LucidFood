@@ -1,4 +1,4 @@
-package com.icdatofcusgmail.lucidfood;
+package com.icdatofcusgmail.lucidfood.VendorActivityArchive;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -11,6 +11,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
+import com.icdatofcusgmail.lucidfood.R;
+import com.icdatofcusgmail.lucidfood.SmoothCheckBox;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 /**
@@ -80,8 +82,6 @@ public class AddorRemove extends DialogFragment implements CompoundButton.OnChec
         });
         setCancelable(true);
         AlertDialog alertDialog = builder.create();
-      //  alertDialog.getWindow().getAttributes().windowAnimations=R.style.SetDialogAnimation;
-      //  alertDialog.getWindow().getAttributes().windowAnimations=R.style.SamAnimation_Window;
         alertDialog.show();
         alertDialog.dismiss();
         return builder.create();
@@ -89,10 +89,7 @@ public class AddorRemove extends DialogFragment implements CompoundButton.OnChec
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//        if (buttonView.getId()==R.id.checkboxAll && isChecked)
-//            smoot.setChecked(true);
-//        if (buttonView.getId()==R.id.checkboxAll && !isChecked)
-//            smoot.setChecked(false);
+
     }
 
 }
