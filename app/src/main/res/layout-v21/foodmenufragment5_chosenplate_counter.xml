@@ -13,12 +13,14 @@
     android:background="#1ab3a4"
     android:elevation="20dp">
 
-    <com.icdatofcusgmail.lucidfood.EasyMoneyTextView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/calc_space_Counter_FoodmenuFragment5_FoodmenuActivityv21"
         android:id="@+id/counter"
+        android:textColor="#000000"
+        android:fontFamily="14pt"
         android:inputType="numberDecimal"
         app:show_currency="true"
         app:show_commas="true"

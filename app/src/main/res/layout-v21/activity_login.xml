@@ -21,7 +21,7 @@
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textColor="#FFFFFF"
             android:textAlignment="center"
             android:id="@+id/RandomMotivation" />
@@ -35,6 +35,7 @@
         android:layout_gravity="center"
         android:inputType="textEmailAddress"
         android:ems="10"
+        android:imeOptions="actionNext"
         android:id="@+id/Usernamefield"
         android:drawableStart="@drawable/a_username"
         android:drawablePadding="10dp"
@@ -51,24 +52,58 @@
         android:layout_above="@+id/Passwordfield"
         android:layout_centerHorizontal="true" />
 
-    <com.alimuzaffar.lib.widgets.AnimatedEditText
-        android:drawablePadding="10dp"
-        android:textSize="25sp"
-        android:layout_width="300dp"
-        android:layout_height="42dp"
-        android:inputType="numberPassword"
-        android:ems="10"
-        android:id="@+id/Passwordfield"
-        android:maxLength="4"
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/a_loginedittextclearer"
+        android:id="@+id/clearAllUsername"
+        android:elevation="10dp"
+        android:layout_alignTop="@+id/Usernamefield"
+        android:layout_toEndOf="@+id/Usernamefield"
+        android:layout_alignBottom="@+id/Usernamefield"
         android:background="#FFFFFF"
-        android:drawableStart="@drawable/a_pin"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:hint="@string/pin_4_digits"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="174dp"
-        android:layout_above="@+id/loginbutton"
-        android:layout_alignEnd="@+id/reportUserName" />
+        android:contentDescription="@string/clearalllv21" />
+
+
+    <com.alimuzaffar.lib.widgets.AnimatedEditText
+            android:drawablePadding="10dp"
+            android:textSize="25sp"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:width="300dp"
+            android:height="30dp"
+            android:imeOptions="actionDone"
+            android:id="@+id/Passwordfield"
+            android:maxLength="4"
+            android:background="#FFFFFF"
+            android:drawableStart="@drawable/a_pin"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:hint="@string/pin_4_digits"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="174dp"
+            android:layout_above="@+id/loginbutton"
+            android:layout_alignRight="@+id/reportUserName"
+            android:layout_alignEnd="@+id/reportUserName" />
+
+
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/a_loginedittextclearer"
+        android:id="@+id/clearAllPin"
+        android:elevation="10dp"
+        android:background="#FFFFFF"
+        android:contentDescription="@string/clearallv21"
+        android:layout_alignBottom="@+id/Passwordfield"
+        android:layout_toEndOf="@+id/Passwordfield"
+        android:layout_below="@+id/Usernamefield"
+        android:layout_toRightOf="@+id/Passwordfield" />
 
     <Button
         android:layout_width="wrap_content"
@@ -119,29 +154,5 @@
         android:layout_above="@+id/Usernamefield"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="156dp" /-->
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/a_loginedittextclearer"
-        android:id="@+id/clearAllUsername"
-        android:elevation="10dp"
-        android:layout_alignTop="@+id/Usernamefield"
-        android:layout_toEndOf="@+id/Usernamefield"
-        android:layout_alignBottom="@+id/Usernamefield"
-        android:background="#FFFFFF"
-        android:contentDescription="@string/clearalllv21" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/a_loginedittextclearer"
-        android:id="@+id/clearAllPin"
-        android:elevation="10dp"
-        android:layout_below="@+id/Usernamefield"
-        android:layout_toEndOf="@+id/Passwordfield"
-        android:layout_alignBottom="@+id/Passwordfield"
-        android:background="#FFFFFF"
-        android:contentDescription="@string/clearallv21" />
 
 </RelativeLayout>

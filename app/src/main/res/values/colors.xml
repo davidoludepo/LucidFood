@@ -2,6 +2,7 @@
 <resources>
 
     <color name="EachActivityNavigationBar">#FFFFFF</color>
+    <color name="EachToolbarIconColor">#FFFFFF</color>
 
                 <!-- Default  -->
     <color name="colorPrimary">#3F51B5</color>
@@ -27,7 +28,7 @@
     <color name="colorNursery">#00897B</color>
     <color name="colorNurseryDark">#00897B</color>
     <color name="colorDcCent">#303F9F</color>
-    <color name="ToolbarIconColor">#FFFFFF</color>
+
     <color name="FA_ConfirmPurchaseLayout">#3F51B5</color>
     <color name="FoodActivityBlackText">#000000</color>
 

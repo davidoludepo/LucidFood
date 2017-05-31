@@ -20,14 +20,22 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp">
 
-        <ListView
+        <!--ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/listView"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:dividerHeight="4dp">
-        </ListView>
+        </ListView-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:textSize="20dp"
+            android:id="@+id/history"
+            android:text="RESULT:"/>
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

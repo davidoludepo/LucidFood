@@ -27,12 +27,13 @@ public class ServingActivity extends AppCompatActivity {
     PowerManager.WakeLock wakeLock;
     TextView textViewun, textViewdo, textViewtrois, textViewquartz, textViewfive, textViewsix, textViewsept, textVieweight, textViewnous, textViewten, textViewPlateorPark;
     TextView textView, textView2nd, textView3rd, textView4th, textView5th, textView6th, textView7th, textView8th, textView9th, textView10th;
+    TextView pleaseServeMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serving);
-        Log.d("ServingActivity","onCreate invoked");
+        Log.d("ServingActivity", "onCreate invoked");
         PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "deprecatedmyfoot");
         wakeLock.acquire();
@@ -43,6 +44,10 @@ public class ServingActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(getResources().getColor(android.R.color.transparent));
         }
+
+        pleaseServeMe = (TextView) findViewById(R.id.serveMePlease);
+        Bundle SecondParcel = getIntent().getExtras();
+        pleaseServeMe.setText("Please serve " + SecondParcel.getString("prince") + " the following:" );
 
         textViewun = (TextView) findViewById(R.id.plate1);
         textViewun.setVisibility(View.GONE);
@@ -79,128 +84,100 @@ public class ServingActivity extends AppCompatActivity {
 
         Intent PorP = getIntent();
         String receivedvalue = PorP.getStringExtra("Key");
-        if (receivedvalue.contentEquals(" Buying in Plate(s)"))
-            textViewPlateorPark.setText("All in Plate");
+        if (receivedvalue.contentEquals(" Buy in Pack(s)"))
+            textViewPlateorPark.setText("" +  "" + "All in Pack");
         else {
-            textViewPlateorPark.setText("All in Pack");
+            textViewPlateorPark.setText("" + "" + "All in Plate");
         }
 
-        Intent i = getIntent();
-        String s = i.getStringExtra("favouritism");
-        if (s.getClass().getClassLoader().equals(""))
-            textViewun.setVisibility(View.GONE);
-        else {
-            textViewun = (TextView) findViewById(R.id.plate1);
-            Bundle dweezy = getIntent().getExtras();
-            textViewun.setText(dweezy.getString("favouritism"));
+        Intent favouritism = getIntent();
+        String dweezy = favouritism.getStringExtra("favouritism");
+        if (FoodmenuActivity.textView.getVisibility() == View.VISIBLE) {
+            textViewun.setText(dweezy);
             textViewun.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView.getVisibility() == View.GONE) {
+            textViewun.setVisibility(View.GONE);
         }
 
-        Intent ii = getIntent();
-        String ss = ii.getStringExtra("genius");
-        if (ss.getClass().getClassLoader().equals(""))
-            textViewdo.setVisibility(View.GONE);
-        else {
-            textViewdo = (TextView) findViewById(R.id.plate2);
-            Bundle tobi = getIntent().getExtras();
-            textViewdo.setText(tobi.getString("genius"));
+        Intent genius = getIntent();
+        String tobi = genius.getStringExtra("genius");
+        if (FoodmenuActivity.textView2nd.getVisibility() == View.VISIBLE) {
+            textViewdo.setText(tobi);
             textViewdo.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView2nd.getVisibility() == View.GONE) {
+            textViewdo.setVisibility(View.GONE);
         }
 
-        Intent iii = getIntent();
-        String sss = iii.getStringExtra("generous");
-
-        if (sss.getClass().getClassLoader().equals("")) {
-            textViewtrois.setVisibility(View.GONE);
-        } else {
-            textViewtrois = (TextView) findViewById(R.id.plate3);
-            Bundle emmanuel = getIntent().getExtras();
-            textViewtrois.setText(emmanuel.getString("generous"));
+        Intent generous = getIntent();
+        String emmanuel = generous.getStringExtra("generous");
+        if (FoodmenuActivity.textView3rd.getVisibility() == View.VISIBLE) {
+            textViewtrois.setText(emmanuel);
             textViewtrois.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView3rd.getVisibility() == View.GONE) {
+            textViewtrois.setVisibility(View.GONE);
         }
 
-        Intent j = getIntent();
-        String t = j.getStringExtra("focused");
-
-        if (t.getClass().getClassLoader().equals("")) {
-            textViewquartz.setVisibility(View.GONE);
-        } else {
-            textViewquartz = (TextView) findViewById(R.id.plate4);
-            Bundle joseph = getIntent().getExtras();
-            textViewquartz.setText(joseph.getString("focused"));
+        Intent focused = getIntent();
+        String joseph = focused.getStringExtra("focused");
+        if (FoodmenuActivity.textView4th.getVisibility() == View.VISIBLE) {
+            textViewquartz.setText(joseph);
             textViewquartz.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView4th.getVisibility() == View.GONE) {
+            textViewquartz.setVisibility(View.GONE);
         }
 
-        Intent jj = getIntent();
-        String tt = jj.getStringExtra("creativebeast");
-
-        if (tt.getClass().getClassLoader().equals(""))
-            textViewfive.setVisibility(View.GONE);
-        else {
-            textViewfive = (TextView) findViewById(R.id.plate5);
-            Bundle godwin = getIntent().getExtras();
-            textViewfive.setText(godwin.getString("creativebeast"));
+        Intent creativebeast = getIntent();
+        String godwin = creativebeast.getStringExtra("creativebeast");
+        if (FoodmenuActivity.textView5th.getVisibility() == View.VISIBLE) {
+            textViewfive.setText(godwin);
             textViewfive.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView5th.getVisibility() == View.GONE) {
+            textViewfive.setVisibility(View.GONE);
         }
 
-        Intent jjj = getIntent();
-        String ttt = jjj.getStringExtra("bestmom");
-
-        if (ttt.getClass().getClassLoader().equals(""))
-            textViewsix.setVisibility(View.GONE);
-        else {
-            textViewsix = (TextView) findViewById(R.id.plate6);
-            Bundle funmilayo = getIntent().getExtras();
-            textViewsix.setText(funmilayo.getString("bestmom"));
+        Intent bestmom = getIntent();
+        String funmilayo = bestmom.getStringExtra("bestmom");
+        if (FoodmenuActivity.textView6th.getVisibility() == View.VISIBLE) {
+            textViewsix.setText(funmilayo);
             textViewsix.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView6th.getVisibility() == View.GONE) {
+            textViewsix.setVisibility(View.GONE);
         }
 
-        Intent k = getIntent();
-        String u = k.getStringExtra("bestdad");
-
-        if (u.getClass().getClassLoader().equals(""))
-             textViewsept.setVisibility(View.GONE);
-        else {
-            textViewsept = (TextView) findViewById(R.id.plate7);
-            Bundle james = getIntent().getExtras();
-            textViewsept.setText(james.getString("bestdad"));
+        Intent bestdad = getIntent();
+        String james = bestdad.getStringExtra("bestdad");
+        if (FoodmenuActivity.textView7th.getVisibility() == View.VISIBLE) {
+            textViewsept.setText(james);
             textViewsept.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView7th.getVisibility() == View.GONE) {
+            textViewsept.setVisibility(View.GONE);
         }
 
-        Intent kk = getIntent();
-        String uu = kk.getStringExtra("biggersis");
-
-        if (uu.getClass().getClassLoader().equals(""))
-            textVieweight.setVisibility(View.GONE);
-        else {
-            textVieweight = (TextView) findViewById(R.id.plate8);
-            Bundle tomilola = getIntent().getExtras();
-            textVieweight.setText(tomilola.getString("biggersis"));
+        Intent biggersis = getIntent();
+        String tomilola = biggersis.getStringExtra("biggersis");
+        if (FoodmenuActivity.textView8th.getVisibility() == View.VISIBLE) {
+            textVieweight.setText(tomilola);
             textVieweight.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView8th.getVisibility() == View.GONE) {
+            textVieweight.setVisibility(View.GONE);
         }
 
-        Intent kkk = getIntent();
-        String uuu = kkk.getStringExtra("biggestsis");
-
-        if (uuu.getClass().getClassLoader().equals(""))
-            textViewnous.setVisibility(View.GONE);
-        else {
-            textViewnous = (TextView) findViewById(R.id.plate9);
-            Bundle opeyemi = getIntent().getExtras();
-            textViewnous.setText(opeyemi.getString("biggestsis"));
+        Intent biggestsis = getIntent();
+        String opeyemi = biggestsis.getStringExtra("biggestsis");
+        if (FoodmenuActivity.textView9th.getVisibility() == View.VISIBLE) {
+            textViewnous.setText(opeyemi);
             textViewnous.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView9th.getVisibility() == View.GONE) {
+            textViewnous.setVisibility(View.GONE);
         }
 
-        Intent l = getIntent();
-        String v = l.getStringExtra("dhalson");
-
-        if (v.getClass().getClassLoader().equals(""))
-           textViewten.setVisibility(View.GONE);
-        else {
-            textViewten = (TextView) findViewById(R.id.plate10);
-            Bundle david = getIntent().getExtras();
-            textViewten.setText(david.getString("dhalson"));
+        Intent dhalson = getIntent();
+        String david = dhalson.getStringExtra("dhalson");
+        if (FoodmenuActivity.textView10th.getVisibility() == View.VISIBLE) {
+            textViewten.setText(david);
             textViewten.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView10th.getVisibility() == View.GONE) {
+            textViewten.setVisibility(View.GONE);
         }
     }
 

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 /**
  * Created by DAVID OGUNDEPO on 03/28/2017.
+ *
  */
 
 public class ChosenfoodFragment extends Fragment {
@@ -146,6 +147,7 @@ public class ChosenfoodFragment extends Fragment {
         public void setPrice(String price);
     }
 
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -163,6 +165,15 @@ public class ChosenfoodFragment extends Fragment {
         public void onClick(View v) {
             textView.setVisibility(View.GONE);
             imageButton.setVisibility(View.GONE);
+            FoodmenuActivity.Pcount.setEnabled(false);
+            FoodmenuActivity.Purchase.setEnabled(false);
+            if (!imageButton.isShown() && imageButton2nd.isShown() || imageButton3rd.isShown()
+                    || imageButton4th.isShown() || imageButton5th.isShown() || imageButton6th.isShown()
+                    || imageButton7th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
+                    || imageButton10th.isShown()) {
+                FoodmenuActivity.Pcount.setEnabled(true);
+                FoodmenuActivity.Purchase.setEnabled(true);
+            }
         }
         });
 
@@ -171,6 +182,15 @@ public class ChosenfoodFragment extends Fragment {
             public void onClick(View v) {
                 textView2nd.setVisibility(View.GONE);
                 imageButton2nd.setVisibility(View.GONE);
+                FoodmenuActivity.Pcount.setEnabled(false);
+                FoodmenuActivity.Purchase.setEnabled(false);
+                if (!imageButton2nd.isShown() && imageButton.isShown() || imageButton3rd.isShown()
+                        || imageButton4th.isShown() || imageButton5th.isShown() || imageButton6th.isShown()
+                        || imageButton7th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
+                        || imageButton10th.isShown()) {
+                    FoodmenuActivity.Pcount.setEnabled(true);
+                    FoodmenuActivity.Purchase.setEnabled(true);
+                }
             }
         });
 
@@ -179,6 +199,15 @@ public class ChosenfoodFragment extends Fragment {
             public void onClick(View v) {
                 textView3rd.setVisibility(View.GONE);
                 imageButton3rd.setVisibility(View.GONE);
+                FoodmenuActivity.Pcount.setEnabled(false);
+                FoodmenuActivity.Purchase.setEnabled(false);
+                if (!imageButton3rd.isShown() && imageButton.isShown() || imageButton2nd.isShown()
+                        || imageButton4th.isShown() || imageButton5th.isShown() || imageButton6th.isShown()
+                        || imageButton7th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
+                        || imageButton10th.isShown()) {
+                    FoodmenuActivity.Pcount.setEnabled(true);
+                    FoodmenuActivity.Purchase.setEnabled(true);
+                }
             }
         });
 
@@ -187,6 +216,15 @@ public class ChosenfoodFragment extends Fragment {
             public void onClick(View v) {
                 textView4th.setVisibility(View.GONE);
                 imageButton4th.setVisibility(View.GONE);
+                FoodmenuActivity.Pcount.setEnabled(false);
+                FoodmenuActivity.Purchase.setEnabled(false);
+                if (!imageButton4th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
+                        || imageButton3rd.isShown()   || imageButton5th.isShown() || imageButton6th.isShown()
+                        || imageButton7th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
+                        || imageButton10th.isShown()) {
+                    FoodmenuActivity.Pcount.setEnabled(true);
+                    FoodmenuActivity.Purchase.setEnabled(true);
+                }
             }
         });
 
@@ -195,6 +233,15 @@ public class ChosenfoodFragment extends Fragment {
             public void onClick(View v) {
                 textView5th.setVisibility(View.GONE);
                 imageButton5th.setVisibility(View.GONE);
+                FoodmenuActivity.Pcount.setEnabled(false);
+                FoodmenuActivity.Purchase.setEnabled(false);
+                if (!imageButton5th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
+                        || imageButton3rd.isShown()   || imageButton4th.isShown() || imageButton6th.isShown()
+                        || imageButton7th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
+                        || imageButton10th.isShown()) {
+                    FoodmenuActivity.Pcount.setEnabled(true);
+                    FoodmenuActivity.Purchase.setEnabled(true);
+                }
             }
         });
 
@@ -203,6 +250,15 @@ public class ChosenfoodFragment extends Fragment {
             public void onClick(View v) {
                 textView6th.setVisibility(View.GONE);
                 imageButton6th.setVisibility(View.GONE);
+                FoodmenuActivity.Pcount.setEnabled(false);
+                FoodmenuActivity.Purchase.setEnabled(false);
+                if (!imageButton6th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
+                        || imageButton3rd.isShown()   || imageButton4th.isShown() || imageButton5th.isShown()
+                        || imageButton7th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
+                        || imageButton10th.isShown()) {
+                    FoodmenuActivity.Pcount.setEnabled(true);
+                    FoodmenuActivity.Purchase.setEnabled(true);
+                }
             }
         });
 
@@ -211,6 +267,15 @@ public class ChosenfoodFragment extends Fragment {
             public void onClick(View v) {
                 textView7th.setVisibility(View.GONE);
                 imageButton7th.setVisibility(View.GONE);
+                FoodmenuActivity.Pcount.setEnabled(false);
+                FoodmenuActivity.Purchase.setEnabled(false);
+                if (!imageButton7th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
+                        || imageButton3rd.isShown()   || imageButton4th.isShown() || imageButton5th.isShown()
+                        || imageButton6th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
+                        || imageButton10th.isShown()) {
+                    FoodmenuActivity.Pcount.setEnabled(true);
+                    FoodmenuActivity.Purchase.setEnabled(true);
+                }
             }
         });
 
@@ -219,6 +284,15 @@ public class ChosenfoodFragment extends Fragment {
             public void onClick(View v) {
                 textView8th.setVisibility(View.GONE);
                 imageButton8th.setVisibility(View.GONE);
+                FoodmenuActivity.Pcount.setEnabled(false);
+                FoodmenuActivity.Purchase.setEnabled(false);
+                if (!imageButton8th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
+                        || imageButton3rd.isShown()   || imageButton4th.isShown() || imageButton5th.isShown()
+                        || imageButton6th.isShown() || imageButton7th.isShown() || imageButton9th.isShown()
+                        || imageButton10th.isShown()) {
+                    FoodmenuActivity.Pcount.setEnabled(true);
+                    FoodmenuActivity.Purchase.setEnabled(true);
+                }
             }
         });
 
@@ -227,6 +301,16 @@ public class ChosenfoodFragment extends Fragment {
             public void onClick(View v) {
                 textView9th.setVisibility(View.GONE);
                 imageButton9th.setVisibility(View.GONE);
+                FoodmenuActivity.Pcount.setEnabled(false);
+                FoodmenuActivity.Purchase.setEnabled(false);
+                if (!imageButton9th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
+                        || imageButton3rd.isShown()   || imageButton4th.isShown() || imageButton5th.isShown()
+                        || imageButton6th.isShown() || imageButton7th.isShown() || imageButton8th.isShown()
+                        || imageButton10th.isShown()) {
+                    FoodmenuActivity.Pcount.setEnabled(true);
+                    FoodmenuActivity.Purchase.setEnabled(true);
+                }
+
             }
         });
 
@@ -235,6 +319,15 @@ public class ChosenfoodFragment extends Fragment {
             public void onClick(View v) {
                 textView10th.setVisibility(View.GONE);
                 imageButton10th.setVisibility(View.GONE);
+                FoodmenuActivity.Pcount.setEnabled(false);
+                FoodmenuActivity.Purchase.setEnabled(false);
+                if (!imageButton10th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
+                        || imageButton3rd.isShown()   || imageButton4th.isShown() || imageButton5th.isShown()
+                        || imageButton6th.isShown() || imageButton7th.isShown() || imageButton8th.isShown()
+                        || imageButton9th.isShown()) {
+                    FoodmenuActivity.Pcount.setEnabled(true);
+                    FoodmenuActivity.Purchase.setEnabled(true);
+                }
             }
         });
 

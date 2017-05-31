@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/FA_ConfirmPurchaseLayout">
 
     <CheckBox
-        android:text="@string/Checkbox_buy_in_pack_FoodActivity"
+        android:text="@string/Checkbox_buy_in_plate_FoodActivity"
         android:textSize="20sp"
         android:checked="true"
         android:layout_width="wrap_content"
@@ -19,6 +19,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="33dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:theme="@style/ConfirmDialogueCheckBox"/>
 
 </RelativeLayout>

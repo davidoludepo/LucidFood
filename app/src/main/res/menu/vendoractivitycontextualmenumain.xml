@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".VendorActivity">
 
     <item
-        android:id="@+id/item_option1"
-        android:title="Option1" />
-    <item
-        android:id="@+id/item_option2"
-        android:title="Option2" />
-    <item
-        android:id="@+id/item_option3"
-        android:title="Option3" />
-    <item
-        android:id="@+id/item_option4"
-        android:title="Option4" />
+        android:id="@+id/systemSettings"
+        android:title="@string/system_settings"
+        app:showAsAction="never"
+        android:onClick="getMeAppSettings"/>
 
 </menu>

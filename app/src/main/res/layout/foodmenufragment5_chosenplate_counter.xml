@@ -12,7 +12,7 @@
     tools:context="com.icdatofcusgmail.lucidfood.ChosenplateCounter"
     android:background="#1ab3a4">
 
-    <com.icdatofcusgmail.lucidfood.EasyMoneyTextView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"

@@ -1,6 +1,7 @@
 package com.icdatofcusgmail.lucidfood;
 
 import android.content.Context;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,19 +22,23 @@ import java.util.Map;
  *
  *
  *
- * updated using ListViewGH still relevetant for checking all.........
+ * updated using ListViewGH still relevant for checking all.........
  */
 
 public class VendorAdapter extends BaseAdapter implements Filterable {
 
     private Context c;
+    static ArrayList<Icdat> PhilFvsEithin = new ArrayList<>();
     private ArrayList<Icdat> icdats;
     private ArrayList<Icdat> filterList;
-    CustomFilter filter;
+    private CustomFilter filter;
     private Map<Integer, Boolean> isCheckMap = new HashMap<>();
     private List<Map<String, String>> data;
+    private SparseBooleanArray mSelectedItemsIds;
 
-    public VendorAdapter(Context c, ArrayList<Icdat> icdats) {
+    public VendorAdapter(Context c,  ArrayList<Icdat> icdats) {
+        super();
+        mSelectedItemsIds = new SparseBooleanArray();
         this.c = c;
         this.icdats = icdats;
 
@@ -90,7 +95,7 @@ public class VendorAdapter extends BaseAdapter implements Filterable {
                 {
                     if (filterList.get(i).getFoodname().toUpperCase().contains(constraint))
                     {
-                        Icdat icdat = new Icdat(filterList.get(i).getFoodname(), filterList.get(i).getFoodimage());
+                        Icdat icdat = new Icdat(filterList.get(i).getFoodname(), filterList.get(i).getFoodimage(), filterList.get(i).getSmooth());
                         filters.add(icdat);
                     }
                 }
@@ -115,62 +120,103 @@ public class VendorAdapter extends BaseAdapter implements Filterable {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+
+
         LayoutInflater inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        ViewHolder holder = null;
+        ViewHolder holder;
 
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.va_imagemodel, parent, false);
             holder = new ViewHolder();
             holder.textView = (TextView) convertView.findViewById(R.id.textmodel);
             holder.imageView = (ImageView) convertView.findViewById(R.id.imagemodel);
-            holder.smooth = (com.icdatofcusgmail.lucidfood.SmoothCheckBox) convertView.findViewById(R.id.smoothie);
+            holder.smooth = (SmoothCheckBox) convertView.findViewById(R.id.smoothie);
 
-         //   holder.smooth.setOnCheckedChangeListener((VendorFragment) c);
+            //This gives toast if smoothie is clicked directly [i.e. not the image been selected,
+            //will know after fooditems are parsed to listview in foodmenu activity
+
+           /* holder.smooth.setOnCheckedChangeListener(new SmoothCheckBox.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(SmoothCheckBox smoothCheckBox, boolean isChecked) {
+                    if (isChecked) {
+                        Toast.makeText(c, "This is cooler", Toast.LENGTH_SHORT).show();
+                        getCount();
+                    }
+                }
+            }); */
+
             convertView.setTag(holder);
+            convertView.setTag(R.id.textmodel, holder.textView);
+            convertView.setTag(R.id.imagemodel, holder.imageView);
+            convertView.setTag(R.id.smoothie, holder.smooth);
+
         } else {
             holder = (ViewHolder) convertView.getTag();
             holder.smooth.setTag(position);
+
         }
-        Icdat icdat = icdats.get(position);
+        final Icdat icdat = icdats.get(position);
 
         boolean canRemove = icdat.isSelected();
 
         //Our Views
-        ImageView imageView = (ImageView) convertView.findViewById(R.id.imagemodel);
-        TextView textView = (TextView) convertView.findViewById(R.id.textmodel);
-        final SmoothCheckBox smooth = (SmoothCheckBox) convertView.findViewById(R.id.smoothie );
-        smooth.setOnCheckedChangeListener(new SmoothCheckBox.OnCheckedChangeListener() {
+        ImageView smile = (ImageView) convertView.findViewById(R.id.imagemodel);
+        smile.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(SmoothCheckBox smoothCheckBox, boolean isChecked) {
-                isCheckMap.put(position, isChecked);
-                if (isChecked){
-                    Toast.makeText(c, "This is cooler", Toast.LENGTH_SHORT).show();
-                    getCount();
-                }
+            public void onClick(View v) {
+                if (PhilFvsEithin.size() > 0 && PhilFvsEithin.contains(icdat))
+                    Toast.makeText(c, "Already Added", Toast.LENGTH_SHORT).show();
+                else
+                    PhilFvsEithin.add(icdat);
             }
         });
 
-        //Set Data
-        imageView.setImageResource(icdats.get(position).getFoodimage());
-        textView.setText(icdats.get(position).getFoodname());
-        smooth.setChecked(isCheckMap.get(position));
-       // holder.smooth.setChecked(icdat.isSelected());
+        TextView laugh = (TextView) convertView.findViewById(R.id.textmodel);
+        laugh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (PhilFvsEithin.size() > 0 && PhilFvsEithin.contains(icdat))
+                    Toast.makeText(c, "Already Added now", Toast.LENGTH_SHORT).show();
+                else
+                    PhilFvsEithin.add(icdat);
+            }
+        });
+
+        SmoothCheckBox smoothCheckBox = (SmoothCheckBox) convertView.findViewById(R.id.smoothie);
+        smoothCheckBox.setOnCheckedChangeListener(new SmoothCheckBox.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SmoothCheckBox smoothCheckBox, boolean isChecked) {
+                if (isChecked)
+                    PhilFvsEithin.add(icdat);
+                else
+                    PhilFvsEithin.remove(icdat);
+            }
+        });
+
+
+         //Set Data
+        smile.setImageResource(icdats.get(position).getFoodimage());
+        laugh.setText(icdats.get(position).getFoodname());
+      //  smoothCheckBox.setChecked(true);
         holder.smooth.setTag(icdat);
-
-        if (!canRemove) {
-            smooth.setVisibility(View.GONE);
-            smooth.setChecked(false);
-        } else {
-            smooth.setVisibility(View.VISIBLE);
-
-            if (isCheckMap.get(position) == null)
-                isCheckMap.put(position, false);
-        }
+//    smoothCheckBox.setChecked(icdats.get(position).getSmooth());
 
 
-
+//        convertView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//             //   setItemCheckBoxStatus(v, position);  Preventing 1 item selected, 2 items selected
+//            }
+//        });
         return convertView;
     }
+
+    public void setItemCheckBoxStatus(View view, int position) {
+        ViewHolder holder = (ViewHolder) view.getTag();
+        holder.smooth.toggle();
+        isCheckMap.put(position, holder.smooth.isChecked());
+    }
+
 
     public void setData(List<Map<String, String>> data) {
         this.data = data;
@@ -188,6 +234,34 @@ public class VendorAdapter extends BaseAdapter implements Filterable {
     public ArrayList<Icdat> getIcdats() {
         return icdats;
     }
+
+
+    public void toggleSelection(int position) {
+        selectView(position, !mSelectedItemsIds.get(position));
+    }
+
+
+    public void selectView(int position, boolean value) {
+        if (value) {
+            mSelectedItemsIds.put(position, value);
+        } else {
+            mSelectedItemsIds.delete(position);
+        }
+        notifyDataSetChanged();
+    }
+
+
+    public SparseBooleanArray getSelectedIds() {
+        return mSelectedItemsIds;
+    }
+
+/*    public Map<Integer,Boolean> getIsSelected() {
+        return isCheckMap;
+    }
+
+    public void setIsSelected(HashMap<Integer,Boolean> isSelected) {
+        this.isCheckMap = isSelected;
+    }   */
 
 
 }

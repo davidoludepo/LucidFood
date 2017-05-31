@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_Foodmenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.icdatofcusgmail.lucidfood.FoodmenuActivity">
+
 
     <include
         android:id="@+id/ToolbarFoodmenuActivity"
@@ -19,6 +20,67 @@
         layout="@layout/toolbar_fodmenuactivitylogo"
         android:layout_height="65dp"
         android:layout_width="match_parent"/>
+
+
+    <com.antonionicolaspina.revealtextview.RevealTextView
+        app:rtv_duration="2000"
+        android:text="@string/FoodmenuActivityToolbarOneAppnameLessthan"
+        android:fontFamily="14pt"
+        android:gravity="center"
+        android:elevation="4dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/AppName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/ToolbarFoodmenuActivity" />
+
+    <TextView
+        android:text="@string/FoodmenuActivityToolbarTwoWelcome_UsernameLessthan"
+        android:fontFamily="14pt"
+        android:gravity="center"
+        android:elevation="4dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/UserWelcome"
+        android:layout_toRightOf="@+id/FragmentFoodavailable"
+        android:layout_toEndOf="@+id/FragmentFoodavailable"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_above="@+id/FragmentFoodprice"
+        android:layout_below="@+id/ToolbarFoodmenuActivityLogo" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/animatedImages"
+        android:elevation="4dp"
+        android:src="@drawable/fa_hunger_displacement_drill"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/UserWelcome"
+        android:layout_toEndOf="@+id/UserWelcome"
+        android:layout_marginLeft="77dp"
+        android:layout_marginStart="77dp"
+        android:layout_above="@+id/ToolbarFoodmenuActivity"
+        android:contentDescription="@string/Content_Description_AnimatedImages_Lessthan" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/c_davooo"
+        android:elevation="4dp"
+        android:padding="8dp"
+        android:id="@+id/ServerImage"
+        android:layout_toLeftOf="@+id/UserWelcome"
+        android:layout_toStartOf="@+id/UserWelcome"
+        android:layout_above="@+id/FragmentFoodavailable" />
 
     <fragment
         android:layout_width="200dp"
@@ -74,4 +136,5 @@
         android:layout_toRightOf="@+id/FragmentFoodavailable"
         android:layout_toEndOf="@+id/FragmentFoodavailable"
         android:layout_below="@+id/ToolbarFoodmenuActivity" />
+
 </RelativeLayout>

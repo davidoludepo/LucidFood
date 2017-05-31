@@ -1,6 +1,7 @@
 package com.icdatofcusgmail.lucidfood;
 
 import android.content.Context;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 
 /**
  * Created by DAVID OGUNDEPO on 03/27/2017.
+ *
  */
 
 public class FoodmenuAdapter extends BaseAdapter {
@@ -21,6 +23,14 @@ public class FoodmenuAdapter extends BaseAdapter {
     FoodmenuAdapter(Context d, ArrayList<Team> teams) {
         this.d = d;
         this.teams = teams;
+    }
+
+    public FoodmenuAdapter(Context parent, ArrayList<Icdat> teams, Parcelable[] resultArr) {
+
+    }
+
+    public FoodmenuAdapter(Context applicationContext, Parcelable[] resultArr) {
+
     }
 
     @Override
@@ -51,9 +61,11 @@ public class FoodmenuAdapter extends BaseAdapter {
         ImageView imageView2 = (ImageView) convertView.findViewById(R.id.imagemodel2);
         TextView textView2 = (TextView) convertView.findViewById(R.id.textmodel2);
 
+
         //Set Data
         imageView2.setImageResource(teams.get(position).getFoodimagez());
         textView2.setText(teams.get(position).getFoodnamez());
+
         return convertView;
     }
 }

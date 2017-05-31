@@ -7,10 +7,10 @@
     android:background="@color/FA_ConfirmPurchaseLayout">
 
     <CheckBox
-        android:text="@string/Checkbox_buy_in_pack_FoodActivity"
+        android:text="@string/Checkbox_buy_in_plate_FoodActivity"
         android:textSize="20sp"
         android:letterSpacing=".2"
-        android:checked="true"
+        android:checked="false"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:id="@+id/sendpackalso"

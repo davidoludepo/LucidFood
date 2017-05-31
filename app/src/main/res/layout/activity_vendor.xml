@@ -2,6 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_vendor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,27 +11,40 @@
     android:fitsSystemWindows="true"
     tools:context="com.icdatofcusgmail.lucidfood.VendorActivity">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/placeholder">
-    </FrameLayout>
-
     <include
-        android:id="@+id/toolbar_vendoractivity"
-        layout="@layout/toolbar_vendoractivity"/>
+        android:id="@+id/ToolbarVendorActivity"
+        layout="@layout/toolbar_vendoractivity"
+        android:layout_height="65dp"
+        android:layout_width="match_parent">
+    </include>
 
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="900dp"
-        android:name="com.icdatofcusgmail.lucidfood.VendorFragment"
-        android:id="@+id/displayAddorRemoveLayout"
-        android:layout="@layout/fragment_vendor"
-        tools:layout="@layout/fragment_vendor"
+    <TextView
+        android:text="Items"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemsState"
+        android:layout_above="@+id/displayAddorRemoveLayout"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/toolbar_vendoractivity"
-        android:layout_alignParentLeft="true" />
+        android:layout_marginBottom="23dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
+
+    <TextView
+        android:text="selectedItems"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemsBeenSelected"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/displayAddorRemoveLayout" />
 
     <Button
         android:layout_width="wrap_content"
@@ -57,6 +71,7 @@
         android:textSize="20sp"
         android:textStyle="normal"
         android:onClick="GetMeNextActivity"
+        android:id="@+id/getMeNextActivity"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
         android:layout_alignBaseline="@+id/displayAddorRemoveDialogue"
@@ -70,10 +85,54 @@
         android:layout_height="wrap_content"
         android:src="@drawable/a_platecount"
         android:onClick="OCDynamicPlateCount"
+        android:id="@+id/OCdynamicPlateCount"
         android:background="@drawable/oval_dynamicplatecount"
         android:layout_alignBottom="@+id/displayAddorRemoveDialogue"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/dynamicplatecount" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All"
+        android:id="@+id/checkboxAll"
+        android:textColor="#FFFFFF"
+        android:elevation="5dp"
+        android:textSize="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_alignBottom="@+id/ToolbarVendorActivity"
+        android:theme="@style/VendorActivityCheckBox"/>
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="900dp"
+        android:name="com.icdatofcusgmail.lucidfood.VendorFragment"
+        android:id="@+id/displayAddorRemoveLayout"
+        android:layout="@layout/fragment_vendor"
+        tools:layout="@layout/fragment_vendor"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/selectedYet"
+        android:text="PleaseWork"
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        android:elevation="5dp"
+        android:layout_alignBaseline="@+id/checkboxAll"
+        android:layout_alignBottom="@+id/checkboxAll"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="38dp"
+        android:layout_marginStart="38dp" />
+
 
     <!--Button
         android:text="Clear"

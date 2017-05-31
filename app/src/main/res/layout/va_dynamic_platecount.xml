@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="30dp"
             android:paddingLeft="10dp"
-            android:paddingRight="0dp"
+            android:paddingRight="10dp"
             android:id="@+id/radiohead"
             android:orientation="vertical">
 
@@ -30,8 +30,8 @@
                 style="@style/Checkbox"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
-                android:text="@string/two_plates_only_Dynamic_Platecount__VendorActivity_2"
-                android:checked="true"/>
+
+                android:text="@string/two_plates_only_Dynamic_Platecount__VendorActivity_2" /> android:checked="true"
 
             <RadioButton
                 android:id="@+id/three"
