@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.icdatofcusgmail.lucidfood.LucidApplication;
 import com.icdatofcusgmail.lucidfood.VendorActivityArchive.Icdat;
 import com.icdatofcusgmail.lucidfood.R;
 import com.icdatofcusgmail.lucidfood.VendorActivityArchive.VendorAdapter;
@@ -26,6 +27,7 @@ public class FoodavailableFragment extends Fragment implements AdapterView.OnIte
     ListView listView;
     Communicator communicator;
     VendorAdapter vendorAdapter;
+    LucidApplication MainApp;
     ArrayList<Icdat> Always = new ArrayList<>();
 
    /* String[] names={"White Rice", "Jollof Rice", "Fried Rice", "Beef", "Chicken",
@@ -47,10 +49,15 @@ public class FoodavailableFragment extends Fragment implements AdapterView.OnIte
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        MainApp=LucidApplication.getInstance();
         communicator = (Communicator) getActivity();
         listView = (ListView) getActivity().findViewById(R.id.listView);
 
-        Always = getActivity().getIntent().getParcelableArrayListExtra("BabaOsheyGanni");
+       // Always = getActivity().getIntent().getParcelableArrayListExtra("BabaOsheyGanni");
+        for( int i=0; i<MainApp.selectedfoods.size(); i++){
+            Icdat d=(Icdat)MainApp.selectedfoods.get(i);
+            Always.add(i,d);
+        }
         vendorAdapter = new VendorAdapter(getActivity(), Always);
      //   final FoodmenuAdapter foodmenuAdapter = new FoodmenuAdapter(getActivity(), getTeams());
         listView.setAdapter(vendorAdapter);
@@ -74,7 +81,7 @@ public class FoodavailableFragment extends Fragment implements AdapterView.OnIte
     }   */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        communicator.respond(position & 7);
+        communicator.respond(position);
     }
     public void changeData(int f) {
         Resources resources = getResources();

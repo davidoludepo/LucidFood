@@ -2,14 +2,15 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <gradient
-        android:angle="45"
-        android:startColor="#3333ff"
-        android:endColor="#6699ff"
+        android:startColor="#FF00695C"
+        android:endColor="#FF00695C"
+        android:type="linear"
          />
     <corners
         android:radius="8dp" />
     <size
-        android:width="4dp" />
+        android:width="8dp"
+        android:height="1sp" />
 
     <padding
         android:left=".5dp"

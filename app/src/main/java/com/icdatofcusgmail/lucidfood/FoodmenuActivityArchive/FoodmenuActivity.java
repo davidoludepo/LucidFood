@@ -40,12 +40,9 @@ import com.icdatofcusgmail.lucidfood.FoodhistoryActivity;
 import com.icdatofcusgmail.lucidfood.LoginActivityArchive.LoginActivity;
 import com.icdatofcusgmail.lucidfood.R;
 import com.icdatofcusgmail.lucidfood.ServingActivityArchve.ServingActivity;
-import com.icdatofcusgmail.lucidfood.VendorActivityArchive.VendorActivity;
 import com.icdatofcusgmail.lucidfood.VendorActivityArchive.VendorAdapter;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 import com.squareup.leakcanary.LeakCanary;
-
-import java.util.Arrays;
 
 public class FoodmenuActivity extends AppCompatActivity implements Communicator, FoodpriceFragment.OnNameSetListener, ChosenfoodFragment.OnPriceSetListener, CompoundButton.OnCheckedChangeListener, AdapterView.OnItemClickListener {
 
@@ -67,7 +64,6 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
     VendorAdapter foodmenuAdapter;
     ListView ShowForThis;
     TextView WelcomeSweet, Lucid;
-    Button ConfirmPurchaze;
     CheckBox pack;
     String pacque, stringue = "";
     FoodHistoryDBHelper foodHistoryDBHelper;
@@ -160,9 +156,6 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
             Log.d("Just", "Exception");
             Toast.makeText(getApplicationContext(), "Sorry Woman....", Toast.LENGTH_SHORT).show();
         }
-
-
-        ConfirmPurchaze = (Button) findViewById(R.id.button20000);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -271,11 +264,11 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
-            pack.setText(" Buy in Pack(s)");
+            pack.setText(" Buy in Pack(s)" + "" + "");
             pacque = pack.getText().toString();
             stringue = pacque;
         } else {
-            pack.setText(" Buying in Plate(s)");
+            pack.setText(" Buying in Plate(s)" + "" + "");
             pacque = pack.getText().toString();
             stringue = pacque;
         }
@@ -288,7 +281,7 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
         faf.changeData(i);  */
 
         FoodpriceFragment fpf = (FoodpriceFragment) manager.findFragmentById(R.id.FragmentFoodprice);
-        fpf. Datachange(i);
+        fpf.Datachange(i);
     }
 
     @Override
@@ -419,13 +412,13 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
             LikePlate.show();
         }
         else {
-            StyleableToast RecentlyPurchased = new StyleableToast(this, "Please select from recently bought plates", Toast.LENGTH_LONG).spinIcon();
+          /*  StyleableToast RecentlyPurchased = new StyleableToast(this, "Please select from recently bought plates", Toast.LENGTH_LONG).spinIcon();
             RecentlyPurchased.setBackgroundColor(Color.parseColor("#FF5A5F"));
             RecentlyPurchased.setTextColor(Color.WHITE);
-            RecentlyPurchased.show();
+            RecentlyPurchased.show();  */
             Intent intent = new Intent(this, FoodhistoryActivity.class);
             intent.putExtra("string", strings);
-            startActivity(intent);
+          //  startActivity(intent);
             overridePendingTransition(R.anim.slide_up_in, R.anim.slide_up_out);
         }
     }
@@ -458,7 +451,7 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
         final Bundle woods = getIntent().getExtras();
         try {
             final String[] whiteRing = woods.getStringArray("diamond");
-              if (!Arrays.toString(woods.getStringArray("diamond")).isEmpty()) {
+           //   if (!Arrays.toString(woods.getStringArray("diamond")).isEmpty()) {
                   builder.setItems(whiteRing, new DialogInterface.OnClickListener() {
                       @Override
                       public void onClick(DialogInterface dialog, int which) {
@@ -644,16 +637,16 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
                           }
                       }
                   });
-              } else  if ( //Arrays.toString(woods.getStringArray("diamond")).isEmpty()
-                      VendorActivity.radioGroup.getVisibility() == View.GONE ||
-                              VendorActivity.radioGroup.getVisibility() == View.INVISIBLE) {
-                  builder.setItems(R.array.DefaultPlatenumber, new DialogInterface.OnClickListener() {
-                      @Override
-                      public void onClick(DialogInterface dialog, int which) {
-
-                      }
-                  });
-              }
+//              } else  if ( //Arrays.toString(woods.getStringArray("diamond")).isEmpty()
+//                      VendorActivity.radioGroup.getVisibility() == View.GONE ||
+//                              VendorActivity.radioGroup.getVisibility() == View.INVISIBLE) {
+//                  builder.setItems(R.array.DefaultPlatenumber, new DialogInterface.OnClickListener() {
+//                      @Override
+//                      public void onClick(DialogInterface dialog, int which) {
+//
+//                      }
+//                  });
+//              }
         }
         catch (NullPointerException n) {
             Toast.makeText(getApplicationContext(), "Ooops", Toast.LENGTH_LONG).show();

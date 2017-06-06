@@ -19,10 +19,16 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/listView"
+        android:padding="10dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:background="#009688"
-        android:divider="#00BCD4"
-        android:dividerHeight="20dp"/>
+        android:scrollbarThumbVertical="@drawable/fa_scrollbar_vertical_thumb"
+        android:scrollbarFadeDuration="1000"
+        android:smoothScrollbar="true"
+        android:overScrollHeader="#F44336"
+        android:overScrollFooter="#3F51B5"
+        android:background="#009688" />
+        <!--android:divider="#00BCD4"-->
+        <!--android:dividerHeight="20dp"/>-->
 
 </RelativeLayout>

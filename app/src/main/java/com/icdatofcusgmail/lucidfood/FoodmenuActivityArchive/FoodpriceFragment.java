@@ -2,7 +2,6 @@ package com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,7 +10,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.icdatofcusgmail.lucidfood.LucidApplication;
 import com.icdatofcusgmail.lucidfood.R;
+import com.icdatofcusgmail.lucidfood.VendorActivityArchive.Icdat;
+
+import org.json.simple.JSONArray;
 
 /**
  * Created by DAVID OGUNDEPO on 03/27/2017.
@@ -23,7 +26,7 @@ public class FoodpriceFragment extends Fragment {
     TextView textView, textView2, textView3, textView4, textView5, textView6;
     Button button, button2, button3, button4, button5, button6;
     OnNameSetListener onNameSetListener;
-
+    LucidApplication MainApp;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,6 +52,8 @@ public class FoodpriceFragment extends Fragment {
         button4.setVisibility(View.GONE);
         button5.setVisibility(View.GONE);
         button6.setVisibility(View.GONE);
+
+        MainApp = LucidApplication.getInstance();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,30 +115,31 @@ public class FoodpriceFragment extends Fragment {
     }
 
     public void Datachange(int i) {
-        Resources resourcez = getResources();
+        JSONArray prices = new JSONArray();
+        for(int j = 0; j< MainApp.selectedfoods.size(); j++){
+             Icdat icdat = (Icdat)MainApp.selectedfoods.get(j);
+             if(i == j){
+                 prices = (JSONArray)MainApp.prices.get(icdat.getFoodname());
+                 break;
+             }
+         }
 
-        String[] amount = resourcez.getStringArray(R.array.amount);
-        button.setText(amount[i]);
+        button.setText(prices.get(0).toString());
         button.setVisibility(View.VISIBLE);
 
-        String[] amount2 = resourcez.getStringArray(R.array.amount2);
-        button2.setText(amount2[i]);
+        button2.setText(prices.get(1).toString());
         button2.setVisibility(View.VISIBLE);
 
-        String[] amount3 = resourcez.getStringArray(R.array.amount3);
-        button3.setText(amount3[i]);
+        button3.setText(prices.get(2).toString());
         button3.setVisibility(View.VISIBLE);
 
-        String[] amount4 = resourcez.getStringArray(R.array.amount4);
-        button4.setText(amount4[i]);
+        button4.setText(prices.get(3).toString());
         button4.setVisibility(View.VISIBLE);
 
-        String[] amount5 = resourcez.getStringArray(R.array.amount5);
-        button5.setText(amount5[i]);
+        button5.setText(prices.get(4).toString());
         button5.setVisibility(View.VISIBLE);
 
-        String[] amount6 = resourcez.getStringArray(R.array.amount6);
-        button6.setText(amount6[i]);
+        button6.setText(prices.get(5).toString());
         button6.setVisibility(View.VISIBLE);
 
     }

@@ -53,8 +53,8 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
     public static CheckBox All;
     public static TextView itemsState, pleaseWork, itemsBeenSelected;
     Button PassDataAlso;
-    final String[] foodnames = new String[]{"White Rice", "Jollof Rice", "Fried Rice", "Beef", "Chicken", "Moi Moi", "Beans", "Egg", "Coleslaw", "Plantain"};
-    int[] foodimages = {R.drawable.c_whiterice, R.drawable.c_jollof, R.drawable.c_friedrice, R.drawable.c_beef, R.drawable.c_chicken, R.drawable.c_moimoi, R.drawable.c_beans, R.drawable.c_egg, R.drawable.c_coleslaw, R.drawable.c_plantain};
+    final String[] foodnames = new String[]{"White Rice", "Jollof Rice", "Fried Rice", "Beef", "Chicken", "Moi Moi", "Plantain", "Egg", "Coleslaw", "Beans"};
+    int[] foodimages = {R.drawable.c_whiterice, R.drawable.c_jollof, R.drawable.c_friedrice, R.drawable.c_beef, R.drawable.c_chicken, R.drawable.c_moimoi, R.drawable.c_plantain ,R.drawable.c_egg, R.drawable.c_coleslaw, R.drawable.c_beans};
 
     SharedPreferences MyOkPlatesPrefences;
     SharedPreferences.Editor MyOkPlatesEditor;
@@ -1764,8 +1764,8 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
         //Same <--------//-------->
 
         Bundle oldbutstill = new Bundle();
-        String[] OneString = getResources().getStringArray(R.array.DefaultPlatenumber);
-        oldbutstill.putStringArray("diamond", OneString);
+        String[] Default = getResources().getStringArray(R.array.DefaultPlatenumber);
+        oldbutstill.putStringArray("diamond", Default);
         obsolete.putExtras(oldbutstill);
         oldbutstill.putBoolean(ONE_KITCHEN_KEY_RECALL, true);
         oldbutstill.putBoolean(TWO_SITTINGROOM_KEY_RECALL, true);

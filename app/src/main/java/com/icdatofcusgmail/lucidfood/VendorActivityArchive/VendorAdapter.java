@@ -10,8 +10,8 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.icdatofcusgmail.lucidfood.LucidApplication;
 import com.icdatofcusgmail.lucidfood.R;
 import com.icdatofcusgmail.lucidfood.SmoothCheckBox;
 
@@ -38,13 +38,14 @@ public class VendorAdapter extends BaseAdapter implements Filterable {
     private Map<Integer, Boolean> isCheckMap = new HashMap<>();
     private List<Map<String, String>> data;
     private SparseBooleanArray mSelectedItemsIds;
+    LucidApplication app;
 
     public VendorAdapter(Context c,  ArrayList<Icdat> icdats) {
         super();
         mSelectedItemsIds = new SparseBooleanArray();
         this.c = c;
         this.icdats = icdats;
-
+       app=LucidApplication.getInstance();
         configCheckMap(false);
     }
 
@@ -158,16 +159,21 @@ public class VendorAdapter extends BaseAdapter implements Filterable {
         smoothCheckBox.setOnCheckedChangeListener(new SmoothCheckBox.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(SmoothCheckBox smoothCheckBox, boolean isChecked) {
-                if (isChecked && PhilFvsEithin.size() > 0 && PhilFvsEithin.contains(icdat)) {
-                    Toast.makeText(c, "Already Added now", Toast.LENGTH_SHORT).show();
-                PhilFvsEithin.remove(icdat);
-                }
-                else
+               System.out.println(icdat.getFoodname());
+                System.out.println(app.selectedfoods.indexOf(icdat));
+                if (app.selectedfoods.indexOf(icdat) == -1){
                     PhilFvsEithin.add(icdat);
+                    app.selectedfoods.add(icdat);
+                } else {
+                    PhilFvsEithin.remove(icdat);
+                    app.selectedfoods.remove(icdat);
+                }
 
             }
         });
-
+       // if (app.selectedfoods.indexOf(icdat) != -1){
+          // smoothCheckBox.setChecked(true);
+       // }
 
          //Set Data
         smile.setImageResource(icdats.get(position).getFoodimage());

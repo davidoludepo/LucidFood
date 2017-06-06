@@ -531,7 +531,7 @@ public class LoginActivity extends AppCompatActivity {
 
             startActivity(outTent);
             finish();
-            overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
+         //   overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
         } else if (UsernameField.getText().toString().isEmpty() && PasswordField.getText().toString().isEmpty()) {
             StyleableToast EmptyFields = new StyleableToast(getApplicationContext(), "Please enter your Credentials", Toast.LENGTH_SHORT).spinIcon();
             EmptyFields.setBackgroundColor(Color.parseColor("#FF5A5F"));
