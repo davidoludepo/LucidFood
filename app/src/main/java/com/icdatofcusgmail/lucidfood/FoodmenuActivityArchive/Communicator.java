@@ -5,11 +5,7 @@ package com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive;
  *
  */
 
-public interface Communicator {
+interface Communicator {
 
-    public void respond(int i);
-
-    public void onnItemClick(int i);
-
-    void FoodMenuFragmentsRespond(int dweezzy);
+    void respond(int i);
 }

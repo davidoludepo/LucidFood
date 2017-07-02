@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="#2ab652">
+    android:background="#2ab652"
+    android:elevation="10dp">
 
     <Button
         android:layout_width="wrap_content"
@@ -21,9 +22,8 @@
         android:layout_alignParentTop="true"
         android:fontFamily="14pt"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="10dp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -37,9 +37,8 @@
         android:layout_alignParentEnd="true"
         android:fontFamily="14pt"
         android:hint="@string/ButtonHintSelectv23_FoodPrice_FoodActivity"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="40dp"/>
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="40dp"/>
 
 
     <Button
@@ -55,9 +54,8 @@
         android:hint="@string/ButtonHintSelectv23_FoodPrice_FoodActivity2"
         android:layout_below="@+id/Istpricebutton"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="10dp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -72,9 +70,8 @@
         android:layout_above="@+id/Fifthpricebutton"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/Thirdpricebutton"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="40dp"/>
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="40dp"/>
 
 
     <Button
@@ -90,9 +87,8 @@
         android:hint="@string/ButtonHintSelectv23_FoodPrice_FoodActivity_4"
         android:layout_below="@+id/Thirdpricebutton"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="10dp"/>
 
 
     <Button
@@ -107,8 +103,7 @@
         android:fontFamily="14pt"
         android:layout_alignTop="@+id/Fifthpricebutton"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="40dp"/>
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="40dp"/>
 
 </RelativeLayout>

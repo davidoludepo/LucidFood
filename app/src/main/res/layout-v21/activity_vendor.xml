@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_vendor"
@@ -19,15 +18,13 @@
     </include>
 
     <TextView
-        android:text="Items"
+        android:text="@string/AddorRemoveButton"
         android:textSize="30dp"
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/itemsState"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/ToolbarVendorActivity" />
 
@@ -36,14 +33,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/displayAddorRemoveLayout"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/itemsState">
         <TextView
-            android:text="selectedItems"
+            android:text="@string/CheckedItemsInTextView"
             android:textSize="30dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/itemsBeenSelected" />
@@ -53,15 +51,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/selectedYet"
-        android:text="PleaseWork"
+        android:text=""
         android:textSize="25dp"
         android:textColor="#FFFFFF"
         android:elevation="5dp"
         android:layout_alignBaseline="@+id/checkboxAll"
         android:layout_alignBottom="@+id/checkboxAll"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="38dp"
         android:layout_marginStart="38dp" />
 
     <Button
@@ -77,8 +73,7 @@
         android:paddingRight="40dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="30dp"
-        android:layout_alignParentLeft="true" />
+        android:layout_marginBottom="30dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -95,7 +90,6 @@
         android:layout_alignBaseline="@+id/displayAddorRemoveDialogue"
         android:layout_alignBottom="@+id/displayAddorRemoveDialogue"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         tools:ignore="RelativeOverlap" />
 
     <ImageButton
@@ -111,15 +105,13 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="All"
+        android:text="@string/CheckAllorRemoveAll"
         android:textSize="25dp"
         android:id="@+id/checkboxAll"
         android:textColor="#FFFFFF"
         android:elevation="5dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="50dp"
         android:layout_marginEnd="50dp"
         android:layout_alignBottom="@+id/ToolbarVendorActivity"
         android:theme="@style/VendorActivityCheckBox"/>
@@ -132,33 +124,6 @@
         android:layout="@layout/fragment_vendor"
         tools:layout="@layout/fragment_vendor"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-
-    <!--Button
-        android:text="Clear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/clr"
-        android:visibility="gone"
-        android:layout_marginTop="38dp"
-        android:layout_below="@+id/displayAddorRemoveLayout"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="77dp"
-        android:layout_marginEnd="77dp" />
-
-    <Button
-        android:text="All"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/alll"
-        android:visibility="gone"
-        android:layout_below="@+id/clr"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="100dp"
-        android:layout_marginStart="100dp" /-->
 
 </RelativeLayout>

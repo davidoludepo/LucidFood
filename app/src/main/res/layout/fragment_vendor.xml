@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="40dp"
     android:paddingLeft="40dp"
     android:paddingRight="40dp"
-    android:clickable="true"
-    android:contextClickable="true">
+    android:clickable="true">
 
     <GridView
         android:layout_width="wrap_content"
         android:layout_height="950dp"
         android:paddingTop="40dp"
-        android:paddingLeft="40dp"
+        android:paddingStart="40dp"
+        android:paddingEnd="0dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:verticalSpacing="10dp"
         android:horizontalSpacing="10dp"
         android:textAlignment="gravity"
         android:textFilterEnabled="false"
-        android:contextClickable="true"
         android:drawSelectorOnTop="true"
         android:clipChildren="false"
         android:numColumns="3"
         android:clickable="false"
         android:choiceMode="multipleChoice"
-        android:touchscreenBlocksFocus="false"
         android:id="@+id/showInThis"
-        android:background="@drawable/roundcorner_vendorfragment"
-        android:layout_alignParentLeft="true"/>
+        android:background="@drawable/roundcorner_vendorfragment" />
 
 </RelativeLayout>

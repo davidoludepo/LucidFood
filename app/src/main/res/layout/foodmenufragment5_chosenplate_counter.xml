@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,11 +17,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/calc_space_Counter_FoodmenuFragment5_FoodmenuActivity"
         android:id="@+id/counter"
-        android:inputType="numberDecimal"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        app:show_currency="true"
-        app:show_commas="true"
         android:textSize="25sp" />
 
     <Spinner android:id="@+id/spinnerCurrency"

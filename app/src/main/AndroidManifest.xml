@@ -46,17 +46,17 @@
             android:name=".FoodmenuActivityArchive.FoodmenuActivity"
             android:theme="@style/FoodmenuActivity" />
         <activity
-            android:name="FoodhistoryActivity"
+            android:name=".FoodmenuActivityArchive.FoodhistoryActivity"
             android:parentActivityName=".FoodmenuActivityArchive.FoodmenuActivity">
         </activity>
 
         <activity
-            android:name=".ServingActivityArchve.ServingActivity"
+            android:name=".ServingActivityArchive.ServingActivity"
             android:screenOrientation="reversePortrait"
             android:theme="@style/ServingActivity" />
 
         <service
-            android:name="FoodServicing"
+            android:name=".FoodmenuActivityArchive.FoodServicing"
             android:exported="false">
         </service>
     </application>

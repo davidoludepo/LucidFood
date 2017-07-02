@@ -1,4 +1,4 @@
-package com.icdatofcusgmail.lucidfood;
+package com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive;
 
 import android.app.IntentService;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.util.Log;
 
 /**
  * Created by DAVID OGUNDEPO on 04/12/2017.
+ *
  */
 
 public class FoodServicing extends IntentService {
@@ -15,7 +16,8 @@ public class FoodServicing extends IntentService {
     /**
      * Creates an IntentService.  Invoked by your subclass's constructor.
      *
-     * @param 'name Used to name the worker thread, important only for debugging.
+     *  @params 'name Used to name the worker thread, important only for debugging.
+     *
      */
     public FoodServicing() {
         super("FoodServicing");

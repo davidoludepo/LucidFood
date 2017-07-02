@@ -33,9 +33,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/AppName"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/ToolbarFoodmenuActivity" />
 
@@ -51,9 +49,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/UserWelcome"
         android:layout_below="@+id/ToolbarFoodmenuActivityLogo"
-        android:layout_toRightOf="@+id/FragmentFoodavailable"
         android:layout_toEndOf="@+id/FragmentFoodavailable"
-        android:layout_marginLeft="23dp"
         android:layout_marginStart="23dp"
         android:layout_above="@+id/FragmentFoodprice" />
 
@@ -63,11 +59,9 @@
         android:id="@+id/animatedImages"
         android:elevation="4dp"
         android:src="@drawable/fa_hunger_displacement_drill"
-        android:layout_marginLeft="63dp"
-        android:layout_marginStart="63dp"
+        android:layout_marginStart="75dp"
         android:contentDescription="@string/Content_Description_AnimatedImages"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/UserWelcome"
         android:layout_toEndOf="@+id/UserWelcome"
         android:layout_above="@+id/ToolbarFoodmenuActivity" />
 
@@ -78,7 +72,6 @@
         android:elevation="4dp"
         android:padding="8dp"
         android:id="@+id/ServerImage"
-        android:layout_toLeftOf="@+id/UserWelcome"
         android:layout_toStartOf="@+id/UserWelcome"
         android:layout_above="@+id/FragmentFoodavailable" />
 
@@ -100,8 +93,7 @@
         android:id="@+id/FragmentSelectPlatenumberandPurchase"
         android:layout_alignParentStart="true"
         tools:layout="@layout/foodmenufragment4_pc_cp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentBottom="true" />
 
     <fragment
         android:layout_width="200dp"
@@ -119,9 +111,7 @@
         android:id="@+id/FragmentChosenfood"
         tools:layout="@layout/foodmenufragment3_chosenfood"
         android:layout_above="@+id/FragmentSelectPlatenumberandPurchase"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/FragmentFoodavailable"
         android:layout_toEndOf="@+id/FragmentFoodavailable" />
 
     <fragment
@@ -131,10 +121,30 @@
         android:id="@+id/FragmentFoodprice"
         tools:layout="@layout/foodmenufragment2_foodprice"
         android:layout_above="@+id/FragmentChosenfood"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/FragmentFoodavailable"
         android:layout_toEndOf="@+id/FragmentFoodavailable"
         android:layout_below="@+id/ToolbarFoodmenuActivity" />
+
+    <TextClock
+        android:id="@+id/textClock"
+        android:layout_width="wrap_content"
+        android:elevation="5dp"
+        android:textColor="#FFFFFF"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/AppName"
+        android:format12Hour="hh:mm:ss a"
+        android:layout_alignBottom="@+id/AppName"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="35dp" />
+
+    <TextView
+        android:id="@+id/fullUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:visibility="invisible"
+        android:layout_alignBottom="@+id/textClock"
+        android:layout_toStartOf="@+id/FragmentCounter"
+        android:text="TextView" />
 
 </RelativeLayout>

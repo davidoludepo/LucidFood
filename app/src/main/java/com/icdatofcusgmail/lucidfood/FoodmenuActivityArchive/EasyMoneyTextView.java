@@ -1,15 +1,16 @@
-package com.icdatofcusgmail.lucidfood;
+package com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.widget.TextView;
+
+import com.icdatofcusgmail.lucidfood.R;
 
 import java.text.DecimalFormat;
 import java.util.Currency;
 import java.util.Locale;
 
-public class EasyMoneyTextView extends TextView {
+public class EasyMoneyTextView extends android.support.v7.widget.AppCompatTextView {
 
     private String _currencySymbol;
     private boolean _showCurrency;
@@ -38,10 +39,10 @@ public class EasyMoneyTextView extends TextView {
             // Attribute initialization
             final TypedArray attrArray = context.obtainStyledAttributes(attrs, R.styleable.EasyMoneyWidgets, 0,0);
             try {
-                String currnecy = attrArray.getString(R.styleable.EasyMoneyWidgets_currency_symbol);
-                if (currnecy == null)
-                    currnecy = Currency.getInstance(Locale.getDefault()).getSymbol();
-                setCurrency(currnecy);
+                String currency = attrArray.getString(R.styleable.EasyMoneyWidgets_currency_symbol);
+                if (currency == null)
+                    currency = Currency.getInstance(Locale.getDefault()).getSymbol();
+                setCurrency(currency);
 
                 _showCurrency = attrArray.getBoolean(R.styleable.EasyMoneyWidgets_show_currency, true);
                 _showCommas = attrArray.getBoolean(R.styleable.EasyMoneyWidgets_show_commas, true);

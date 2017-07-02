@@ -31,7 +31,7 @@
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
 
-                android:text="@string/two_plates_only_Dynamic_Platecount__VendorActivity_2" /> android:checked="true"
+                android:text="@string/two_plates_only_Dynamic_Platecount__VendorActivity_2" />
 
             <RadioButton
                 android:id="@+id/three"

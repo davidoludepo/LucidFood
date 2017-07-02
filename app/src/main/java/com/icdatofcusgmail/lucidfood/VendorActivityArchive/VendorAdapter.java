@@ -10,10 +10,10 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.icdatofcusgmail.lucidfood.LucidApplication;
 import com.icdatofcusgmail.lucidfood.R;
-import com.icdatofcusgmail.lucidfood.SmoothCheckBox;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,28 +28,32 @@ import java.util.Map;
  * updated using ListViewGH still relevant for checking all.........
  */
 
-public class VendorAdapter extends BaseAdapter implements Filterable {
+class VendorAdapter extends BaseAdapter implements Filterable {
 
     private Context c;
-    static ArrayList<Icdat> PhilFvsEithin = new ArrayList<>();
     private ArrayList<Icdat> icdats;
+    private ArrayList<Icdat> icdatsfiltered = new ArrayList<>();
     private ArrayList<Icdat> filterList;
     private CustomFilter filter;
     private Map<Integer, Boolean> isCheckMap = new HashMap<>();
     private List<Map<String, String>> data;
     private SparseBooleanArray mSelectedItemsIds;
-    LucidApplication app;
+    private LucidApplication app;
 
-    public VendorAdapter(Context c,  ArrayList<Icdat> icdats) {
+    VendorAdapter(Context c, ArrayList<Icdat> icdats) {
         super();
         mSelectedItemsIds = new SparseBooleanArray();
         this.c = c;
         this.icdats = icdats;
-       app=LucidApplication.getInstance();
+
+     //   this.icdats.addAll(icdats);
+    //    this.icdatsfiltered.addAll(icdats);
+
+        app = LucidApplication.getInstance();
         configCheckMap(false);
     }
 
-    public void configCheckMap(boolean bool) {
+    private void configCheckMap(boolean bool) {
         for (int i = 0; i < icdats.size(); i++) {
             isCheckMap.put(i, bool);
         }
@@ -67,8 +71,7 @@ public class VendorAdapter extends BaseAdapter implements Filterable {
 
     @Override
     public long getItemId(int position) {
-        //return 0; 04/26/2017 with CheckBoxInListView-masterGH
-        return icdats.indexOf(getItem(position));
+        return 0;
     }
 
     @Override
@@ -80,6 +83,10 @@ public class VendorAdapter extends BaseAdapter implements Filterable {
         }
 
         return filter;
+    }
+
+    public void setFilterList(ArrayList<Icdat> filterList) {
+        this.filterList = filterList;
     }
 
     private class CustomFilter extends Filter {
@@ -123,7 +130,7 @@ public class VendorAdapter extends BaseAdapter implements Filterable {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent)  {
 
 
         LayoutInflater inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -147,83 +154,95 @@ public class VendorAdapter extends BaseAdapter implements Filterable {
 
         }
         final Icdat icdat = icdats.get(position);
+        holder.getSmoothnNicelokingBOX().setTag(position);
+        holder.getSmoothnNicelokingBOX().setChecked(icdat.isSelected());
+        holder.getFoodName().setText(icdat.getFoodname());
+        holder.getImageName().setImageResource(icdat.getFoodimage());
 
-        boolean canRemove = icdat.isSelected();
 
-        //Our Views
-        ImageView smile = (ImageView) convertView.findViewById(R.id.imagemodel);
-
-        TextView laugh = (TextView) convertView.findViewById(R.id.textmodel);
-
-        SmoothCheckBox smoothCheckBox = (SmoothCheckBox) convertView.findViewById(R.id.smoothie);
-        smoothCheckBox.setOnCheckedChangeListener(new SmoothCheckBox.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(SmoothCheckBox smoothCheckBox, boolean isChecked) {
-               System.out.println(icdat.getFoodname());
-                System.out.println(app.selectedfoods.indexOf(icdat));
-                if (app.selectedfoods.indexOf(icdat) == -1){
-                    PhilFvsEithin.add(icdat);
-                    app.selectedfoods.add(icdat);
-                } else {
-                    PhilFvsEithin.remove(icdat);
-                    app.selectedfoods.remove(icdat);
-                }
-
-            }
-        });
-       // if (app.selectedfoods.indexOf(icdat) != -1){
-          // smoothCheckBox.setChecked(true);
-       // }
-
+       if (compareIndex(icdat) == -1){
+           holder.smooth.setChecked(false);
+       } else {
+           holder.smooth.setChecked(true);
+       }
          //Set Data
-        smile.setImageResource(icdats.get(position).getFoodimage());
-        laugh.setText(icdats.get(position).getFoodname());
-      //  smoothCheckBox.setChecked(true);
+        holder.imageView.setImageResource(icdats.get(position).getFoodimage());
+        holder.textView.setText(icdats.get(position).getFoodname());
+
         holder.smooth.setTag(icdat);
         return convertView;
     }
 
-    public void setItemCheckBoxStatus(View view, int position) {
-        ViewHolder holder = (ViewHolder) view.getTag();
-        holder.smooth.toggle();
-        isCheckMap.put(position, holder.smooth.isChecked());
+    public void showFilterItems() {
+        ArrayList<Icdat> filteredData = filterList;
+        if (filteredData.isEmpty()) {
+            Toast.makeText(c, "No Item has been selected", Toast.LENGTH_SHORT).show();
+            icdatsfiltered = icdats;
+            notifyDataSetChanged();
+        }
+        else {
+            icdatsfiltered = filteredData;
+            notifyDataSetChanged();
+        }
     }
 
-
+    private int compareIndex(Icdat icdat){
+        int olonje = -1;
+        for(int daveed = 0; daveed < app.selectedfoods.size(); daveed++){
+            Icdat PhilFvsEithin= (Icdat) app.selectedfoods.get(daveed);
+            if(PhilFvsEithin.getFoodname().equals(icdat.getFoodname())){
+                olonje = daveed;
+            }
+        }
+        return olonje;
+    }
     public void setData(List<Map<String, String>> data) {
         this.data = data;
     }
 
 
-    public static class ViewHolder {
-        public SmoothCheckBox smooth;
-        public TextView textView;
-        public ImageView imageView;
-        public Object object = null;
+    static class ViewHolder {
+        SmoothCheckBox smooth;
+        TextView textView;
+        ImageView imageView;
+
+        SmoothCheckBox getSmoothnNicelokingBOX() {
+            return smooth;
+        }
+
+        void setSmoothNicelookingBOX(SmoothCheckBox NicelookingBOX) {
+            this.smooth = NicelookingBOX;
+        }
+
+        TextView getFoodName() {
+            return textView;
+        }
+
+        void setFoodName(TextView foodName) {
+            this.textView = foodName;
+        }
+
+        ImageView getImageName() {
+            return imageView;
+        }
+
+        void setImageName(ImageView imageName) {
+            this.imageView = imageName;
+        }
 
     }
 
-    public ArrayList<Icdat> getIcdats() {
-        return icdats;
-    }
-
-
-    public void toggleSelection(int position) {
+    void toggleSelection(int position) {
         selectView(position, !mSelectedItemsIds.get(position));
     }
 
-
-    public void selectView(int position, boolean value) {
+    private void selectView(int position, boolean value) {
         if (value) {
-            mSelectedItemsIds.put(position, value);
+            mSelectedItemsIds.put(position, true);
         } else {
             mSelectedItemsIds.delete(position);
         }
         notifyDataSetChanged();
-    }
-
-    public SparseBooleanArray getSelectedIds() {
-        return mSelectedItemsIds;
     }
 
 }

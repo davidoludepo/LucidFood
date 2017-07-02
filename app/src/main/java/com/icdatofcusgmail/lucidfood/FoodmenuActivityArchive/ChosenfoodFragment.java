@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.icdatofcusgmail.lucidfood.LucidApplication;
 import com.icdatofcusgmail.lucidfood.R;
 
 /**
@@ -24,10 +25,14 @@ public class ChosenfoodFragment extends Fragment {
     ImageButton imageButton, imageButton2nd, imageButton3rd, imageButton4th, imageButton5th, imageButton6th, imageButton7th, imageButton8th, imageButton9th, imageButton10th;
     OnPriceSetListener onPriceSetListener;
 
+    LucidApplication app;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.foodmenufragment3_chosenfood, container, false);
+
+        app = LucidApplication.getInstance();
 
         textView = (Button) view.findViewById(R.id.Istchosenbutton);
         textView.setVisibility(View.GONE);
@@ -71,84 +76,12 @@ public class ChosenfoodFragment extends Fragment {
         imageButton10th = (ImageButton) view.findViewById(R.id.Tenthchosendeletebutton);
         imageButton10th.setVisibility(View.GONE);
 
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Price = textView.getText().toString();
-                onPriceSetListener.setPrice(Price);
-            }
-        });
-        textView2nd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Price = textView2nd.getText().toString();
-                onPriceSetListener.setPrice(Price);
-            }
-        });
-        textView3rd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Price = textView3rd.getText().toString();
-                onPriceSetListener.setPrice(Price);
-            }
-        });
-        textView4th.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Price = textView4th.getText().toString();
-                onPriceSetListener.setPrice(Price);
-            }
-        });
-        textView5th.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Price = textView5th.getText().toString();
-                onPriceSetListener.setPrice(Price);
-            }
-        });
-        textView6th.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Price = textView6th.getText().toString();
-                onPriceSetListener.setPrice(Price);
-            }
-        });
-        textView7th.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Price = textView7th.getText().toString();
-                onPriceSetListener.setPrice(Price);
-            }
-        });
-        textView8th.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Price = textView8th.getText().toString();
-                onPriceSetListener.setPrice(Price);
-            }
-        });
-        textView9th.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Price = textView9th.getText().toString();
-                onPriceSetListener.setPrice(Price);
-            }
-        });
-        textView10th.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String Price = textView10th.getText().toString();
-                onPriceSetListener.setPrice(Price);
-            }
-        });
-
         return view;
     }
 
-    public interface OnPriceSetListener {
-        public void setPrice(String price);
+    interface OnPriceSetListener {
+        void setPrice(String price);
     }
-
 
     @Override
     public void onAttach(Activity activity) {
@@ -156,7 +89,6 @@ public class ChosenfoodFragment extends Fragment {
         try {
             onPriceSetListener = (OnPriceSetListener) activity;
         } catch (Exception ignored) {
-
         }
     }
 
@@ -169,6 +101,9 @@ public class ChosenfoodFragment extends Fragment {
             imageButton.setVisibility(View.GONE);
             FoodmenuActivity.Pcount.setEnabled(false);
             FoodmenuActivity.Purchase.setEnabled(false);
+            String Price = textView.getText().toString();
+            onPriceSetListener.setPrice(Price);
+            app.prev.remove("0");
             if (!imageButton.isShown() && imageButton2nd.isShown() || imageButton3rd.isShown()
                     || imageButton4th.isShown() || imageButton5th.isShown() || imageButton6th.isShown()
                     || imageButton7th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
@@ -186,6 +121,9 @@ public class ChosenfoodFragment extends Fragment {
                 imageButton2nd.setVisibility(View.GONE);
                 FoodmenuActivity.Pcount.setEnabled(false);
                 FoodmenuActivity.Purchase.setEnabled(false);
+                String Price = textView2nd.getText().toString();
+                onPriceSetListener.setPrice(Price);
+                app.prev.remove("1");
                 if (!imageButton2nd.isShown() && imageButton.isShown() || imageButton3rd.isShown()
                         || imageButton4th.isShown() || imageButton5th.isShown() || imageButton6th.isShown()
                         || imageButton7th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
@@ -203,6 +141,9 @@ public class ChosenfoodFragment extends Fragment {
                 imageButton3rd.setVisibility(View.GONE);
                 FoodmenuActivity.Pcount.setEnabled(false);
                 FoodmenuActivity.Purchase.setEnabled(false);
+                String Price = textView3rd.getText().toString();
+                onPriceSetListener.setPrice(Price);
+                app.prev.remove("2");
                 if (!imageButton3rd.isShown() && imageButton.isShown() || imageButton2nd.isShown()
                         || imageButton4th.isShown() || imageButton5th.isShown() || imageButton6th.isShown()
                         || imageButton7th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
@@ -220,6 +161,9 @@ public class ChosenfoodFragment extends Fragment {
                 imageButton4th.setVisibility(View.GONE);
                 FoodmenuActivity.Pcount.setEnabled(false);
                 FoodmenuActivity.Purchase.setEnabled(false);
+                String Price = textView4th.getText().toString();
+                onPriceSetListener.setPrice(Price);
+                app.prev.remove("3");
                 if (!imageButton4th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
                         || imageButton3rd.isShown()   || imageButton5th.isShown() || imageButton6th.isShown()
                         || imageButton7th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
@@ -237,6 +181,9 @@ public class ChosenfoodFragment extends Fragment {
                 imageButton5th.setVisibility(View.GONE);
                 FoodmenuActivity.Pcount.setEnabled(false);
                 FoodmenuActivity.Purchase.setEnabled(false);
+                String Price = textView5th.getText().toString();
+                onPriceSetListener.setPrice(Price);
+                app.prev.remove("4");
                 if (!imageButton5th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
                         || imageButton3rd.isShown()   || imageButton4th.isShown() || imageButton6th.isShown()
                         || imageButton7th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
@@ -254,6 +201,9 @@ public class ChosenfoodFragment extends Fragment {
                 imageButton6th.setVisibility(View.GONE);
                 FoodmenuActivity.Pcount.setEnabled(false);
                 FoodmenuActivity.Purchase.setEnabled(false);
+                String Price = textView6th.getText().toString();
+                onPriceSetListener.setPrice(Price);
+                app.prev.remove("5");
                 if (!imageButton6th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
                         || imageButton3rd.isShown()   || imageButton4th.isShown() || imageButton5th.isShown()
                         || imageButton7th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
@@ -271,6 +221,9 @@ public class ChosenfoodFragment extends Fragment {
                 imageButton7th.setVisibility(View.GONE);
                 FoodmenuActivity.Pcount.setEnabled(false);
                 FoodmenuActivity.Purchase.setEnabled(false);
+                String Price = textView7th.getText().toString();
+                onPriceSetListener.setPrice(Price);
+                app.prev.remove("6");
                 if (!imageButton7th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
                         || imageButton3rd.isShown()   || imageButton4th.isShown() || imageButton5th.isShown()
                         || imageButton6th.isShown() || imageButton8th.isShown() || imageButton9th.isShown()
@@ -288,6 +241,9 @@ public class ChosenfoodFragment extends Fragment {
                 imageButton8th.setVisibility(View.GONE);
                 FoodmenuActivity.Pcount.setEnabled(false);
                 FoodmenuActivity.Purchase.setEnabled(false);
+                String Price = textView8th.getText().toString();
+                onPriceSetListener.setPrice(Price);
+                app.prev.remove("7");
                 if (!imageButton8th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
                         || imageButton3rd.isShown()   || imageButton4th.isShown() || imageButton5th.isShown()
                         || imageButton6th.isShown() || imageButton7th.isShown() || imageButton9th.isShown()
@@ -305,6 +261,9 @@ public class ChosenfoodFragment extends Fragment {
                 imageButton9th.setVisibility(View.GONE);
                 FoodmenuActivity.Pcount.setEnabled(false);
                 FoodmenuActivity.Purchase.setEnabled(false);
+                String Price = textView9th.getText().toString();
+                onPriceSetListener.setPrice(Price);
+                app.prev.remove("8");
                 if (!imageButton9th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
                         || imageButton3rd.isShown()   || imageButton4th.isShown() || imageButton5th.isShown()
                         || imageButton6th.isShown() || imageButton7th.isShown() || imageButton8th.isShown()
@@ -323,6 +282,9 @@ public class ChosenfoodFragment extends Fragment {
                 imageButton10th.setVisibility(View.GONE);
                 FoodmenuActivity.Pcount.setEnabled(false);
                 FoodmenuActivity.Purchase.setEnabled(false);
+                String Price = textView10th.getText().toString();
+                onPriceSetListener.setPrice(Price);
+                app.prev.remove("9");
                 if (!imageButton10th.isShown() && imageButton.isShown() || imageButton2nd.isShown()
                         || imageButton3rd.isShown()   || imageButton4th.isShown() || imageButton5th.isShown()
                         || imageButton6th.isShown() || imageButton7th.isShown() || imageButton8th.isShown()
@@ -592,5 +554,7 @@ public class ChosenfoodFragment extends Fragment {
             textView10th.setVisibility(View.VISIBLE);
             imageButton10th.setVisibility(View.VISIBLE);
         }
+  //      FoodmenuActivity.stringplayti = FoodmenuActivity.playtcount;
+        FoodmenuActivity.Pcount.setText("" + "PLATE COUNT" + "");
     }
 }

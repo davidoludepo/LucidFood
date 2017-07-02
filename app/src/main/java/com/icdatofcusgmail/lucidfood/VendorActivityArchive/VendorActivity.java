@@ -27,25 +27,24 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.icdatofcusgmail.lucidfood.FoodServicing;
+import com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.FoodServicing;
 import com.icdatofcusgmail.lucidfood.LoginActivityArchive.LoginActivity;
+import com.icdatofcusgmail.lucidfood.LucidApplication;
 import com.icdatofcusgmail.lucidfood.R;
-import com.icdatofcusgmail.lucidfood.SmoothCheckBox;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 import java.util.ArrayList;
 
-public class VendorActivity extends AppCompatActivity implements /*Communicator, */ View.OnClickListener, AdapterView.OnItemClickListener, RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener {
+public class VendorActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener, RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener {
 
     SmoothCheckBox smoothy;
     public static RadioGroup radioGroup;
-    RadioButton oneissmalljoor, twook, threeok, fourok, fiveok, sixok, sevenok, eightok, nineok, tenok, elevenok, twelveok, thirteenok, fourteenok, fifteenok, sixteenok, seventeenok, eighteenok, nineteenok, twentyok, twentyoneok, twentytwook, twentythreeok, twentyfourok, twentyfiveok, twentysixok, twentysevenok, twentyeightok, twentynineok, thirtyisenoughjoor;
+    public static RadioButton oneissmalljoor, twook, threeok, fourok, fiveok, sixok, sevenok, eightok, nineok, tenok, elevenok, twelveok, thirteenok, fourteenok, fifteenok, sixteenok, seventeenok, eighteenok, nineteenok, twentyok, twentyoneok, twentytwook, twentythreeok, twentyfourok, twentyfiveok, twentysixok, twentysevenok, twentyeightok, twentynineok, thirtyisenoughjoor;
     PowerManager.WakeLock wakeLock;
     Toolbar toolbar_vendor;
     VendorAdapter vendorAdapter;
@@ -55,6 +54,8 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
     Button PassDataAlso;
     final String[] foodnames = new String[]{"White Rice", "Jollof Rice", "Fried Rice", "Beef", "Chicken", "Moi Moi", "Plantain", "Egg", "Coleslaw", "Beans"};
     int[] foodimages = {R.drawable.c_whiterice, R.drawable.c_jollof, R.drawable.c_friedrice, R.drawable.c_beef, R.drawable.c_chicken, R.drawable.c_moimoi, R.drawable.c_plantain ,R.drawable.c_egg, R.drawable.c_coleslaw, R.drawable.c_beans};
+
+    LucidApplication app;
 
     SharedPreferences MyOkPlatesPrefences;
     SharedPreferences.Editor MyOkPlatesEditor;
@@ -97,16 +98,21 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
         setContentView(R.layout.activity_vendor);
         Log.d("VendorActivity", "onCreate invoked");
 
+        app = LucidApplication.getInstance();
+
+
+
+
+
         MyOkPlatesPrefences = getSharedPreferences(PREF_NICK_NAME, Context.MODE_PRIVATE);
         MyOkPlatesEditor = MyOkPlatesPrefences.edit();
 
         PassDataAlso = (Button) findViewById(R.id.getMeNextActivity);
-        //  PassDataAlso.setEnabled(false);
 
         PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "deprecatedmyfoot");
         wakeLock.acquire();
-        WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         wifi.setWifiEnabled(true);
         Intent StartFoodServicing = new Intent(this, FoodServicing.class);
         startService(StartFoodServicing);
@@ -119,6 +125,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
 
         toolbar_vendor = (Toolbar) findViewById(R.id.ToolbarVendorActivity);
         setSupportActionBar(toolbar_vendor);
+
         getSupportActionBar().setTitle("");
 
         All = (CheckBox) findViewById(R.id.checkboxAll);
@@ -141,6 +148,8 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
         ShowInThis.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE);
         vendorAdapter = new VendorAdapter(getApplicationContext(), getIcdats());
         ShowInThis.setAdapter(vendorAdapter);
+
+      //  getIcdats().get(3).setSelected(true);
 
         smoothy = (SmoothCheckBox) findViewById(R.id.smoothie);
 
@@ -198,6 +207,8 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
         icdats.add(new Icdat(foodnames[8], foodimages[8], smoothy));
         icdats.add(new Icdat(foodnames[9], foodimages[9], smoothy));
 
+        icdats.get(2).setSelected(true);
+
         return icdats;
     }
 
@@ -238,30 +249,34 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
 
     }
 
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-//       final String s = (String) vendorAdapter.getItem(position).getFoodname();
+        Icdat icdat = getIcdats().get(position);
 
         if (view.getTag() instanceof VendorAdapter.ViewHolder) {
             VendorAdapter.ViewHolder holder = (VendorAdapter.ViewHolder) view.getTag();
             holder.smooth.toggle();
         }
 
-        TextView textView = (TextView) view.getTag(R.id.textmodel);
+
         SmoothCheckBox checkBox = (SmoothCheckBox) view.getTag(R.id.smoothie);
-        ImageView imageView = (ImageView) view.getTag(R.id.imagemodel);
+
+        int pos = compareIndex(icdat);
+        if (pos == -1){
+            app.selectedfoods.add(icdat);
+        } else {
+            app.selectedfoods.remove(pos);
+        }
 
         StyleableToast JustFooddiamonds = new StyleableToast(view.getContext(), foodnames[position] + " " + isCheckedOrNot(checkBox), Toast.LENGTH_SHORT);
         JustFooddiamonds.setBackgroundColor(Color.parseColor("#FF5A5F"));
         JustFooddiamonds.setTextColor(Color.WHITE);
         JustFooddiamonds.show();
 
-        Icdat icdat = getIcdats().get(position);
+
 
         String mealSelected = "Selected Foods are:  ";
-        Toast.makeText(this, icdat.getFoodname(), Toast.LENGTH_SHORT).show();
 
         for (int me = 0; me < ShowInThis.getCount(); me++) {
             if (ShowInThis.isItemChecked(me)) {
@@ -281,6 +296,18 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
             pleaseWork.setText(checkedCount + " items Selected" + "");
             vendorAdapter.toggleSelection(position);
         }
+        vendorAdapter.notifyDataSetChanged();
+    }
+
+    private int compareIndex(Icdat icdat){
+        int ounje = -1;
+        for(int food = 0; food < app.selectedfoods.size(); food++){
+            Icdat dweezy = (Icdat) app.selectedfoods.get(food);
+            if(dweezy.getFoodname().equals(icdat.getFoodname())){
+                ounje = food;
+            }
+        }
+        return ounje;
     }
 
     private String isCheckedOrNot(SmoothCheckBox checkbox) {
@@ -289,7 +316,6 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
         else
             return "is not selected";
     }
-
 
     public void OCAddorRemove(View view) {
         FragmentManager AorRmanager = getFragmentManager();
@@ -410,8 +436,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] OneString = getResources().getStringArray(R.array.OnePlatenumber);
-                            bundle.putStringArray("diamond", OneString);
+                            app.Diamond = getResources().getStringArray(R.array.OnePlatenumber);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -427,8 +452,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] TwoStrings = getResources().getStringArray(R.array.TwoPlatenumbers);
-                            bundle.putStringArray("diamond", TwoStrings);
+                            app.Diamond = getResources().getStringArray(R.array.TwoPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -444,8 +468,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] ThreeStrings = getResources().getStringArray(R.array.ThreePlatenumbers);
-                            bundle.putStringArray("diamond", ThreeStrings);
+                            app.Diamond = getResources().getStringArray(R.array.ThreePlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -461,8 +484,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] FourStrings = getResources().getStringArray(R.array.FourPlatenumbers);
-                            bundle.putStringArray("diamond", FourStrings);
+                            app.Diamond = getResources().getStringArray(R.array.FourPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -478,8 +500,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] FiveStrings = getResources().getStringArray(R.array.FivePlatenumbers);
-                            bundle.putStringArray("diamond", FiveStrings);
+                            app.Diamond = getResources().getStringArray(R.array.FivePlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -495,8 +516,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] SixStrings = getResources().getStringArray(R.array.SixPlatenumbers);
-                            bundle.putStringArray("diamond", SixStrings);
+                            app.Diamond = getResources().getStringArray(R.array.SixPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -512,8 +532,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] SevenStrings = getResources().getStringArray(R.array.SevenPlatenumbers);
-                            bundle.putStringArray("diamond", SevenStrings);
+                            app.Diamond = getResources().getStringArray(R.array.SevenPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -529,8 +548,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] EightStrings = getResources().getStringArray(R.array.EightPlatenumbers);
-                            bundle.putStringArray("diamond", EightStrings);
+                            app.Diamond = getResources().getStringArray(R.array.EightPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -546,8 +564,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] NineStrings = getResources().getStringArray(R.array.NinePlatenumbers);
-                            bundle.putStringArray("diamond", NineStrings);
+                            app.Diamond = getResources().getStringArray(R.array.NinePlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -563,8 +580,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] TenStrings = getResources().getStringArray(R.array.TenPlatenumbers);
-                            bundle.putStringArray("diamond", TenStrings);
+                            app.Diamond = getResources().getStringArray(R.array.TenPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -580,8 +596,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] ElevenStrings = getResources().getStringArray(R.array.ElevenPlatenumbers);
-                            bundle.putStringArray("diamond", ElevenStrings);
+                            app.Diamond = getResources().getStringArray(R.array.ElevenPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -597,8 +612,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] TwelveStrings = getResources().getStringArray(R.array.TwelvePlatenumbers);
-                            bundle.putStringArray("diamond", TwelveStrings);
+                            app.Diamond = getResources().getStringArray(R.array.TwelvePlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -614,8 +628,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] ThirteenStrings = getResources().getStringArray(R.array.ThirteenPlatenumbers);
-                            bundle.putStringArray("diamond", ThirteenStrings);
+                            app.Diamond = getResources().getStringArray(R.array.ThirteenPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -631,8 +644,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] FourteenStrings = getResources().getStringArray(R.array.FourteenPlatenumbers);
-                            bundle.putStringArray("diamond", FourteenStrings);
+                            app.Diamond = getResources().getStringArray(R.array.FourteenPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -648,8 +660,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] FifteenStrings = getResources().getStringArray(R.array.FifteenPlatenumbers);
-                            bundle.putStringArray("diamond", FifteenStrings);
+                            app.Diamond = getResources().getStringArray(R.array.FifteenPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -665,8 +676,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] SixteenStrings = getResources().getStringArray(R.array.SixteenPlatenumbers);
-                            bundle.putStringArray("diamond", SixteenStrings);
+                            app.Diamond = getResources().getStringArray(R.array.SixteenPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -682,8 +692,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] SeventeenStrings = getResources().getStringArray(R.array.SeventeenPlatenumbers);
-                            bundle.putStringArray("diamond", SeventeenStrings);
+                            app.Diamond = getResources().getStringArray(R.array.SeventeenPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -699,8 +708,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] EighteenStrings = getResources().getStringArray(R.array.EighteenPlatenumbers);
-                            bundle.putStringArray("diamond", EighteenStrings);
+                            app.Diamond = getResources().getStringArray(R.array.EighteenPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -716,8 +724,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] NineteenStrings = getResources().getStringArray(R.array.NineteenPlatenumbers);
-                            bundle.putStringArray("diamond", NineteenStrings);
+                            app.Diamond = getResources().getStringArray(R.array.NineteenPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -733,8 +740,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] TwentyStrings = getResources().getStringArray(R.array.TwentyPlatenumbers);
-                            bundle.putStringArray("diamond", TwentyStrings);
+                            app.Diamond = getResources().getStringArray(R.array.TwentyPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -750,8 +756,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] TwentyOneStrings = getResources().getStringArray(R.array.TwentyOnePlatenumbers);
-                            bundle.putStringArray("diamond", TwentyOneStrings);
+                            app.Diamond = getResources().getStringArray(R.array.TwentyOnePlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -767,8 +772,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] TwentyTwoStrings = getResources().getStringArray(R.array.TwentyTwoPlatenumbers);
-                            bundle.putStringArray("diamond", TwentyTwoStrings);
+                            app.Diamond = getResources().getStringArray(R.array.TwentyTwoPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -784,8 +788,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] TwentyThreeStrings = getResources().getStringArray(R.array.TwentyThreePlatenumbers);
-                            bundle.putStringArray("diamond", TwentyThreeStrings);
+                            app.Diamond = getResources().getStringArray(R.array.TwentyThreePlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -801,8 +804,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] TwentyFourStrings = getResources().getStringArray(R.array.TwentyFourPlatenumbers);
-                            bundle.putStringArray("diamond", TwentyFourStrings);
+                            app.Diamond = getResources().getStringArray(R.array.TwentyFourPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -818,8 +820,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] TwentyFiveStrings = getResources().getStringArray(R.array.TwentyFivePlatenumbers);
-                            bundle.putStringArray("diamond", TwentyFiveStrings);
+                            app.Diamond = getResources().getStringArray(R.array.TwentyFivePlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -836,8 +837,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] TwentySixStrings = getResources().getStringArray(R.array.TwentySixPlatenumbers);
-                            bundle.putStringArray("diamond", TwentySixStrings);
+                            app.Diamond = getResources().getStringArray(R.array.TwentySixPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -853,8 +853,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                     public void onClick(View v) {
                         Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                         Bundle bundle = new Bundle();
-                        String[] TwentySevenStrings = getResources().getStringArray(R.array.TwentySevenPlatenumbers);
-                        bundle.putStringArray("diamond", TwentySevenStrings);
+                        app.Diamond = getResources().getStringArray(R.array.TwentySevenPlatenumbers);
                         intent.putExtras(bundle);
                         startActivity(intent);
                     }
@@ -870,8 +869,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] TwentyEightStrings = getResources().getStringArray(R.array.TwentyEightPlatenumbers);
-                            bundle.putStringArray("diamond", TwentyEightStrings);
+                            app.Diamond = getResources().getStringArray(R.array.TwentyEightPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -887,8 +885,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] TwentyNineStrings = getResources().getStringArray(R.array.TwentyNinePlatenumbers);
-                            bundle.putStringArray("diamond", TwentyNineStrings);
+                            app.Diamond = getResources().getStringArray(R.array.TwentyNinePlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -904,8 +901,7 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         public void onClick(View v) {
                             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                             Bundle bundle = new Bundle();
-                            String[] ThirtyStrings = getResources().getStringArray(R.array.ThirtyPlatenumbers);
-                            bundle.putStringArray("diamond", ThirtyStrings);
+                            app.Diamond = getResources().getStringArray(R.array.ThirtyPlatenumbers);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         }
@@ -939,11 +935,38 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-               // PassDataAlso.setEnabled(true);
-                StyleableToast OnePlate = new StyleableToast(getApplicationContext(), "One Plate Selected", Toast.LENGTH_SHORT).spinIcon();
-                OnePlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                OnePlate.setTextColor(Color.WHITE);
-                OnePlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#303F9F"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
+
+
                 break;
 
             case R.id.two:
@@ -958,11 +981,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-             //   PassDataAlso.setEnabled(true);
-                StyleableToast TwoPlate = new StyleableToast(getApplicationContext(), "Two Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                TwoPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                TwoPlate.setTextColor(Color.WHITE);
-                TwoPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#303F9F"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.three:
@@ -977,11 +1025,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-              //  PassDataAlso.setEnabled(true);
-                StyleableToast ThreePlate = new StyleableToast(getApplicationContext(), "Three Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                ThreePlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                ThreePlate.setTextColor(Color.WHITE);
-                ThreePlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#303F9F"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.four:
@@ -996,11 +1069,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-              //  PassDataAlso.setEnabled(true);
-                StyleableToast FourPlate = new StyleableToast(getApplicationContext(), "Four Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                FourPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                FourPlate.setTextColor(Color.WHITE);
-                FourPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#303F9F"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.five:
@@ -1015,11 +1113,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-             //   PassDataAlso.setEnabled(true);
-                StyleableToast FivePlate = new StyleableToast(getApplicationContext(), "Five Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                FivePlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                FivePlate.setTextColor(Color.WHITE);
-                FivePlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#303F9F"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.six:
@@ -1034,11 +1157,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-             //   PassDataAlso.setEnabled(true);
-                StyleableToast SixPlate = new StyleableToast(getApplicationContext(), "Six Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                SixPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                SixPlate.setTextColor(Color.WHITE);
-                SixPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#303F9F"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.seven:
@@ -1053,11 +1201,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast SevenPlate = new StyleableToast(getApplicationContext(), "Seven Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                SevenPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                SevenPlate.setTextColor(Color.WHITE);
-                SevenPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#303F9F"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.eight:
@@ -1072,11 +1245,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-             //   PassDataAlso.setEnabled(true);
-                StyleableToast EightPlate = new StyleableToast(getApplicationContext(), "Eight Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                EightPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                EightPlate.setTextColor(Color.WHITE);
-                EightPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#303F9F"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.nine:
@@ -1091,11 +1289,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast NinePlate = new StyleableToast(getApplicationContext(), "Nine Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                NinePlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                NinePlate.setTextColor(Color.WHITE);
-                NinePlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#303F9F"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.ten:
@@ -1110,11 +1333,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-             //   PassDataAlso.setEnabled(true);
-                StyleableToast TenPlate = new StyleableToast(getApplicationContext(), "Ten Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                TenPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                TenPlate.setTextColor(Color.WHITE);
-                TenPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#303F9F"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.eleven:
@@ -1129,11 +1377,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast ElevenPlate = new StyleableToast(getApplicationContext(), "Eleven Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                ElevenPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                ElevenPlate.setTextColor(Color.WHITE);
-                ElevenPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#303F9F"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.twelve:
@@ -1148,11 +1421,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast TwelvePlate = new StyleableToast(getApplicationContext(), "Twelve Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                TwelvePlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                TwelvePlate.setTextColor(Color.WHITE);
-                TwelvePlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#303F9F"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.thirteen:
@@ -1167,11 +1465,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast ThirteenPlate = new StyleableToast(getApplicationContext(), "Thirteen Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                ThirteenPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                ThirteenPlate.setTextColor(Color.WHITE);
-                ThirteenPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#303F9F"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.fourteen:
@@ -1186,11 +1509,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast FourteenPlate = new StyleableToast(getApplicationContext(), "Fourteen Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                FourteenPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                FourteenPlate.setTextColor(Color.WHITE);
-                FourteenPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#303F9F"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.fifteen:
@@ -1205,11 +1553,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast FifteenPlate = new StyleableToast(getApplicationContext(), "Fifteen Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                FifteenPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                FifteenPlate.setTextColor(Color.WHITE);
-                FifteenPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#303F9F"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.sixteen:
@@ -1224,11 +1597,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast SixteenPlate = new StyleableToast(getApplicationContext(), "Sixteen Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                SixteenPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                SixteenPlate.setTextColor(Color.WHITE);
-                SixteenPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#303F9F"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.seventeen:
@@ -1243,11 +1641,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast SeventeenPlate = new StyleableToast(getApplicationContext(), "Seventeen Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                SeventeenPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                SeventeenPlate.setTextColor(Color.WHITE);
-                SeventeenPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#303F9F"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.eighteen:
@@ -1262,11 +1685,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-             //   PassDataAlso.setEnabled(true);
-                StyleableToast EighteenPlate = new StyleableToast(getApplicationContext(), "Eighteen Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                EighteenPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                EighteenPlate.setTextColor(Color.WHITE);
-                EighteenPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#303F9F"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.nineteen:
@@ -1281,11 +1729,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast NineteenPlate = new StyleableToast(getApplicationContext(), "Nineteen Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                NineteenPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                NineteenPlate.setTextColor(Color.WHITE);
-                NineteenPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#303F9F"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.twenty:
@@ -1300,11 +1773,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-           //     PassDataAlso.setEnabled(true);
-                StyleableToast TwentyPlate = new StyleableToast(getApplicationContext(), "Twenty Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                TwentyPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                TwentyPlate.setTextColor(Color.WHITE);
-                TwentyPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#303F9F"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.twentyone:
@@ -1319,11 +1817,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-           //     PassDataAlso.setEnabled(true);
-                StyleableToast TwentyOnePlate = new StyleableToast(getApplicationContext(), "Twentyone Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                TwentyOnePlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                TwentyOnePlate.setTextColor(Color.WHITE);
-                TwentyOnePlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#303F9F"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.twentytwo:
@@ -1332,17 +1855,42 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                     public void onClick(View v) {
                         Intent intent = new Intent(getBaseContext(), LoginActivity.class);
                         Bundle bundle = new Bundle();
-                        String[] TwentyTwoStrings = getResources().getStringArray(R.array.TwentyTwoPlatenumbers);
-                        bundle.putStringArray("diamond", TwentyTwoStrings);
+                        String[] TwentyDiamond = getResources().getStringArray(R.array.TwentyTwoPlatenumbers);
+                        bundle.putStringArray("diamond", TwentyDiamond);
                         intent.putExtras(bundle);
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast TwentyTwoPlate = new StyleableToast(getApplicationContext(), "Twentytwo Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                TwentyTwoPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                TwentyTwoPlate.setTextColor(Color.WHITE);
-                TwentyTwoPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#303F9F"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.twentythree:
@@ -1357,11 +1905,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast TwentyThreePlate = new StyleableToast(getApplicationContext(), "Twentythree Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                TwentyThreePlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                TwentyThreePlate.setTextColor(Color.WHITE);
-                TwentyThreePlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#303F9F"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.twentyfour:
@@ -1376,11 +1949,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-           //     PassDataAlso.setEnabled(true);
-                StyleableToast TwentyFourPlate = new StyleableToast(getApplicationContext(), "Twentyfour Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                TwentyFourPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                TwentyFourPlate.setTextColor(Color.WHITE);
-                TwentyFourPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#303F9F"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.twentyfive:
@@ -1395,11 +1993,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-           //     PassDataAlso.setEnabled(true);
-                StyleableToast TwentyFivePlate = new StyleableToast(getApplicationContext(), "Twentyfive Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                TwentyFivePlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                TwentyFivePlate.setTextColor(Color.WHITE);
-                TwentyFivePlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#303F9F"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.twentysix:
@@ -1414,11 +2037,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-           //     PassDataAlso.setEnabled(true);
-                StyleableToast TwentySixPlate = new StyleableToast(getApplicationContext(), "Twentysix Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                TwentySixPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                TwentySixPlate.setTextColor(Color.WHITE);
-                TwentySixPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#303F9F"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.twentyseven:
@@ -1433,11 +2081,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-           //     PassDataAlso.setEnabled(true);
-                StyleableToast TwentySevenPlate = new StyleableToast(getApplicationContext(), "Twentyseven Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                TwentySevenPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                TwentySevenPlate.setTextColor(Color.WHITE);
-                TwentySevenPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#303F9F"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.twentyeight:
@@ -1452,11 +2125,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-           //     PassDataAlso.setEnabled(true);
-                StyleableToast TwentyEightPlate = new StyleableToast(getApplicationContext(), "Twentyeight Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                TwentyEightPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                TwentyEightPlate.setTextColor(Color.WHITE);
-                TwentyEightPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#303F9F"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.twentynine:
@@ -1471,11 +2169,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast TwentyNinePlate = new StyleableToast(getApplicationContext(), "Twentynine Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                TwentyNinePlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                TwentyNinePlate.setTextColor(Color.WHITE);
-                TwentyNinePlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#303F9F"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#000000"));
                 break;
 
             case R.id.thirty:
@@ -1490,11 +2213,36 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
                         startActivity(intent);
                     }
                 });
-            //    PassDataAlso.setEnabled(true);
-                StyleableToast ThirtyPlate = new StyleableToast(getApplicationContext(), "Thirty Plates Selected", Toast.LENGTH_SHORT).spinIcon();
-                ThirtyPlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                ThirtyPlate.setTextColor(Color.WHITE);
-                ThirtyPlate.show();
+                oneissmalljoor.setTextColor(Color.parseColor("#000000"));
+                twook.setTextColor(Color.parseColor("#000000"));
+                threeok.setTextColor(Color.parseColor("#000000"));
+                fourok.setTextColor(Color.parseColor("#000000"));
+                fiveok.setTextColor(Color.parseColor("#000000"));
+                sixok.setTextColor(Color.parseColor("#000000"));
+                sevenok.setTextColor(Color.parseColor("#000000"));
+                eightok.setTextColor(Color.parseColor("#000000"));
+                nineok.setTextColor(Color.parseColor("#000000"));
+                tenok.setTextColor(Color.parseColor("#000000"));
+                elevenok.setTextColor(Color.parseColor("#000000"));
+                twelveok.setTextColor(Color.parseColor("#000000"));
+                thirteenok.setTextColor(Color.parseColor("#000000"));
+                fourteenok.setTextColor(Color.parseColor("#000000"));
+                fifteenok.setTextColor(Color.parseColor("#000000"));
+                sixteenok.setTextColor(Color.parseColor("#000000"));
+                seventeenok.setTextColor(Color.parseColor("#000000"));
+                eighteenok.setTextColor(Color.parseColor("#000000"));
+                nineteenok.setTextColor(Color.parseColor("#000000"));
+                twentyok.setTextColor(Color.parseColor("#000000"));
+                twentyoneok.setTextColor(Color.parseColor("#000000"));
+                twentytwook.setTextColor(Color.parseColor("#000000"));
+                twentythreeok.setTextColor(Color.parseColor("#000000"));
+                twentyfourok.setTextColor(Color.parseColor("#000000"));
+                twentyfiveok.setTextColor(Color.parseColor("#000000"));
+                twentysixok.setTextColor(Color.parseColor("#000000"));
+                twentysevenok.setTextColor(Color.parseColor("#000000"));
+                twentyeightok.setTextColor(Color.parseColor("#000000"));
+                twentynineok.setTextColor(Color.parseColor("#000000"));
+                thirtyisenoughjoor.setTextColor(Color.parseColor("#303F9F"));
                 break;
         }
     }
@@ -1743,25 +2491,8 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
     }
 
     public void GetMeNextActivity(View view) {
-//        SparseBooleanArray check = ShowInThis.getCheckedItemPositions();
-//        ArrayList<Parcelable> selectedItems = new ArrayList<>();
-//        for (int i = 0; i < check.size(); i++) {
-//            int position = check.keyAt(i);
-//            if (check.valueAt(i))
-//                selectedItems.add((Parcelable) vendorAdapter.getItem(position));
-//        }
-//
-//        Parcelable[] outputStrArr = new Parcelable[selectedItems.size()];
-//
-//        for (int i = 0; i < selectedItems.size(); i++) {
-//            outputStrArr[i] = selectedItems.get(i);
-//        }
-//
-//        //This <------- 1st, 2nd, 3rd ------->
-//        Icdat data = new Icdat();
+
         Intent obsolete = new Intent(getApplicationContext(), LoginActivity.class);
-        obsolete.putParcelableArrayListExtra("BabaOsheyGanni", VendorAdapter.PhilFvsEithin);
-        //Same <--------//-------->
 
         Bundle oldbutstill = new Bundle();
         String[] Default = getResources().getStringArray(R.array.DefaultPlatenumber);
@@ -1865,13 +2596,13 @@ public class VendorActivity extends AppCompatActivity implements /*Communicator,
 
     }
 
-
     @Override
     public void onClick(View v) {
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+//        if (isChecked)
+//            getIcdats()
     }
 }

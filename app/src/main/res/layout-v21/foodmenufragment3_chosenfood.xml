@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ff00695c"
-    android:id="@+id/foodmenu_chosenfood">
+    android:id="@+id/foodmenu_chosenfood"
+    android:elevation="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,12 +25,10 @@
                 android:background="@drawable/fa_chosenfood_buttons_circleside"
                 android:textSize="20dp"
                 android:fontFamily="14pt"
-                android:paddingLeft="10dp"
-                android:paddingRight="50dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="50dp"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp" />
 
             <Button
@@ -39,11 +38,9 @@
                 android:background="@drawable/fa_chosenfood_buttons_circleside"
                 android:textSize="20dp"
                 android:fontFamily="14pt"
-                android:paddingLeft="10dp"
-                android:paddingRight="50dp"
-                android:layout_marginRight="20dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="50dp"
                 android:layout_marginEnd="20dp"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
 
             <ImageButton
@@ -52,11 +49,10 @@
                 android:elevation="10dp"
                 android:id="@+id/Istchosendeletebutton"
                 android:clickable="true"
-                android:background="@drawable/fa_chosenfood_deletebackground"
+                android:background="@drawable/a_fa_chosenfood_deletebackground"
                 android:src="@drawable/a_fa_chosenfood_delete"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_alignRight="@+id/Istchosenbutton"
+                android:layout_marginEnd="10dp"
                 android:layout_alignEnd="@+id/Istchosenbutton"
                 android:contentDescription="@string/istchosendeletebuttoncontentv21_1" />
 
@@ -65,11 +61,10 @@
                 android:layout_height="30dp"
                 android:elevation="10dp"
                 android:id="@+id/Secondchosendeletebutton"
-                android:background="@drawable/fa_chosenfood_deletebackground"
+                android:background="@drawable/a_fa_chosenfood_deletebackground"
                 android:src="@drawable/a_fa_chosenfood_delete"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_alignRight="@+id/Secondchosenbutton"
+                android:layout_marginEnd="10dp"
                 android:layout_alignEnd="@+id/Secondchosenbutton"
                 android:contentDescription="@string/secondchosendeletebuttoncontentv21_2" />
 
@@ -83,7 +78,6 @@
         android:orientation="horizontal"
         android:id="@+id/linearLayoutTwo"
         android:layout_below="@+id/linearLayoutOne"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp">
 
@@ -102,8 +96,8 @@
                 android:layout_marginRight="20dp"
                 android:textSize="20dp"
                 android:fontFamily="14pt"
-                android:paddingLeft="10dp"
-                android:paddingRight="50dp"/>
+                android:paddingStart="10dp"
+                android:paddingEnd="50dp"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -112,12 +106,10 @@
                 android:background="@drawable/fa_chosenfood_buttons_circleside"
                 android:textSize="20dp"
                 android:fontFamily="14pt"
-                android:paddingLeft="10dp"
-                android:paddingRight="50dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="50dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
 
             <ImageButton
@@ -125,11 +117,10 @@
                 android:layout_height="30dp"
                 android:elevation="10dp"
                 android:id="@+id/Thirdchosendeletebutton"
-                android:background="@drawable/fa_chosenfood_deletebackground"
+                android:background="@drawable/a_fa_chosenfood_deletebackground"
                 android:src="@drawable/a_fa_chosenfood_delete"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_alignRight="@+id/Thirdchosenbutton"
+                android:layout_marginEnd="10dp"
                 android:layout_alignEnd="@+id/Thirdchosenbutton"
                 android:contentDescription="@string/thirdchosendeletebuttoncontentv21_3" />
 
@@ -138,11 +129,10 @@
                 android:layout_height="30dp"
                 android:elevation="10dp"
                 android:id="@+id/Fourthchosendeletebutton"
-                android:background="@drawable/fa_chosenfood_deletebackground"
+                android:background="@drawable/a_fa_chosenfood_deletebackground"
                 android:src="@drawable/a_fa_chosenfood_delete"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_alignRight="@+id/Fourthchosenbutton"
+                android:layout_marginEnd="10dp"
                 android:layout_alignEnd="@+id/Fourthchosenbutton"
                 android:contentDescription="@string/fourthchosendeletebuttoncontentv21_4" />
 
@@ -156,7 +146,6 @@
         android:orientation="horizontal"
         android:id="@+id/linearLayoutThree"
         android:layout_below="@+id/linearLayoutTwo"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp">
 
@@ -171,8 +160,8 @@
                 android:background="@drawable/fa_chosenfood_buttons_circleside"
                 android:textSize="20dp"
                 android:fontFamily="14pt"
-                android:paddingLeft="10dp"
-                android:paddingRight="50dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginLeft="20dp"
@@ -185,12 +174,10 @@
                 android:background="@drawable/fa_chosenfood_buttons_circleside"
                 android:textSize="20dp"
                 android:fontFamily="14pt"
-                android:paddingLeft="10dp"
-                android:paddingRight="50dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="50dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
 
             <ImageButton
@@ -198,11 +185,10 @@
                 android:layout_height="30dp"
                 android:elevation="10dp"
                 android:id="@+id/Fifthchosendeletebutton"
-                android:background="@drawable/fa_chosenfood_deletebackground"
+                android:background="@drawable/a_fa_chosenfood_deletebackground"
                 android:src="@drawable/a_fa_chosenfood_delete"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_alignRight="@+id/Fifthchosenbutton"
+                android:layout_marginEnd="10dp"
                 android:layout_alignEnd="@+id/Fifthchosenbutton"
                 android:contentDescription="@string/fifthchosendeletebuttoncontentv21_5" />
 
@@ -211,11 +197,10 @@
                 android:layout_height="30dp"
                 android:elevation="10dp"
                 android:id="@+id/Sixthchosendeletebutton"
-                android:background="@drawable/fa_chosenfood_deletebackground"
+                android:background="@drawable/a_fa_chosenfood_deletebackground"
                 android:src="@drawable/a_fa_chosenfood_delete"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_alignRight="@+id/Sixthchosenbutton"
+                android:layout_marginEnd="10dp"
                 android:layout_alignEnd="@+id/Sixthchosenbutton"
                 android:contentDescription="@string/sixthchosendeletebuttoncontentv21_6" />
 
@@ -229,7 +214,6 @@
         android:id="@+id/linearLayoutFour"
         android:orientation="horizontal"
         android:layout_below="@+id/linearLayoutThree"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp">
 
@@ -244,8 +228,8 @@
                 android:background="@drawable/fa_chosenfood_buttons_circleside"
                 android:textSize="20dp"
                 android:fontFamily="14pt"
-                android:paddingLeft="10dp"
-                android:paddingRight="50dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginLeft="20dp"
@@ -258,12 +242,10 @@
                 android:background="@drawable/fa_chosenfood_buttons_circleside"
                 android:textSize="20dp"
                 android:fontFamily="14pt"
-                android:paddingLeft="10dp"
-                android:paddingRight="50dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="50dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
 
             <ImageButton
@@ -271,11 +253,10 @@
                 android:layout_height="30dp"
                 android:elevation="10dp"
                 android:id="@+id/Seventhchosendeletebutton"
-                android:background="@drawable/fa_chosenfood_deletebackground"
+                android:background="@drawable/a_fa_chosenfood_deletebackground"
                 android:src="@drawable/a_fa_chosenfood_delete"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_alignRight="@+id/Seventhchosenbutton"
+                android:layout_marginEnd="10dp"
                 android:layout_alignEnd="@+id/Seventhchosenbutton"
                 android:contentDescription="@string/seventhchosendeletebuttoncontentv21_7" />
 
@@ -284,11 +265,10 @@
                 android:layout_height="30dp"
                 android:elevation="10dp"
                 android:id="@+id/Eightchosendeletebutton"
-                android:background="@drawable/fa_chosenfood_deletebackground"
+                android:background="@drawable/a_fa_chosenfood_deletebackground"
                 android:src="@drawable/a_fa_chosenfood_delete"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_alignRight="@+id/Eightchosenbutton"
+                android:layout_marginEnd="10dp"
                 android:layout_alignEnd="@+id/Eightchosenbutton"
                 android:contentDescription="@string/eightchosendeletebuttoncontentv21_8" />
 
@@ -303,7 +283,6 @@
         android:orientation="horizontal"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/linearLayoutFour"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
         <RelativeLayout
@@ -317,8 +296,8 @@
                 android:background="@drawable/fa_chosenfood_buttons_circleside"
                 android:textSize="20dp"
                 android:fontFamily="14pt"
-                android:paddingLeft="10dp"
-                android:paddingRight="50dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="50dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginLeft="20dp"
@@ -330,13 +309,11 @@
                 android:id="@+id/Tenthchosenbutton"
                 android:background="@drawable/fa_chosenfood_buttons_circleside"
                 android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
                 android:textSize="20dp"
                 android:fontFamily="14pt"
-                android:paddingLeft="10dp"
-                android:paddingRight="50dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="50dp"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
 
             <ImageButton
@@ -344,11 +321,10 @@
                 android:layout_height="30dp"
                 android:elevation="10dp"
                 android:id="@+id/Ninthchosendeleltebutton"
-                android:background="@drawable/fa_chosenfood_deletebackground"
+                android:background="@drawable/a_fa_chosenfood_deletebackground"
                 android:src="@drawable/a_fa_chosenfood_delete"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_alignRight="@+id/Ninthchosenbutton"
+                android:layout_marginEnd="10dp"
                 android:layout_alignEnd="@+id/Ninthchosenbutton"
                 android:contentDescription="@string/ninthchosendeleltebuttoncontentv21_9" />
 
@@ -357,11 +333,10 @@
                 android:layout_height="30dp"
                 android:elevation="10dp"
                 android:id="@+id/Tenthchosendeletebutton"
-                android:background="@drawable/fa_chosenfood_deletebackground"
+                android:background="@drawable/a_fa_chosenfood_deletebackground"
                 android:src="@drawable/a_fa_chosenfood_delete"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_alignRight="@+id/Tenthchosenbutton"
+                android:layout_marginEnd="10dp"
                 android:layout_alignEnd="@+id/Tenthchosenbutton"
                 android:contentDescription="@string/tenthchosendeletebuttoncontentv21_10" />
 

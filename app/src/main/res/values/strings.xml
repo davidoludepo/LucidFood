@@ -102,10 +102,13 @@
     <string name="FoodmenuActivityToolbarTwoWelcome_UsernameLessthan">Welcome, Admin</string>
     <string name="Content_Description_AnimatedImages">AnimatedImages</string>
     <string name="Content_Description_AnimatedImages_Lessthan">AnimatedImages_Lessthan</string>
+    <string name="AddorRemoveButton">Items</string>
+    <string name="CheckedItemsInTextView">selectedItems</string>
+    <string name="CheckAllorRemoveAll">All</string>
+    <string name="selecteditemsv19_V_Activity">selectedItems</string>
 
     <string-array name="AorR">
-        <item>Add Items</item>
-        <item>Remove Items</item>
+        <item>Update Items</item>
     </string-array>
 
 

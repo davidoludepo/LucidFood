@@ -1,55 +1,39 @@
 package com.icdatofcusgmail.lucidfood.VendorActivityArchive;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import com.icdatofcusgmail.lucidfood.SmoothCheckBox;
-
 /**
  * Created by DAVID OGUNDEPO on 03/27/2017.
  *
  */
 
 
-public class Icdat implements Parcelable{
+public class Icdat /* implements Parcelable */{
 
     private String foodname;
     private int foodimage;
-    private boolean selected = true;
+    private boolean selected;
     private SmoothCheckBox smooth;
 
-    private Icdat (Parcel in) {
-        foodname = in.readString();
-        foodimage = in.readInt();
-        selected = in.readByte() != 0;
-    }
-
-    public Icdat() {
-
-    }
-
-    public static final Creator<Icdat> CREATOR = new Creator<Icdat>() {
-        @Override
-        public Icdat createFromParcel(Parcel in) {
-            return new Icdat(in);
-        }
-
-        @Override
-        public Icdat[] newArray(int size) {
-            return new Icdat[size];
-        }
-    };
+//    private Icdat (Parcel in) {
+//        foodname = in.readString();
+//        foodimage = in.readInt();
+//      //  selected = in.readByte() != 0;
+//    }
 
 
-    public boolean isSelected() {
-        return selected;
-    }
+//    public static final Creator<Icdat> CREATOR = new Creator<Icdat>() {
+//        @Override
+//        public Icdat createFromParcel(Parcel in) {
+//            return new Icdat(in);
+//        }
+//
+//        @Override
+//        public Icdat[] newArray(int size) {
+//            return new Icdat[size];
+//        }
+//    };
 
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-    }
 
-    public Icdat(String foodname, int foodimage, SmoothCheckBox smoothe) {
+    Icdat(String foodname, int foodimage, SmoothCheckBox smoothe) {
         super();
         this.foodimage = foodimage;
         this.foodname = foodname;
@@ -72,7 +56,7 @@ public class Icdat implements Parcelable{
         this.foodimage = foodimage;
     }
 
-    public SmoothCheckBox getSmooth() {
+    SmoothCheckBox getSmooth() {
         return smooth;
     }
 
@@ -80,16 +64,32 @@ public class Icdat implements Parcelable{
         this.smooth = smooth;
     }
 
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public boolean isSelected()
+    {
+        return selected;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(foodname);
-        dest.writeInt(foodimage);
-        dest.writeByte((byte) (selected ? 1 : 0));
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
+
+//    @Override
+//    public int describeContents() {
+//        return 0;
+//    }
+//
+//    @Override
+//    public void writeToParcel(Parcel dest, int flags) {
+//        dest.writeString(foodname);
+//        dest.writeInt(foodimage);
+//        dest.writeByte((byte) (selected ? 1 : 0));
+//    }
+
+
+
+
+
+
+
+
 }

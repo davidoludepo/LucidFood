@@ -24,10 +24,7 @@
         android:layout_alignParentEnd="true"
         android:paddingEnd="10dp"
         android:paddingStart="10dp"
-        android:paddingBottom="10dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:paddingRight="10dp" />
+        android:paddingBottom="10dp" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         app:civ_border_color="#ffffff"

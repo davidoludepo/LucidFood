@@ -1,10 +1,12 @@
-package com.icdatofcusgmail.lucidfood;
+package com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
+
+import com.icdatofcusgmail.lucidfood.R;
 
 public class FoodhistoryActivity extends AppCompatActivity {
 

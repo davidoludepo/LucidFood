@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#81D4FA"
-    tools:context="com.icdatofcusgmail.lucidfood.ServingActivityArchve.ServingActivity">
+    tools:context="com.icdatofcusgmail.lucidfood.ServingActivityArchive.ServingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
             android:text=""
             android:textColor="#FFFFFF"
             android:gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -93,7 +93,7 @@
             android:id="@+id/plate4"
             android:textSize="25sp"
             android:gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:textColor="#FFFFFF"
             android:layout_weight="1"
             android:paddingLeft="10dp"
@@ -131,7 +131,7 @@
             android:textColor="#FFFFFF"
             android:id="@+id/plate6"
             android:textSize="25sp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -169,7 +169,7 @@
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:id="@+id/plate8"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -208,7 +208,7 @@
             android:id="@+id/plate10"
             android:textSize="25sp"
             android:gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -248,7 +248,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:onClick="NextTransactionPlease"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 </RelativeLayout>

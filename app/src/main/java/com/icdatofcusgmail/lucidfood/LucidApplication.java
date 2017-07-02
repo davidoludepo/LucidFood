@@ -7,25 +7,69 @@ import android.content.res.Configuration;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.util.TreeMap;
+
 /**
  * Created by DAVID OGUNDEPO on 06/02/2017.
  *
  */
 
-public class LucidApplication extends Application{
+public class LucidApplication extends Application {
 
+    public  String[] Diamond;
     private static LucidApplication instance;
     public  JSONArray  selectedfoods;
     public JSONObject prices;
 
+    public JSONObject stack;
+
+    public int allinfoodcounter = 0;
+
+    public int fifty = 50;
+    public int hundred = 100;
+    public int onefifty = 150;
+    public int twohundred = 200;
+    public int twofifty = 250;
+    public int threehundred = 300;
+    public int threehundredfifty = 350;
+    public int fourhundred = 400;
+    public int fourhundredfifty = 450;
+    public int fivehundred = 500;
+    public int fivehundredfifty = 550;
+    public int sixhundred = 600;
+    public int sixhundredfifty = 650;
+    public int sevenhundred = 700;
+    public int sevenhundredfifty = 750;
+    public int eighthundred = 800;
+    public int eighthundredfifty = 850;
+    public int ninehundred = 900;
+    public int ninehundredfifty = 950;
+    public int onethousand = 1000;
+    public int onethousandfifty = 1050;
+    public int onethousandhundred = 1100;
+    public int onethousandonefifty = 1150;
+    public int onethousandtwohundred = 1200;
+    public int onethousandtwofifty = 1250;
+    public int onethousandthreehundred = 1300;
+    public int onethousandthreefifty = 1350;
+    public int onethousandfourhundred = 1400;
+    public int onethousandfourfifty = 1450;
+    public int onethousandfivehundred = 1500;
+
+
+    public TreeMap<String,String> prev;
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
         selectedfoods = new JSONArray();
         prices = new JSONObject();
+        prev = new TreeMap<>();
 
-        JSONArray whiterice=new JSONArray();
+        stack = new JSONObject();
+
+
+        JSONArray whiterice = new JSONArray();
         whiterice.add("150 naira White Rice");
         whiterice.add("200 naira White Rice");
         whiterice.add("250 naira White Rice");
@@ -116,6 +160,9 @@ public class LucidApplication extends Application{
         prices.put("Beans",beans);
 
     }
+
+
+
     public static LucidApplication getInstance(){
         return instance;
     }

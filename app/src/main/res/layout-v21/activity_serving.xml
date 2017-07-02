@@ -1,39 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#81D4FA"
-    tools:context="com.icdatofcusgmail.lucidfood.ServingActivityArchve.ServingActivity"
+    tools:context="com.icdatofcusgmail.lucidfood.ServingActivityArchive.ServingActivity"
     android:nestedScrollingEnabled="true">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/servingLinearLayoutOne"
-        android:layout_margin="10dp"
-        android:paddingBottom="50dp">
+        android:layout_margin="5dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="5dp"
+        android:id="@+id/servingCardView">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/please_serve_the_recipient_v21_ServingActivity"
-            android:textSize="25sp"
-            android:id="@+id/serveMePlease"
-            android:layout_gravity="center" />
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:id="@+id/servingLinearLayoutOne"
+            android:layout_margin="10dp"
+            android:padding="50dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/please_serve_the_recipient_v21_ServingActivity"
+                android:textSize="25sp"
+                android:id="@+id/serveMePlease"
+                android:layout_gravity="center" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingTop="30dp"
         android:layout_margin="10dp"
         android:id="@+id/servingLinearLayoutTwo"
-        android:layout_below="@+id/servingLinearLayoutOne"
+        android:layout_below="@+id/servingCardView"
         android:paddingBottom="30dp">
 
         <TextView
@@ -56,7 +68,7 @@
             android:text=""
             android:textColor="#FFFFFF"
             android:gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -94,7 +106,7 @@
             android:id="@+id/plate4"
             android:textSize="25sp"
             android:gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:textColor="#FFFFFF"
             android:layout_weight="1"
             android:paddingLeft="10dp"
@@ -132,7 +144,7 @@
         android:textColor="#FFFFFF"
         android:id="@+id/plate6"
         android:textSize="25sp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_weight="1"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -170,7 +182,7 @@
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:id="@+id/plate8"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_weight="1"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -209,7 +221,7 @@
         android:id="@+id/plate10"
         android:textSize="25sp"
         android:gravity="center"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_weight="1"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -244,11 +256,9 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:text="@string/buttonservedv21_ServingActivity"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:onClick="NextTransactionPlease"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 </RelativeLayout>

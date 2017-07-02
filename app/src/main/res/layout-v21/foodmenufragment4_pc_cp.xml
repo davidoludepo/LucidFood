@@ -14,15 +14,14 @@
         android:text="@string/purchasebutton_FoodmenuFragment4_FoodmenuActivity"
         android:paddingTop="40dp"
         android:textColor="#FFFFFF"
-        android:background="@drawable/custom_ripple_borderless"
+        android:background="@drawable/a_custom_ripple_borderless"
         android:onClick="ConfirmMyPurchase"
-        android:paddingLeft="120dp"
-        android:paddingRight="0dp"
+        android:paddingStart="120dp"
+        android:paddingEnd="0dp"
         android:textSize="20sp"
         android:layout_alignWithParentIfMissing="true"
         android:id="@+id/button20000"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="300dp"
@@ -31,14 +30,13 @@
         android:drawableTop="@drawable/a_platechoose"
         android:onClick="maxPlateCount"
         android:textColor="#FFFFFF"
-        android:background="@drawable/custom_ripple_borderless"
+        android:background="@drawable/a_custom_ripple_borderless"
         android:textSize="20sp"
-        android:paddingRight="120dp"
-        android:paddingLeft="0dp"
+        android:paddingEnd="120dp"
+        android:paddingStart="0dp"
         android:paddingTop="40dp"
         android:id="@+id/button"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignBottom="@+id/button20000" />
 

@@ -36,13 +36,10 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/Usernamefield"
-        android:drawableLeft="@drawable/a_username"
         android:drawableStart="@drawable/a_username"
         android:drawablePadding="10dp"
         android:width="300dp"
-        android:paddingLeft="10dp"
         android:paddingStart="10dp"
-        android:paddingRight="20dp"
         android:paddingEnd="20dp"
         android:background="#FFFFFF"
         android:hint="@string/icdat_christ"
@@ -64,7 +61,6 @@
         android:id="@+id/Passwordfield"
         android:maxLength="4"
         android:background="#FFFFFF"
-        android:drawableLeft="@drawable/a_pin"
         android:drawableStart="@drawable/a_pin"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -72,7 +68,6 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="174dp"
         android:layout_above="@+id/loginbutton"
-        android:layout_alignRight="@+id/reportUserName"
         android:layout_alignEnd="@+id/reportUserName" />
 
     <Button
@@ -98,8 +93,7 @@
         android:id="@+id/reportPassWord"
         android:layout_marginTop="54dp"
         android:layout_below="@+id/Usernamefield"
-        android:layout_alignEnd="@+id/Passwordfield"
-        android:layout_alignRight="@+id/Passwordfield" />
+        android:layout_alignEnd="@+id/Passwordfield" />
 
 
     <TextView
@@ -110,22 +104,7 @@
         android:id="@+id/reportUserName"
         android:layout_marginBottom="49dp"
         android:layout_above="@+id/reportPassWord"
-        android:layout_alignEnd="@+id/Usernamefield"
-        android:layout_alignRight="@+id/Usernamefield" />
-
-    <!--TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Please Input Your LogIn Details"
-        android:id="@+id/notrelevant"
-        android:textColor="#000000"
-        android:textSize="30dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:layout_above="@+id/Usernamefield"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="156dp" /-->
+        android:layout_alignEnd="@+id/Usernamefield" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -133,7 +112,6 @@
         android:src="@drawable/a_loginedittextclearer"
         android:id="@+id/clearAllUsername"
         android:layout_alignTop="@+id/Usernamefield"
-        android:layout_toRightOf="@+id/Usernamefield"
         android:layout_toEndOf="@+id/Usernamefield"
         android:layout_alignBottom="@+id/Usernamefield"
         android:background="#FFFFFF"
@@ -145,7 +123,6 @@
         android:src="@drawable/a_loginedittextclearer"
         android:id="@+id/clearAllPin"
         android:layout_below="@+id/Usernamefield"
-        android:layout_toRightOf="@+id/Passwordfield"
         android:layout_toEndOf="@+id/Passwordfield"
         android:layout_alignBottom="@+id/Passwordfield"
         android:background="#FFFFFF"
