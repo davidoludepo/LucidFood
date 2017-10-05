@@ -106,6 +106,9 @@
     <string name="CheckedItemsInTextView">selectedItems</string>
     <string name="CheckAllorRemoveAll">All</string>
     <string name="selecteditemsv19_V_Activity">selectedItems</string>
+    <string name="shut_down_lucid">Shut Down App</string>
+    <string name="vendor_idnumber">Id No for Vendor</string>
+    <string name="parseVendorId">Push Vendor Id</string>
 
     <string-array name="AorR">
         <item>Update Items</item>

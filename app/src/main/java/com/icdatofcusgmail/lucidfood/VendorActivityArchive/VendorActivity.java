@@ -52,8 +52,8 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
     public static CheckBox All;
     public static TextView itemsState, pleaseWork, itemsBeenSelected;
     Button PassDataAlso;
-    final String[] foodnames = new String[]{"White Rice", "Jollof Rice", "Fried Rice", "Beef", "Chicken", "Moi Moi", "Plantain", "Egg", "Coleslaw", "Beans"};
-    int[] foodimages = {R.drawable.c_whiterice, R.drawable.c_jollof, R.drawable.c_friedrice, R.drawable.c_beef, R.drawable.c_chicken, R.drawable.c_moimoi, R.drawable.c_plantain ,R.drawable.c_egg, R.drawable.c_coleslaw, R.drawable.c_beans};
+    final String[] foodnames = new String[]{"White Rice", "Jollof Rice", "Fried Rice", "Vegetable Rice", "Coconut Rice", "Small Beef", "Big Beef", "Assorted Meat", "Ponmo", "Small Chicken", "Big Chicken", "Small GoatMeat", "Big GoatMeat", "Titus Fish", "Sawa Fish", "Panla Fish", "Moi Moi", "Plantain", "Boiled Egg", "Coleslaw", "WhiteBeans"};
+    int[] foodimages = {R.drawable.c_whiterice, R.drawable.c_jollof, R.drawable.c_friedrice, R.drawable.c_vegetablerice, R.drawable.c_coconutrice, R.drawable.c_smallbeef, R.drawable.c_bigbeef, R.drawable.c_assortedmeat, R.drawable.c_ponmo, R.drawable.c_smallchicken, R.drawable.c_bigchicken, R.drawable.c_smallgoat, R.drawable.c_biggoat, R.drawable.c_titus, R.drawable.c_sawa, R.drawable.c_panla, R.drawable.c_moimoi, R.drawable.c_plantain, R.drawable.c_egg, R.drawable.c_coleslaw, R.drawable.c_beans};
 
     LucidApplication app;
 
@@ -206,8 +206,19 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
         icdats.add(new Icdat(foodnames[7], foodimages[7], smoothy));
         icdats.add(new Icdat(foodnames[8], foodimages[8], smoothy));
         icdats.add(new Icdat(foodnames[9], foodimages[9], smoothy));
+        icdats.add(new Icdat(foodnames[10], foodimages[10], smoothy));
+        icdats.add(new Icdat(foodnames[11], foodimages[11], smoothy));
+        icdats.add(new Icdat(foodnames[12], foodimages[12], smoothy));
+        icdats.add(new Icdat(foodnames[13], foodimages[13], smoothy));
+        icdats.add(new Icdat(foodnames[14], foodimages[14], smoothy));
+        icdats.add(new Icdat(foodnames[15], foodimages[15], smoothy));
+        icdats.add(new Icdat(foodnames[16], foodimages[16], smoothy));
+        icdats.add(new Icdat(foodnames[17], foodimages[17], smoothy));
+        icdats.add(new Icdat(foodnames[18], foodimages[18], smoothy));
+        icdats.add(new Icdat(foodnames[19], foodimages[19], smoothy));
+        icdats.add(new Icdat(foodnames[20], foodimages[20], smoothy));
 
-        icdats.get(2).setSelected(true);
+    //    icdats.get(2).setSelected(true);
 
         return icdats;
     }
@@ -319,8 +330,8 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
 
     public void OCAddorRemove(View view) {
         FragmentManager AorRmanager = getFragmentManager();
-        AddorRemove reveal = new AddorRemove();
-        reveal.show(AorRmanager, "AddorRemove");
+        UpdateItems reveal = new UpdateItems();
+        reveal.show(AorRmanager, "UpdateItems");
     }
 
     public void OCDynamicPlateCount(View v) {

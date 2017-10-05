@@ -36,7 +36,7 @@ import com.muddzdev.styleabletoastlibrary.StyleableToast;
     *
  */
 
-public class AddorRemove extends DialogFragment {
+public class UpdateItems extends DialogFragment {
 
 
     @Override
@@ -47,10 +47,10 @@ public class AddorRemove extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (which == 0) {
-                    StyleableToast AddItems = new StyleableToast(getActivity(), "Update Items Available", Toast.LENGTH_SHORT).spinIcon();
-                    AddItems.setBackgroundColor(Color.parseColor("#FF5A5F"));
-                    AddItems.setTextColor(Color.WHITE);
-                    AddItems.show();
+                    StyleableToast UpdateItems = new StyleableToast(getActivity(), "Update Items Available", Toast.LENGTH_SHORT).spinIcon();
+                    UpdateItems.setBackgroundColor(Color.parseColor("#FF5A5F"));
+                    UpdateItems.setTextColor(Color.WHITE);
+                    UpdateItems.show();
                     VendorActivity.All.setVisibility(View.VISIBLE);
                     VendorActivity.All.setText("" + "Add All" + "");
                     VendorActivity.itemsState.setVisibility(View.VISIBLE);

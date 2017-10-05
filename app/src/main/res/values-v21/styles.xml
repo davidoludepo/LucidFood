@@ -30,6 +30,14 @@
 
                                 <!-- Below For The Activities -->
 
+        <style name="Vendor_LoginActivity" parent="Theme.AppCompat.Light.NoActionBar">
+                <item name="android:colorPrimary">@color/colorSecondary</item>
+                <item name="android:colorPrimaryDark">@color/colorSecondaryDark</item>
+                <item name="android:colorAccent">@color/colorCcCent</item>
+                <item name="android:navigationBarColor">@color/EachActivityNavigationBar</item>
+                <item name="android:textColorSecondary">@color/colorCcCent</item>
+        </style>
+
         <style name="VendorActivity" parent="Theme.AppCompat.Light.NoActionBar">
                 <item name="android:colorPrimary">@color/colorSecondary</item>
                 <item name="android:colorPrimaryDark">@color/colorSecondaryDark</item>

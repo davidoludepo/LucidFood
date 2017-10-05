@@ -3,6 +3,8 @@ package com.icdatofcusgmail.lucidfood;
 import android.app.Application;
 import android.content.ComponentCallbacks;
 import android.content.res.Configuration;
+import android.os.Bundle;
+import android.widget.TextView;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -17,6 +19,9 @@ import java.util.TreeMap;
 public class LucidApplication extends Application {
 
     public  String[] Diamond;
+    public Bundle sellerOruko;
+    public TextView Idtext;
+    public TextView Nametext;
     private static LucidApplication instance;
     public  JSONArray  selectedfoods;
     public JSONObject prices;

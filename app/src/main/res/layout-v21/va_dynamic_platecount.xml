@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="500dp">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
+            android:id="@+id/radiohead"
+            android:orientation="vertical"
+            android:saveEnabled="true">
+
+
+            <RadioButton
+                android:id="@+id/one"
+                style="@style/Checkbox"
+                android:textSize="20sp"
+                android:text="@string/one_plate_only_Dynamic_Platecount__VendorActivity_1" />
+
+            <RadioButton
+                android:id="@+id/two"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/two_plates_only_Dynamic_Platecount__VendorActivity_2" />
+
+            <RadioButton
+                android:id="@+id/three"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/three_plates_only_Dynamic_Platecount__VendorActivity_3" />
+
+            <RadioButton
+                android:id="@+id/four"
+                style="@style/Checkbox"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/four_plates_only_Dynamic_Platecount__VendorActivity_4" />
+
+            <RadioButton
+                android:id="@+id/five"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/five_plates_only_Dynamic_Platecount__VendorActivity_5" />
+
+            <RadioButton
+                android:id="@+id/six"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/six_plates_only_Dynamic_Platecount__VendorActivity_6" />
+
+            <RadioButton
+                android:id="@+id/seven"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/seven_plates_only_Dynamic_Platecount__VendorActivity_7" />
+
+            <RadioButton
+                android:id="@+id/eight"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/eight_plates_only_Dynamic_Platecount__VendorActivity_8" />
+
+            <RadioButton
+                android:id="@+id/nine"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/nine_plates_only_Dynamic_Platecount__VendorActivity_9" />
+
+            <RadioButton
+                android:id="@+id/ten"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/ten_plates_only_Dynamic_Platecount__VendorActivity_10" />
+
+            <RadioButton
+                android:id="@+id/eleven"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/eleven_plates_only_Dynamic_Platecount__VendorActivity_11" />
+
+            <RadioButton
+                android:id="@+id/twelve"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/twelve_plates_only_Dynamic_Platecount__VendorActivity_12" />
+
+            <RadioButton
+                android:id="@+id/thirteen"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/thirteen_plates_only_Dynamic_Platecount__VendorActivity_13" />
+
+            <RadioButton
+                android:id="@+id/fourteen"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/fourteen_plates_only_Dynamic_Platecount__VendorActivity_14" />
+
+            <RadioButton
+                android:id="@+id/fifteen"
+                style="@style/Checkbox"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/fifteen_plates_only_Dynamic_Platecount__VendorActivity_15" />
+
+            <RadioButton
+                android:id="@+id/sixteen"
+                style="@style/Checkbox"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/sixteen_plates_only_Dynamic_Platecount__VendorActivity_16" />
+
+            <RadioButton
+                android:id="@+id/seventeen"
+                style="@style/Checkbox"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/seventeen_plates_only_Dynamic_Platecount__VendorActivity_17" />
+
+            <RadioButton
+                android:id="@+id/eighteen"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/eighteen_plates_only_Dynamic_Platecount__VendorActivity_18" />
+
+            <RadioButton
+                android:id="@+id/nineteen"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/nineteen_plates_only_Dynamic_Platecount__VendorActivity_19" />
+
+            <RadioButton
+                android:id="@+id/twenty"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/twenty_plates_only_Dynamic_Platecount__VendorActivity_20" />
+
+            <RadioButton
+                android:id="@+id/twentyone"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/twentyone_plates_only_Dynamic_Platecount__VendorActivity_21" />
+
+            <RadioButton
+                android:id="@+id/twentytwo"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/twentytwo_plates_only_Dynamic_Platecount__VendorActivity_22" />
+
+            <RadioButton
+                android:id="@+id/twentythree"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/twentythree_plates_only_Dynamic_Platecount__VendorActivity_23" />
+
+            <RadioButton
+                android:id="@+id/twentyfour"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/twentyfour_plates_only_Dynamic_Platecount__VendorActivity_24" />
+
+            <RadioButton
+                android:id="@+id/twentyfive"
+                style="@style/Checkbox"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:text="@string/twentyfive_plates_only_Dynamic_Platecount__VendorActivity_25" />
+
+            <RadioButton
+                android:id="@+id/twentysix"
+                style="@style/Checkbox"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/twentysix_plates_only_Dynamic_Platecount__VendorActivity_26" />
+
+            <RadioButton
+                android:id="@+id/twentyseven"
+                style="@style/Checkbox"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/twentyseven_plates_only_Dynamic_Platecount__VendorActivity_27" />
+
+            <RadioButton
+                android:id="@+id/twentyeight"
+                style="@style/Checkbox"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/twentyeight_plates_only_Dynamic_Platecount__VendorActivity_28" />
+
+            <RadioButton
+                android:id="@+id/twentynine"
+                style="@style/Checkbox"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/twentynine_plates_only_Dynamic_Platecount__VendorActivity_29" />
+
+            <RadioButton
+                android:id="@+id/thirty"
+                style="@style/Checkbox"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/thirty_plates_only_Dynamic_Platecount__VendorActivity_30" />
+        </RadioGroup>
+
+    </ScrollView>
+
+</LinearLayout>
