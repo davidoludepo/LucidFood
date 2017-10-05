@@ -147,4 +147,12 @@
         android:layout_toStartOf="@+id/FragmentCounter"
         android:text="TextView" />
 
+    <TextView
+        android:id="@+id/CountMyPlate"
+        android:elevation="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="1" />
+
 </RelativeLayout>

@@ -54,6 +54,7 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
     Button PassDataAlso;
     final String[] foodnames = new String[]{"White Rice", "Jollof Rice", "Fried Rice", "Vegetable Rice", "Coconut Rice", "Small Beef", "Big Beef", "Assorted Meat", "Ponmo", "Small Chicken", "Big Chicken", "Small GoatMeat", "Big GoatMeat", "Titus Fish", "Sawa Fish", "Panla Fish", "Moi Moi", "Plantain", "Boiled Egg", "Coleslaw", "WhiteBeans"};
     int[] foodimages = {R.drawable.c_whiterice, R.drawable.c_jollof, R.drawable.c_friedrice, R.drawable.c_vegetablerice, R.drawable.c_coconutrice, R.drawable.c_smallbeef, R.drawable.c_bigbeef, R.drawable.c_assortedmeat, R.drawable.c_ponmo, R.drawable.c_smallchicken, R.drawable.c_bigchicken, R.drawable.c_smallgoat, R.drawable.c_biggoat, R.drawable.c_titus, R.drawable.c_sawa, R.drawable.c_panla, R.drawable.c_moimoi, R.drawable.c_plantain, R.drawable.c_egg, R.drawable.c_coleslaw, R.drawable.c_beans};
+    TextView sellerId;
 
     LucidApplication app;
 
@@ -100,9 +101,9 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
 
         app = LucidApplication.getInstance();
 
+        sellerId = (TextView) findViewById(R.id.textViewId);
 
-
-
+        sellerId.setText("Id No : " + app.Idtext.getText().toString() + "");
 
         MyOkPlatesPrefences = getSharedPreferences(PREF_NICK_NAME, Context.MODE_PRIVATE);
         MyOkPlatesEditor = MyOkPlatesPrefences.edit();
@@ -128,9 +129,9 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
 
         getSupportActionBar().setTitle("");
 
-        All = (CheckBox) findViewById(R.id.checkboxAll);
-        All.setVisibility(View.GONE);
-        All.setOnCheckedChangeListener(this);
+      //  All = (CheckBox) findViewById(R.id.checkboxAll);
+      //  All.setVisibility(View.GONE);
+      //  All.setOnCheckedChangeListener(this);
 
         itemsState = (TextView) findViewById(R.id.itemsState);
         itemsState.setVisibility(View.INVISIBLE);
@@ -167,8 +168,7 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                mode.getMenuInflater().inflate(R.menu.vendoractivitycontextualmenumain, menu);
-                return true;
+                return false;
             }
 
             @Override
@@ -225,7 +225,7 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.vendoractivitycontextualmenumain, menu);
+        getMenuInflater().inflate(R.menu.vendor_activityappbarmenu, menu);
         return true;
     }
 

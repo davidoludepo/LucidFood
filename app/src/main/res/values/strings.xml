@@ -109,6 +109,8 @@
     <string name="shut_down_lucid">Shut Down App</string>
     <string name="vendor_idnumber">Id No for Vendor</string>
     <string name="parseVendorId">Push Vendor Id</string>
+    <string name="log_out_Vendor_Login_Activity">Log Out</string>
+    <string name="id_no_display_Vendor_Activity">Id No</string>
 
     <string-array name="AorR">
         <item>Update Items</item>

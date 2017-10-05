@@ -1208,7 +1208,7 @@ public class ChosenplateCounter extends Fragment {
                     app.prev.put("8", "100 naira Ponmo(2)");
                 } else {
                     String val = app.prev.get("8");
-                    NineSubString = val.substring(val.indexOf(""), val.indexOf(" naira Sides"));
+                    NineSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                     if (Integer.parseInt(NineSubString) != parseNine) {
                         app.prev.remove("8");
@@ -1306,7 +1306,7 @@ public class ChosenplateCounter extends Fragment {
 
             if (price.contentEquals("200 naira Small Chicken")) {
                 TenString = button.getText().toString();
-                TenSubString = TenString.substring(TenString.indexOf(""), TenString.indexOf(" naira Beans"));
+                TenSubString = TenString.substring(TenString.indexOf(""), TenString.indexOf(" "));
                 parseTen = Integer.parseInt(TenSubString);
                 if (!app.prev.containsKey("9")) {
                     app.allinfoodcounter = app.allinfoodcounter + parseTen;
@@ -1314,7 +1314,7 @@ public class ChosenplateCounter extends Fragment {
                     app.prev.put("9", "200 naira Small Chicken");
                 } else {
                     String val = app.prev.get("9");
-                    TenSubString = val.substring(val.indexOf(""), val.indexOf(" naira Beans"));
+                    TenSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                     if (Integer.parseInt(TenSubString) != parseTen) {
                         app.prev.remove("9");
@@ -1476,63 +1476,63 @@ public class ChosenplateCounter extends Fragment {
                 }
             }
 
-        } else if (price.contentEquals("300 naira P. SevenUp(3)")) {
+        } else if (price.contentEquals("900 naira Big Chicken(3)")) {
             ElevenString = button3.getText().toString();
             EleventhSubString = ElevenString.substring(ElevenString.indexOf(""), ElevenString.indexOf(" "));
             parseEleven = Integer.parseInt(EleventhSubString);
             if (!app.prev.containsKey("10")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseEleven;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("10", "300 naira P. SevenUp(3)");
+                app.prev.put("10", "900 naira Big Chicken(3)");
             } else {
                 String val = app.prev.get("10");
                 EleventhSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(EleventhSubString) != parseEleven) {
                     app.prev.remove("10");
-                    app.prev.put("10", "300 naira P. SevenUp(3)");
+                    app.prev.put("10", "900 naira Big Chicken(3)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(EleventhSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseEleven;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("400 naira P. SevenUp(4)")) {
+        } else if (price.contentEquals("1200 naira Big Chicken(4)")) {
             ElevenString = button4.getText().toString();
             EleventhSubString = ElevenString.substring(ElevenString.indexOf(""), ElevenString.indexOf(" "));
             parseEleven = Integer.parseInt(EleventhSubString);
             if (!app.prev.containsKey("10")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseEleven;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("10", "400 naira P. SevenUp(4)");
+                app.prev.put("10", "1200 naira Big Chicken(4)");
             } else {
                 String val = app.prev.get("10");
                 EleventhSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(EleventhSubString) != parseEleven) {
                     app.prev.remove("10");
-                    app.prev.put("10", "400 naira P. SevenUp(4)");
+                    app.prev.put("10", "1200 naira Big Chicken(4)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(EleventhSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseEleven;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("500 naira P. SevenUp(5)")) {
+        } else if (price.contentEquals("1500 naira Big Chicken(5)")) {
             ElevenString = button5.getText().toString();
             EleventhSubString = ElevenString.substring(ElevenString.indexOf(""), ElevenString.indexOf(" "));
             parseEleven = Integer.parseInt(EleventhSubString);
             if (!app.prev.containsKey("10")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseEleven;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("10", "500 naira P. SevenUp(5)");
+                app.prev.put("10", "1500 naira Big Chicken(5)");
             } else {
                 String val = app.prev.get("10");
                 EleventhSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(EleventhSubString) != parseEleven) {
                     app.prev.remove("10");
-                    app.prev.put("10", "500 naira P. SevenUp(5)");
+                    app.prev.put("10", "1500 naira Big Chicken(5)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(EleventhSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseEleven;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -1540,21 +1540,21 @@ public class ChosenplateCounter extends Fragment {
             }
 
         }
-        else if (price.contentEquals("600 naira P. SevenUp(6)")) {
+        else if (price.contentEquals("1800 naira Big Chicken(6)")) {
             ElevenString = button6.getText().toString();
             EleventhSubString = ElevenString.substring(ElevenString.indexOf(""), ElevenString.indexOf(" "));
             parseEleven = Integer.parseInt(EleventhSubString);
             if (!app.prev.containsKey("10")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseEleven;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("10", "600 naira P. SevenUp(6)");
+                app.prev.put("10", "1800 naira Big Chicken(6)");
             } else {
                 String val = app.prev.get("10");
                 EleventhSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(EleventhSubString) != parseEleven) {
                     app.prev.remove("10");
-                    app.prev.put("10", "600 naira P. SevenUp(6)");
+                    app.prev.put("10", "1800 naira Big Chicken(6)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(EleventhSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseEleven;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -1562,105 +1562,105 @@ public class ChosenplateCounter extends Fragment {
             }
         }
 
-        if (price.contentEquals("80 naira Small G. Sprite")) {
+        if (price.contentEquals("200 naira Small Goatmeat")) {
             TwelveString = button.getText().toString();
             TwelvethSubString = TwelveString.substring(TwelveString.indexOf(""), TwelveString.indexOf(" "));
             parseTwelve = Integer.parseInt(TwelvethSubString);
             if (!app.prev.containsKey("11")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwelve;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("11", "80 naira Small G. Sprite");
+                app.prev.put("11", "200 naira Small Goatmeat");
             } else {
                 String val = app.prev.get("11");
                 TwelvethSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwelvethSubString) != parseTwelve) {
                     app.prev.remove("11");
-                    app.prev.put("11", "80 naira Small G. Sprite");
+                    app.prev.put("11", "200 naira Small Goatmeat");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwelvethSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwelve;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("160 naira Small G. Sprite(2)")) {
+        } else if (price.contentEquals("400 naira Small Goatmeat(2)")) {
             TwelveString = button2.getText().toString();
             TwelvethSubString = TwelveString.substring(TwelveString.indexOf(""), TwelveString.indexOf(" "));
             parseTwelve = Integer.parseInt(TwelvethSubString);
             if (!app.prev.containsKey("11")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwelve;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("11", "160 naira Small G. Sprite(2)");
+                app.prev.put("11", "400 naira Small Goatmeat(2)");
             } else {
                 String val = app.prev.get("11");
                 TwelvethSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(SecondSubString) != parseTwelve) {
                     app.prev.remove("11");
-                    app.prev.put("11", "160 naira Small G. Sprite(2)");
+                    app.prev.put("11", "400 naira Small Goatmeat(2)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwelvethSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwelve;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("240 naira Small G. Sprite(3)")) {
+        } else if (price.contentEquals("600 naira Small Goatmeat(3)")) {
             TwelveString = button3.getText().toString();
             TwelvethSubString = TwelveString.substring(TwelveString.indexOf(""), TwelveString.indexOf(" "));
             parseTwelve = Integer.parseInt(TwelvethSubString);
             if (!app.prev.containsKey("11")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwelve;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("11", "240 naira Small G. Sprite(3)");
+                app.prev.put("11", "600 naira Small Goatmeat(3)");
             } else {
                 String val = app.prev.get("11");
                 TwelvethSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwelvethSubString) != parseTwelve) {
                     app.prev.remove("11");
-                    app.prev.put("11", "240 naira Small G. Sprite(3)");
+                    app.prev.put("11", "600 naira Small Goatmeat(3)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwelvethSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwelve;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("320 naira Small G. Sprite(4)")) {
+        } else if (price.contentEquals("800 naira Small Goatmeat(4)")) {
             TwelveString = button4.getText().toString();
             TwelvethSubString = TwelveString.substring(TwelveString.indexOf(""), TwelveString.indexOf(" "));
             parseTwelve = Integer.parseInt(TwelvethSubString);
             if (!app.prev.containsKey("11")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwelve;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("11", "320 naira Small G. Sprite(4)");
+                app.prev.put("11", "800 naira Small Goatmeat(4)");
             } else {
                 String val = app.prev.get("11");
                 TwelvethSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwelvethSubString) != parseTwelve) {
                     app.prev.remove("11");
-                    app.prev.put("11", "320 naira Small G. Sprite(4)");
+                    app.prev.put("11", "800 naira Small Goatmeat(4)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwelvethSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwelve;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("400 naira Small G. Sprite(5)")) {
+        } else if (price.contentEquals("1000 naira Small Goatmeat(5)")) {
             TwelveString = button5.getText().toString();
             TwelvethSubString = TwelveString.substring(TwelveString.indexOf(""), TwelveString.indexOf(" "));
             parseTwelve = Integer.parseInt(TwelvethSubString);
             if (!app.prev.containsKey("11")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwelve;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("11", "400 naira Small G. Sprite(5)");
+                app.prev.put("11", "1000 naira Small Goatmeat(5)");
             } else {
                 String val = app.prev.get("11");
                 TwelvethSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwelvethSubString) != parseTwelve) {
                     app.prev.remove("11");
-                    app.prev.put("11", "400 naira Small G. Sprite(5)");
+                    app.prev.put("11", "1000 naira Small Goatmeat(5)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwelvethSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwelve;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -1668,21 +1668,21 @@ public class ChosenplateCounter extends Fragment {
             }
 
         }
-        else if (price.contentEquals("480 naira Small G. Sprite(6)")) {
+        else if (price.contentEquals("1200 naira Small Goatmeat(6)")) {
             TwelveString = button6.getText().toString();
             TwelvethSubString = TwelveString.substring(TwelveString.indexOf(""), TwelveString.indexOf(" "));
             parseTwelve = Integer.parseInt(TwelvethSubString);
             if (!app.prev.containsKey("11")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwelve;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("11", "480 naira Small G. Sprite(6)");
+                app.prev.put("11", "1200 naira Small Goatmeat(6)");
             } else {
                 String val = app.prev.get("11");
                 TwelvethSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwelvethSubString) != parseTwelve) {
                     app.prev.remove("11");
-                    app.prev.put("11", "480 naira Small G. Sprite(6)");
+                    app.prev.put("11", "1200 naira Small Goatmeat(6)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwelvethSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwelve;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -1690,42 +1690,42 @@ public class ChosenplateCounter extends Fragment {
             }
         }
 
-        if (price.contentEquals("100 naira Big G. Sprite")) {
+        if (price.contentEquals("300 naira Big Goatmeat")) {
             ThirteenString = button.getText().toString();
             ThirteenthSubString = ThirteenString.substring(ThirteenString.indexOf(""), ThirteenString.indexOf(" "));
             parseThirteen = Integer.parseInt(ThirteenthSubString);
             if (!app.prev.containsKey("12")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseThirteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("12", "100 naira Big G. Sprite");
+                app.prev.put("12", "300 naira Big Goatmeat");
             } else {
                 String val = app.prev.get("12");
                 ThirteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(ThirteenthSubString) != parseThirteen) {
                     app.prev.remove("12");
-                    app.prev.put("12", "100 naira Big G. Sprite");
+                    app.prev.put("12", "300 naira Big Goatmeat");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(ThirteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseThirteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("200 naira Big G. Sprite(2)")) {
+        } else if (price.contentEquals("600 naira Big Goatmeat(2)")) {
             ThirteenString = button2.getText().toString();
             ThirteenthSubString = ThirteenString.substring(ThirteenString.indexOf(""), ThirteenString.indexOf(" "));
             parseThirteen = Integer.parseInt(ThirteenthSubString);
             if (!app.prev.containsKey("12")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseThirteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("12", "200 naira Big G. Sprite(2)");
+                app.prev.put("12", "600 naira Big Goatmeat(2)");
             } else {
                 String val = app.prev.get("12");
                 ThirteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(ThirteenthSubString) != parseThirteen) {
                     app.prev.remove("12");
-                    app.prev.put("12", "200 naira Big G. Sprite(2)");
+                    app.prev.put("12", "600 naira Big Goatmeat(2)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(ThirteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseThirteen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -1733,63 +1733,63 @@ public class ChosenplateCounter extends Fragment {
             }
 
 
-        } else if (price.contentEquals("300 naira Big G. Sprite(3)")) {
+        } else if (price.contentEquals("900 naira Big Goatmeat(3)")) {
             ThirteenString = button3.getText().toString();
             ThirteenthSubString = ThirteenString.substring(ThirteenString.indexOf(""), ThirteenString.indexOf(" "));
             parseThirteen = Integer.parseInt(ThirteenthSubString);
             if (!app.prev.containsKey("12")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseThirteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("12", "300 naira Big G. Sprite(3)");
+                app.prev.put("12", "900 naira Big Goatmeat(3)");
             } else {
                 String val = app.prev.get("12");
                 ThirteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(ThirteenthSubString) != parseThirteen) {
                     app.prev.remove("12");
-                    app.prev.put("12", "300 naira Big G. Sprite(3)");
+                    app.prev.put("12", "900 naira Big Goatmeat(3)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(ThirteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseThirteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("400 naira Big G. Sprite(4)")) {
+        } else if (price.contentEquals("1200 naira Big Goatmeat(4)")) {
             ThirteenString = button4.getText().toString();
             ThirteenthSubString = ThirteenString.substring(ThirteenString.indexOf(""), ThirteenString.indexOf(" "));
             parseThirteen = Integer.parseInt(ThirteenthSubString);
             if (!app.prev.containsKey("12")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseThirteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("12", "400 naira Big G. Sprite(4)");
+                app.prev.put("12", "1200 naira Big Goatmeat(4)");
             } else {
                 String val = app.prev.get("12");
                 ThirteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(ThirteenthSubString) != parseThirteen) {
                     app.prev.remove("12");
-                    app.prev.put("12", "400 naira Big G. Sprite(4)");
+                    app.prev.put("12", "1200 naira Big Goatmeat(4)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(ThirteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseThirteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("500 naira Big G. Sprite(5)")) {
+        } else if (price.contentEquals("1500 naira Big Goatmeat(5)")) {
             ThirteenString = button5.getText().toString();
             ThirteenthSubString = ThirteenString.substring(ThirteenString.indexOf(""), ThirteenString.indexOf(" "));
             parseThirteen = Integer.parseInt(ThirteenthSubString);
             if (!app.prev.containsKey("12")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseThirteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("12", "500 naira Big G. Sprite(5)");
+                app.prev.put("12", "1500 naira Big Goatmeat(5)");
             } else {
                 String val = app.prev.get("12");
                 ThirteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(ThirteenthSubString) != parseThirteen) {
                     app.prev.remove("12");
-                    app.prev.put("12", "500 naira Big G. Sprite(5)");
+                    app.prev.put("12", "1500 naira Big Goatmeat(5)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(ThirteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseThirteen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -1797,21 +1797,21 @@ public class ChosenplateCounter extends Fragment {
             }
 
         }
-        else if (price.contentEquals("600 naira Big G. Sprite(6)")) {
+        else if (price.contentEquals("1800 naira Big Goatmeat(6)")) {
             ThirteenString = button6.getText().toString();
             ThirteenthSubString = ThirteenString.substring(ThirteenString.indexOf(""), ThirteenString.indexOf(" "));
             parseThirteen = Integer.parseInt(ThirteenthSubString);
             if (!app.prev.containsKey("12")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseThirteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("12", "600 naira Big G. Sprite(6)");
+                app.prev.put("12", "1800 naira Big Goatmeat(6)");
             } else {
                 String val = app.prev.get("12");
                 ThirteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(ThirteenthSubString) != parseThirteen) {
                     app.prev.remove("12");
-                    app.prev.put("12", "600 naira Big G. Sprite(6)");
+                    app.prev.put("12", "1800 naira Big Goatmeat(6)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(ThirteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseThirteen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -1819,105 +1819,105 @@ public class ChosenplateCounter extends Fragment {
             }
         }
 
-        if (price.contentEquals("100 naira Pet Sprite")) {
+        if (price.contentEquals("100 naira Titus Fish")) {
             FourteenString = button.getText().toString();
             FourteenthSubString = FourteenString.substring(FourteenString.indexOf(""), FourteenString.indexOf(" "));
             parseFourteen = Integer.parseInt(FourteenthSubString);
             if (!app.prev.containsKey("13")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseFourteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("13", "100 naira Pet Sprite");
+                app.prev.put("13", "100 naira Titus Fish");
             } else {
                 String val = app.prev.get("13");
                 FourteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(FourteenthSubString) != parseFourteen) {
                     app.prev.remove("13");
-                    app.prev.put("13", "100 naira Pet Sprite");
+                    app.prev.put("13", "100 naira Titus Fish");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(FourteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseFourteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("200 naira Pet Sprite(2)")) {
+        } else if (price.contentEquals("200 naira Titus Fish(2)")) {
             FourteenString = button2.getText().toString();
             FourteenthSubString = FourteenString.substring(FourteenString.indexOf(""), FourteenString.indexOf(" "));
             parseFourteen = Integer.parseInt(FourteenthSubString);
             if (!app.prev.containsKey("13")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseFourteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("13", "200 naira Pet Sprite(2)");
+                app.prev.put("13", "200 naira Titus Fish(2)");
             } else {
                 String val = app.prev.get("13");
                 FourteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(FourteenthSubString) != parseFourteen) {
                     app.prev.remove("13");
-                    app.prev.put("13", "200 naira Pet Sprite(2)");
+                    app.prev.put("13", "200 naira Titus Fish(2)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(FourteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseFourteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("300 naira Pet Sprite(3)")) {
+        } else if (price.contentEquals("300 naira Titus Fish(3)")) {
             FourteenString = button3.getText().toString();
             FourteenthSubString = FourteenString.substring(FourteenString.indexOf(""), FourteenString.indexOf(" "));
             parseFourteen = Integer.parseInt(FourteenthSubString);
             if (!app.prev.containsKey("13")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseFourteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("13", "300 naira Pet Sprite(3)");
+                app.prev.put("13", "300 naira Titus Fish(3)");
             } else {
                 String val = app.prev.get("13");
                 FourteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(FourteenthSubString) != parseFourteen) {
                     app.prev.remove("13");
-                    app.prev.put("13", "300 naira Pet Sprite(3)");
+                    app.prev.put("13", "300 naira Titus Fish(3)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(FourteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseFourteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("400 naira Pet Sprite(4)")) {
+        } else if (price.contentEquals("400 naira Titus Fish(4)")) {
             FourteenString = button4.getText().toString();
             FourteenthSubString = FourteenString.substring(FourteenString.indexOf(""), FourteenString.indexOf(" "));
             parseFourteen = Integer.parseInt(FourteenthSubString);
             if (!app.prev.containsKey("13")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseFourteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("13", "400 naira Pet Sprite(4)");
+                app.prev.put("13", "400 naira Titus Fish(4)");
             } else {
                 String val = app.prev.get("13");
                 FourteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(FourteenthSubString) != parseFourteen) {
                     app.prev.remove("13");
-                    app.prev.put("13", "400 naira Pet Sprite(4)");
+                    app.prev.put("13", "400 naira Titus Fish(4)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(FourteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseFourteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("500 naira Pet Sprite(5)")) {
+        } else if (price.contentEquals("500 naira Titus Fish(5)")) {
             FourteenString = button5.getText().toString();
             FourteenthSubString = FourteenString.substring(FourteenString.indexOf(""), FourteenString.indexOf(" "));
             parseFourteen = Integer.parseInt(FourteenthSubString);
             if (!app.prev.containsKey("13")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseFourteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("13", "500 naira Pet Sprite(5)");
+                app.prev.put("13", "500 naira Titus Fish(5)");
             } else {
                 String val = app.prev.get("13");
                 FourteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(FourteenthSubString) != parseFourteen) {
                     app.prev.remove("13");
-                    app.prev.put("13", "500 naira Pet Sprite(5)");
+                    app.prev.put("13", "500 naira Titus Fish(5)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(FourteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseFourteen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -1925,21 +1925,21 @@ public class ChosenplateCounter extends Fragment {
             }
 
         }
-        else if (price.contentEquals("600 naira Pet Sprite(6)")) {
+        else if (price.contentEquals("600 naira Titus Fish(6)")) {
             FourteenString = button6.getText().toString();
             FourteenthSubString = FourteenString.substring(FourteenString.indexOf(""), FourteenString.indexOf(" "));
             parseFourteen = Integer.parseInt(FourteenthSubString);
             if (!app.prev.containsKey("13")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseFourteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("13", "600 naira Pet Sprite(6)");
+                app.prev.put("13", "600 naira Titus Fish(6)");
             } else {
                 String val = app.prev.get("13");
                 FourteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(FourteenthSubString) != parseFourteen) {
                     app.prev.remove("13");
-                    app.prev.put("13", "600 naira Pet Sprite(6)");
+                    app.prev.put("13", "600 naira Titus Fish(6)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(FourteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseFourteen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -1947,105 +1947,105 @@ public class ChosenplateCounter extends Fragment {
             }
         }
 
-        if (price.contentEquals("100 naira Pet Teem")) {
+        if (price.contentEquals("100 naira Sawa Fish")) {
             FifteenString = button.getText().toString();
             FifteenthSubString = FifteenString.substring(FifteenString.indexOf(""), FifteenString.indexOf(" "));
             parseFifteen = Integer.parseInt(FifteenthSubString);
             if (!app.prev.containsKey("14")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseFifteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("14", "100 naira Pet Teem");
+                app.prev.put("14", "100 naira Sawa Fish");
             } else {
                 String val = app.prev.get("14");
                 FifteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(FifteenthSubString) != parseFifteen) {
                     app.prev.remove("14");
-                    app.prev.put("14", "100 naira Pet Teem");
+                    app.prev.put("14", "100 naira Sawa Fish");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(FifteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseFifteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("200 naira Pet Teem(2)")) {
+        } else if (price.contentEquals("200 naira Sawa Fish(2)")) {
             FifteenString = button2.getText().toString();
             FifteenthSubString = FifteenString.substring(FifteenString.indexOf(""), FifteenString.indexOf(" "));
             parseFifteen = Integer.parseInt(FifteenthSubString);
             if (!app.prev.containsKey("14")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseFifteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("14", "200 naira Pet Teem(2)");
+                app.prev.put("14", "200 naira Sawa Fish(2)");
             } else {
                 String val = app.prev.get("14");
                 FifteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(FifteenthSubString) != parseFifteen) {
                     app.prev.remove("14");
-                    app.prev.put("14", "200 naira Pet Teem(2)");
+                    app.prev.put("14", "200 naira Sawa Fish(2)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(FifteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseFifteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("300 naira Pet Teem(3)")) {
+        } else if (price.contentEquals("300 naira Sawa Fish(3)")) {
             FifteenString = button3.getText().toString();
             FifteenthSubString = FifteenString.substring(FifteenString.indexOf(""), FifteenString.indexOf(" "));
             parseFifteen = Integer.parseInt(FifteenthSubString);
             if (!app.prev.containsKey("14")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseFifteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("14", "300 naira Pet Teem(3)");
+                app.prev.put("14", "300 naira Sawa Fish(3)");
             } else {
                 String val = app.prev.get("14");
                 FifteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(FifthSubString) != parseFifteen) {
                     app.prev.remove("14");
-                    app.prev.put("14", "300 naira Pet Teem(3)");
+                    app.prev.put("14", "300 naira Sawa Fish(3)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(FifteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseFifteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("400 naira Pet Teem(4)")) {
+        } else if (price.contentEquals("400 naira Sawa Fish(4)")) {
             FifteenString = button4.getText().toString();
             FifteenthSubString = FifteenString.substring(FifteenString.indexOf(""), FifteenString.indexOf(" "));
             parseFifteen = Integer.parseInt(FifteenthSubString);
             if (!app.prev.containsKey("14")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseFifteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("14", "400 naira Pet Teem(4)");
+                app.prev.put("14", "400 naira Sawa Fish(4)");
             } else {
                 String val = app.prev.get("14");
                 FifteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(FifteenthSubString) != parseFifteen) {
                     app.prev.remove("14");
-                    app.prev.put("14", "400 naira Pet Teem(4)");
+                    app.prev.put("14", "400 naira Sawa Fish(4)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(FifteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseFifteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("500 naira Pet Teem(5)")) {
+        } else if (price.contentEquals("500 naira Sawa Fish(5)")) {
             FifteenString = button5.getText().toString();
             FifteenthSubString = FifteenString.substring(FifteenString.indexOf(""), FifteenString.indexOf(" "));
             parseFifteen = Integer.parseInt(FifteenthSubString);
             if (!app.prev.containsKey("14")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseFifteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("14", "500 naira Pet Teem(5)");
+                app.prev.put("14", "500 naira Sawa Fish(5)");
             } else {
                 String val = app.prev.get("14");
                 FifteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(FifteenthSubString) != parseFifteen) {
                     app.prev.remove("14");
-                    app.prev.put("14", "500 naira Pet Teem(5)");
+                    app.prev.put("14", "500 naira Sawa Fish(5)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(FifteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseFifteen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -2053,21 +2053,21 @@ public class ChosenplateCounter extends Fragment {
             }
 
         }
-        else if (price.contentEquals("600 naira Pet Teem(6)")) {
+        else if (price.contentEquals("600 naira Sawa Fish(6)")) {
             FifteenString = button6.getText().toString();
             FifteenthSubString = FifteenString.substring(FifteenString.indexOf(""), FifteenString.indexOf(" "));
             parseFifteen = Integer.parseInt(FifteenthSubString);
             if (!app.prev.containsKey("14")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseFifteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("14", "600 naira Pet Teem(6)");
+                app.prev.put("14", "600 naira Sawa Fish(6)");
             } else {
                 String val = app.prev.get("14");
                 FifteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(FifteenthSubString) != parseFifteen) {
                     app.prev.remove("14");
-                    app.prev.put("14", "600 naira Pet Teem(6)");
+                    app.prev.put("14", "600 naira Sawa Fish(6)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(FifteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseFifteen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -2075,105 +2075,105 @@ public class ChosenplateCounter extends Fragment {
             }
         }
 
-        if (price.contentEquals("100 naira Pet Lacasera")) {
+        if (price.contentEquals("100 naira Panla Fish")) {
             SixteenString = button.getText().toString();
             SixteenthSubString = SixteenString.substring(SixteenString.indexOf(""), SixteenString.indexOf(" "));
             parseSixteen = Integer.parseInt(SixteenthSubString);
             if (!app.prev.containsKey("15")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseSixteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("15", "100 naira Pet Lacasera");
+                app.prev.put("15", "100 naira Panla Fish");
             } else {
                 String val = app.prev.get("15");
                 SixteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(SixteenthSubString) != parseSixteen) {
                     app.prev.remove("15");
-                    app.prev.put("15", "100 naira Pet Lacasera");
+                    app.prev.put("15", "100 naira Panla Fish");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(SixteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseSixteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("200 naira Pet Lacasera(2)")) {
+            } else if (price.contentEquals("200 naira Panla Fish(2)")) {
             SixteenString = button2.getText().toString();
             SixteenthSubString = SixteenString.substring(SixteenString.indexOf(""), SixteenString.indexOf(" "));
             parseSixteen = Integer.parseInt(SixteenthSubString);
             if (!app.prev.containsKey("15")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseSixteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("15", "200 naira Pet Lacasera(2)");
+                app.prev.put("15", "200 naira Panla Fish(2)");
             } else {
                 String val = app.prev.get("15");
                 SixteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(SixteenthSubString) != parseSixteen) {
                     app.prev.remove("15");
-                    app.prev.put("15", "200 naira Pet Lacasera(2)");
+                    app.prev.put("15", "200 naira Panla Fish(2)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(SixteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseSixteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("300 naira Pet Lacasera(3)")) {
+        } else if (price.contentEquals("300 naira Panla Fish(3)")) {
             SixteenString = button3.getText().toString();
             SixteenthSubString = SixteenString.substring(SixteenString.indexOf(""), SixteenString.indexOf(" "));
             parseSixteen = Integer.parseInt(SixteenthSubString);
             if (!app.prev.containsKey("15")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseSixteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("15", "300 naira Pet Lacasera(3)");
+                app.prev.put("15", "300 naira Panla Fish(3)");
             } else {
                 String val = app.prev.get("15");
                 SixteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(SixteenthSubString) != parseSixteen) {
                     app.prev.remove("15");
-                    app.prev.put("15", "300 naira Pet Lacasera(3)");
+                    app.prev.put("15", "300 naira Panla Fish(3)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(SixteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseSixteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("400 naira Pet Lacasera(4)")) {
+        } else if (price.contentEquals("400 naira Panla Fish(4)")) {
             SixteenString = button4.getText().toString();
             SixteenthSubString = SixteenString.substring(SixteenString.indexOf(""), SixteenString.indexOf(" "));
             parseSixteen = Integer.parseInt(SixteenthSubString);
             if (!app.prev.containsKey("15")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseSixteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("15", "400 naira Pet Lacasera(4)");
+                app.prev.put("15", "400 naira Panla Fish(4)");
             } else {
                 String val = app.prev.get("15");
                 SixteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(SixteenthSubString) != parseSixteen) {
                     app.prev.remove("15");
-                    app.prev.put("15", "400 naira Pet Lacasera(4)");
+                    app.prev.put("15", "400 naira Panla Fish(4)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(SixteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseSixteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("500 naira Pet Lacasera(5)")) {
+        } else if (price.contentEquals("500 naira Panla Fish(5)")) {
             SixteenString = button5.getText().toString();
             SixteenthSubString = SixteenString.substring(SixteenString.indexOf(""), SixteenString.indexOf(" "));
             parseSixteen = Integer.parseInt(SixteenthSubString);
             if (!app.prev.containsKey("15")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseSixteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("15", "500 naira Pet Lacasera(5)");
+                app.prev.put("15", "500 naira Panla Fish(5)");
             } else {
                 String val = app.prev.get("15");
                 SixteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(SixteenthSubString) != parseSixteen) {
                     app.prev.remove("15");
-                    app.prev.put("15", "500 naira Pet Lacasera(5)");
+                    app.prev.put("15", "500 naira Panla Fish(5)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(SixteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseSixteen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -2181,21 +2181,21 @@ public class ChosenplateCounter extends Fragment {
             }
 
         }
-        else if (price.contentEquals("600 naira Pet Lacasera(6)")) {
+        else if (price.contentEquals("600 naira Panla Fish(6)")) {
             SixteenString = button6.getText().toString();
             SixteenthSubString = SixteenString.substring(SixteenString.indexOf(""), SixteenString.indexOf(" "));
             parseSixteen = Integer.parseInt(SixteenthSubString);
             if (!app.prev.containsKey("15")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseSixteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("15", "600 naira Pet Lacasera(6)");
+                app.prev.put("15", "600 naira Panla Fish(6)");
             } else {
                 String val = app.prev.get("15");
                 SixteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(SixteenthSubString) != parseSixteen) {
                     app.prev.remove("15");
-                    app.prev.put("15", "600 naira Pet Lacasera(6)");
+                    app.prev.put("15", "600 naira Panla Fish(6)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(SixteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseSixteen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -2203,105 +2203,105 @@ public class ChosenplateCounter extends Fragment {
             }
         }
 
-        if (price.contentEquals("150 naira Pet Smoov")) {
+        if (price.contentEquals("100 naira MoiMoi")) {
             SeventeenString = button.getText().toString();
             SeventeenthSubString = SeventeenString.substring(SeventeenString.indexOf(""), SeventeenString.indexOf(" "));
             parseSeventeen = Integer.parseInt(SeventeenthSubString);
             if (!app.prev.containsKey("16")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseSeventeen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("16", "150 naira Pet Smoov");
+                app.prev.put("16", "100 naira MoiMoi");
             } else {
                 String val = app.prev.get("16");
                 SeventeenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(SeventeenthSubString) != parseSeventeen) {
                     app.prev.remove("16");
-                    app.prev.put("16", "150 naira Pet Smoov");
+                    app.prev.put("16", "100 naira MoiMoi");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(SeventeenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseSeventeen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("300 naira Pet Smoov(2)")) {
+        } else if (price.contentEquals("200 naira MoiMoi(2)")) {
             SeventeenString = button2.getText().toString();
             SeventeenthSubString = SeventeenString.substring(SeventeenString.indexOf(""), SeventeenString.indexOf(" "));
             parseSeventeen = Integer.parseInt(SeventeenthSubString);
             if (!app.prev.containsKey("16")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseSeventeen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("16", "300 naira Pet Smoov(2)");
+                app.prev.put("16", "200 naira MoiMoi(2)");
             } else {
                 String val = app.prev.get("16");
                 SeventeenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(SeventeenthSubString) != parseSeventeen) {
                     app.prev.remove("16");
-                    app.prev.put("16", "300 naira Pet Smoov(2)");
+                    app.prev.put("16", "200 naira MoiMoi(2)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(SeventeenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseSeventeen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("450 naira Pet Smoov(3)")) {
+        } else if (price.contentEquals("300 naira MoiMoi(3)")) {
             SeventeenString = button3.getText().toString();
             SeventeenthSubString = SeventeenString.substring(SeventeenString.indexOf(""), SeventeenString.indexOf(" "));
             parseSeventeen = Integer.parseInt(SeventeenthSubString);
             if (!app.prev.containsKey("16")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseSeventeen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("16", "450 naira Pet Smoov(3)");
+                app.prev.put("16", "300 naira MoiMoi(3)");
             } else {
                 String val = app.prev.get("16");
                 SeventeenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(SeventeenthSubString) != parseSeventeen) {
                     app.prev.remove("16");
-                    app.prev.put("16", "450 naira Pet Smoov(3)");
+                    app.prev.put("16", "300 naira MoiMoi(3)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(SeventeenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseSeventeen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("600 naira Pet Smoov(4)")) {
+        } else if (price.contentEquals("400 naira MoiMoi(4)")) {
             SeventeenString = button4.getText().toString();
             SeventeenthSubString = SeventeenString.substring(SeventeenString.indexOf(""), SeventeenString.indexOf(" "));
             parseSeventeen = Integer.parseInt(SeventeenthSubString);
             if (!app.prev.containsKey("16")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseSeventeen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("16", "600 naira Pet Smoov(4)");
+                app.prev.put("16", "400 naira MoiMoi(4)");
             } else {
                 String val = app.prev.get("16");
                 SeventeenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(SeventeenthSubString) != parseSeventeen) {
                     app.prev.remove("16");
-                    app.prev.put("16", "600 naira Pet Smoov(4)");
+                    app.prev.put("16", "400 naira MoiMoi(4)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(SeventeenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseSeventeen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("750 naira Pet Smoov(5)")) {
+        } else if (price.contentEquals("500 naira MoiMoi(5)")) {
             SeventeenString = button5.getText().toString();
             SeventeenthSubString = SeventeenString.substring(SeventeenString.indexOf(""), SeventeenString.indexOf(" "));
             parseSeventeen = Integer.parseInt(SeventeenthSubString);
             if (!app.prev.containsKey("16")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseSeventeen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("16", "750 naira Pet Smoov(5)");
+                app.prev.put("16", "500 naira MoiMoi(5)");
             } else {
                 String val = app.prev.get("16");
                 SeventeenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(SeventeenthSubString) != parseSeventeen) {
                     app.prev.remove("16");
-                    app.prev.put("16", "750 naira Pet Smoov(5)");
+                    app.prev.put("16", "500 naira MoiMoi(5)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(SeventeenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseSeventeen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -2309,21 +2309,21 @@ public class ChosenplateCounter extends Fragment {
             }
 
         }
-        else if (price.contentEquals("900 naira Pet Smoov(6)")) {
+        else if (price.contentEquals("600 naira MoiMoi(6)")) {
             SeventeenString = button6.getText().toString();
             SeventeenthSubString = SeventeenString.substring(SeventeenString.indexOf(""), SeventeenString.indexOf(" "));
             parseSeventeen = Integer.parseInt(SeventeenthSubString);
             if (!app.prev.containsKey("16")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseSeventeen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("16", "900 naira Pet Smoov(6)");
+                app.prev.put("16", "600 naira MoiMoi(6)");
             } else {
                 String val = app.prev.get("16");
                 SeventeenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(SeventeenthSubString) != parseSeventeen) {
                     app.prev.remove("16");
-                    app.prev.put("16", "900 naira Pet Smoov(6)");
+                    app.prev.put("16", "600 naira MoiMoi(6)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(SeventeenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseSeventeen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -2331,105 +2331,105 @@ public class ChosenplateCounter extends Fragment {
             }
         }
 
-        if (price.contentEquals("80 naira Small G. Coke")) {
+        if (price.contentEquals("50 naira Plantain")) {
             EighteenString = button.getText().toString();
             EighteenthSubString = EighteenString.substring(EighteenString.indexOf(""), EighteenString.indexOf(" "));
             parseEighteen = Integer.parseInt(EighteenthSubString);
             if (!app.prev.containsKey("17")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseEighteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("17", "80 naira Small G. Coke");
+                app.prev.put("17", "50 naira Plantain");
             } else {
                 String val = app.prev.get("17");
                 EighteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(EighteenthSubString) != parseEighteen) {
                     app.prev.remove("17");
-                    app.prev.put("17", "80 naira Small G. Coke");
+                    app.prev.put("17", "50 naira Plantain");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(EighteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseEighteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("160 naira Small G. Coke(2)")) {
+        } else if (price.contentEquals("100 naira Plantain")) {
             EighteenString = button2.getText().toString();
             EighteenthSubString = EighteenString.substring(EighteenString.indexOf(""), EighteenString.indexOf(" "));
             parseEighteen = Integer.parseInt(EighteenthSubString);
             if (!app.prev.containsKey("17")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseEighteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("17", "160 naira Small G. Coke(2)");
+                app.prev.put("17", "100 naira Plantain");
             } else {
                 String val = app.prev.get("17");
                 EighteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(EighteenthSubString) != parseEighteen) {
                     app.prev.remove("17");
-                    app.prev.put("17", "160 naira Small G. Coke(2)");
+                    app.prev.put("17", "100 naira Plantain");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(EighteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseEighteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("240 naira Small G. Coke(3)")) {
+        } else if (price.contentEquals("150 naira Plantain")) {
             EighteenString = button3.getText().toString();
             EighteenthSubString = EighteenString.substring(EighteenString.indexOf(""), EighteenString.indexOf(" "));
             parseEighteen = Integer.parseInt(EighteenthSubString);
             if (!app.prev.containsKey("17")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseEighteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("17", "240 naira Small G. Coke(3)");
+                app.prev.put("17", "150 naira Plantain");
             } else {
                 String val = app.prev.get("17");
                 EighteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(EighteenthSubString) != parseEighteen) {
                     app.prev.remove("17");
-                    app.prev.put("17", "240 naira Small G. Coke(3)");
+                    app.prev.put("17", "150 naira Plantain");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(EighteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseEighteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("320 naira Small G. Coke(4)")) {
+        } else if (price.contentEquals("200 naira Plantain")) {
             EighteenString = button4.getText().toString();
             EighteenthSubString = EighteenString.substring(EighteenString.indexOf(""), EighteenString.indexOf(" "));
             parseEighteen = Integer.parseInt(EighteenthSubString);
             if (!app.prev.containsKey("17")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseEighteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("17", "320 naira Small G. Coke(4)");
+                app.prev.put("17", "200 naira Plantain");
             } else {
                 String val = app.prev.get("17");
                 EighteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(EighteenthSubString) != parseEighteen) {
                     app.prev.remove("17");
-                    app.prev.put("17", "320 naira Small G. Coke(4)");
+                    app.prev.put("17", "200 naira Plantain");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(EighteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseEighteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("400 naira Small G. Coke(5)")) {
+        } else if (price.contentEquals("250 naira Plantain")) {
             EighteenString = button5.getText().toString();
             EighteenthSubString = EighteenString.substring(EighteenString.indexOf(""), EighteenString.indexOf(" "));
             parseEighteen = Integer.parseInt(EighteenthSubString);
             if (!app.prev.containsKey("17")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseEighteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("17", "400 naira Small G. Coke(5)");
+                app.prev.put("17", "250 naira Plantain");
             } else {
                 String val = app.prev.get("17");
                 EighteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(EighteenthSubString) != parseEighteen) {
                     app.prev.remove("17");
-                    app.prev.put("17", "400 naira Small G. Coke(5)");
+                    app.prev.put("17", "250 naira Plantain");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(EighteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseEighteen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -2437,21 +2437,21 @@ public class ChosenplateCounter extends Fragment {
             }
 
         }
-        else if (price.contentEquals("480 naira Small G. Coke(6)")) {
+        else if (price.contentEquals("300 naira Plantain")) {
             EighteenString = button6.getText().toString();
             EighteenthSubString = EighteenString.substring(EighteenString.indexOf(""), EighteenString.indexOf(" "));
             parseEighteen = Integer.parseInt(EighteenthSubString);
             if (!app.prev.containsKey("17")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseEighteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("17", "480 naira Small G. Coke(6)");
+                app.prev.put("17", "300 naira Plantain");
             } else {
                 String val = app.prev.get("17");
                 EighteenthSubString = val.substring(0, val.indexOf("n")).trim();
 
                 if (Integer.parseInt(EighteenthSubString) != parseEighteen) {
                     app.prev.remove("17");
-                    app.prev.put("17", "480 naira Small G. Coke(6)");
+                    app.prev.put("17", "300 naira Plantain");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(EighteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseEighteen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -2459,105 +2459,105 @@ public class ChosenplateCounter extends Fragment {
             }
         }
 
-        if (price.contentEquals("100 naira Big G. Coke")) {
+        if (price.contentEquals("50 naira Boiled Egg")) {
             NineteenString = button.getText().toString();
             NineteenthSubString = NineteenString.substring(NineteenString.indexOf(""), NineteenString.indexOf(" "));
             parseNineteen = Integer.parseInt(NineteenthSubString);
             if (!app.prev.containsKey("18")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseNineteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("18", "100 naira Big G. Coke");
+                app.prev.put("18", "50 naira Boiled Egg");
             } else {
                 String val = app.prev.get("18");
                 NineteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(NineteenthSubString) != parseNineteen) {
                     app.prev.remove("18");
-                    app.prev.put("18", "100 naira Big G. Coke");
+                    app.prev.put("18", "50 naira Boiled Egg");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(NineteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseNineteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("200 naira Big G. Coke(2)")) {
+        } else if (price.contentEquals("100 naira Boiled Egg(2)")) {
             NineteenString = button2.getText().toString();
             NineteenthSubString = NineteenString.substring(NineteenString.indexOf(""), NineteenString.indexOf(" "));
             parseNineteen = Integer.parseInt(NineteenthSubString);
             if (!app.prev.containsKey("18")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseNineteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("18", "200 naira Big G. Coke(2)");
+                app.prev.put("18", "100 naira Boiled Egg(2)");
             } else {
                 String val = app.prev.get("18");
                 NineteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(NineteenthSubString) != parseNineteen) {
                     app.prev.remove("18");
-                    app.prev.put("18", "200 naira Big G. Coke(2)");
+                    app.prev.put("18", "100 naira Boiled Egg(2)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(NineteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseNineteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("300 naira Big G. Coke(3)")) {
+        } else if (price.contentEquals("150 naira Boiled Egg(3)")) {
             NineteenString = button3.getText().toString();
             NineteenthSubString = NineteenString.substring(NineteenString.indexOf(""), NineteenString.indexOf(" "));
             parseNineteen = Integer.parseInt(NineteenthSubString);
             if (!app.prev.containsKey("18")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseNineteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("18", "300 naira Big G. Coke(3)");
+                app.prev.put("18", "150 naira Boiled Egg(3)");
             } else {
                 String val = app.prev.get("18");
                 NineteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(NineteenthSubString) != parseNineteen) {
                     app.prev.remove("18");
-                    app.prev.put("18", "300 naira Big G. Coke(3)");
+                    app.prev.put("18", "150 naira Boiled Egg(3)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(NineteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseNineteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("400 naira Big G. Coke(4)")) {
+        } else if (price.contentEquals("200 naira Boiled Egg(4)")) {
             NineteenString = button4.getText().toString();
             NineteenthSubString = NineteenString.substring(NineteenString.indexOf(""), NineteenString.indexOf(" "));
             parseNineteen = Integer.parseInt(NineteenthSubString);
             if (!app.prev.containsKey("18")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseNineteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("18", "400 naira Big G. Coke(4)");
+                app.prev.put("18", "200 naira Boiled Egg(4)");
             } else {
                 String val = app.prev.get("18");
                 NineteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(NineteenthSubString) != parseNineteen) {
                     app.prev.remove("18");
-                    app.prev.put("18", "400 naira Big G. Coke(4)");
+                    app.prev.put("18", "200 naira Boiled Egg(4)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(NineteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseNineteen;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("500 naira Big G. Coke(5)")) {
+        } else if (price.contentEquals("250 naira Boiled Egg(5)")) {
             NineteenString = button5.getText().toString();
             NineteenthSubString = NineteenString.substring(NineteenString.indexOf(""), NineteenString.indexOf(" "));
             parseNineteen = Integer.parseInt(NineteenthSubString);
             if (!app.prev.containsKey("18")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseNineteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("18", "500 naira Big G. Coke(5)");
+                app.prev.put("18", "250 naira Boiled Egg(5)");
             } else {
                 String val = app.prev.get("18");
                 NineteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(NineteenthSubString) != parseNineteen) {
                     app.prev.remove("18");
-                    app.prev.put("18", "500 naira Big G. Coke(5)");
+                    app.prev.put("18", "250 naira Boiled Egg(5)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(NineteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseNineteen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -2565,21 +2565,21 @@ public class ChosenplateCounter extends Fragment {
             }
 
         }
-        else if (price.contentEquals("600 naira Big G. Coke(6)")) {
+        else if (price.contentEquals("300 naira Boiled Egg(6)")) {
             NineteenString = button6.getText().toString();
             NineteenthSubString = NineteenString.substring(NineteenString.indexOf(""), NineteenString.indexOf(" "));
             parseNineteen = Integer.parseInt(NineteenthSubString);
             if (!app.prev.containsKey("18")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseNineteen;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("18", "600 naira Big G. Coke(6)");
+                app.prev.put("18", "300 naira Boiled Egg(6)");
             } else {
                 String val = app.prev.get("18");
                 NineteenthSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(NineteenthSubString) != parseNineteen) {
                     app.prev.remove("18");
-                    app.prev.put("18", "600 naira Big G. Coke(6)");
+                    app.prev.put("18", "300 naira Boiled Egg(6)");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(NineteenthSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseNineteen;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -2587,105 +2587,105 @@ public class ChosenplateCounter extends Fragment {
             }
         }
 
-        if (price.contentEquals("100 naira Small Pet Coke")) {
+        if (price.contentEquals("100 naira Coleslaw")) {
             TwentyString = button.getText().toString();
             TwentiethSubString = TwentyString.substring(TwentyString.indexOf(""), TwentyString.indexOf(" "));
             parseTwenty = Integer.parseInt(TwentiethSubString);
             if (!app.prev.containsKey("19")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwenty;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("19", "100 naira Small Pet Coke");
+                app.prev.put("19", "100 naira Coleslaw");
             } else {
                 String val = app.prev.get("19");
                 TwentiethSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwentiethSubString) != parseTwenty) {
                     app.prev.remove("19");
-                    app.prev.put("19", "100 naira Small Pet Coke");
+                    app.prev.put("19", "100 naira Coleslaw");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwentiethSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwenty;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("200 naira Small Pet Coke(2)")) {
+        } else if (price.contentEquals("150 naira Coleslaw")) {
             TwentyString = button2.getText().toString();
             TwentiethSubString = TwentyString.substring(TwentyString.indexOf(""), TwentyString.indexOf(" "));
             parseTwenty = Integer.parseInt(TwentiethSubString);
             if (!app.prev.containsKey("19")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwenty;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("19", "200 naira Small Pet Coke(2)");
+                app.prev.put("19", "150 naira Coleslaw");
             } else {
                 String val = app.prev.get("19");
                 TwentiethSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwentiethSubString) != parseTwenty) {
                     app.prev.remove("19");
-                    app.prev.put("19", "200 naira Small Pet Coke(2)");
+                    app.prev.put("19", "150 naira Coleslaw");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwentiethSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwenty;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("300 naira Small Pet Coke(3)")) {
+        } else if (price.contentEquals("200 naira Coleslaw")) {
             TwentyString = button3.getText().toString();
             TwentiethSubString = TwentyString.substring(TwentyString.indexOf(""), TwentyString.indexOf(" "));
             parseTwenty = Integer.parseInt(TwentiethSubString);
             if (!app.prev.containsKey("19")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwenty;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("19", "300 naira Small Pet Coke(3)");
+                app.prev.put("19", "200 naira Coleslaw");
             } else {
                 String val = app.prev.get("19");
                 TwentiethSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwentiethSubString) != parseTwenty) {
                     app.prev.remove("19");
-                    app.prev.put("19", "300 naira Small Pet Coke(3)");
+                    app.prev.put("19", "200 naira Coleslaw");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwentiethSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwenty;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("400 naira Small Pet Coke(4)")) {
+        } else if (price.contentEquals("250 naira Coleslaw")) {
             TwentyString = button4.getText().toString();
             TwentiethSubString = TwentyString.substring(TwentyString.indexOf(""), TwentyString.indexOf(" "));
             parseTwenty = Integer.parseInt(TwentiethSubString);
             if (!app.prev.containsKey("19")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwenty;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("19", "400 naira Small Pet Coke(4)");
+                app.prev.put("19", "250 naira Coleslaw");
             } else {
                 String val = app.prev.get("19");
                 TwentiethSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwentiethSubString) != parseTwenty) {
                     app.prev.remove("19");
-                    app.prev.put("19", "400 naira Small Pet Coke(4)");
+                    app.prev.put("19", "250 naira Coleslaw");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwentiethSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwenty;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("500 naira Small Pet Coke(5)")) {
+        } else if (price.contentEquals("300 naira Coleslaw")) {
             TwentyString = button5.getText().toString();
             TwentiethSubString = TwentyString.substring(TwentyString.indexOf(""), TwentyString.indexOf(" "));
             parseTwenty = Integer.parseInt(TwentiethSubString);
             if (!app.prev.containsKey("19")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwenty;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("19", "500 naira Small Pet Coke(5)");
+                app.prev.put("19", "300 naira Coleslaw");
             } else {
                 String val = app.prev.get("19");
                 TwentiethSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwentiethSubString) != parseTwenty) {
                     app.prev.remove("19");
-                    app.prev.put("19", "500 naira Small Pet Coke(5)");
+                    app.prev.put("19", "300 naira Coleslaw");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwentiethSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwenty;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -2693,21 +2693,21 @@ public class ChosenplateCounter extends Fragment {
             }
 
         }
-        else if (price.contentEquals("600 naira Small Pet Coke(6)")) {
+        else if (price.contentEquals("350 naira Coleslaw")) {
             TwentyString = button6.getText().toString();
             TwentiethSubString = TwentyString.substring(TwentyString.indexOf(""), TwentyString.indexOf(" "));
             parseTwenty = Integer.parseInt(TwentiethSubString);
             if (!app.prev.containsKey("19")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwenty;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("19", "600 naira Small Pet Coke(6)");
+                app.prev.put("19", "350 naira Coleslaw");
             } else {
                 String val = app.prev.get("19");
                 TwentiethSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwentiethSubString) != parseTwenty) {
                     app.prev.remove("19");
-                    app.prev.put("19", "600 naira Small Pet Coke(6)`");
+                    app.prev.put("19", "350 naira Coleslaw`");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwentiethSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwenty;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -2716,105 +2716,105 @@ public class ChosenplateCounter extends Fragment {
         }
 
 
-        if (price.contentEquals("150 naira Big Pet Coke")) {
+        if (price.contentEquals("100 naira WhiteBeans")) {
             TwentyOneString = button.getText().toString();
             TwentyOneSubString = TwentyOneString.substring(TwentyOneString.indexOf(""), TwentyOneString.indexOf(" "));
             parseTwentyOne = Integer.parseInt(TwentyOneSubString);
             if (!app.prev.containsKey("20")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwentyOne;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("20", "150 naira Big Pet Coke");
+                app.prev.put("20", "100 naira WhiteBeans");
             } else {
                 String val = app.prev.get("20");
                 TwentyOneSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwentyOneSubString) != parseTwentyOne) {
                     app.prev.remove("20");
-                    app.prev.put("20", "150 naira Big Pet Coke");
+                    app.prev.put("20", "100 naira WhiteBeans");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwentyOneSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwentyOne;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("300 naira Big Pet Coke(2)")) {
+        } else if (price.contentEquals("150 naira WhiteBeans")) {
             TwentyOneString = button2.getText().toString();
             TwentyOneSubString = TwentyOneString.substring(TwentyOneString.indexOf(""), TwentyOneString.indexOf(" "));
             parseTwentyOne = Integer.parseInt(TwentyOneSubString);
             if (!app.prev.containsKey("20")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwentyOne;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("20", "300 naira Big Pet Coke(2)");
+                app.prev.put("20", "150 naira WhiteBeans");
             } else {
                 String val = app.prev.get("20");
                 TwentyOneSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwentyOneSubString) != parseTwentyOne) {
                     app.prev.remove("20");
-                    app.prev.put("20", "300 naira Big Pet Coke(2)");
+                    app.prev.put("20", "150 naira WhiteBeans");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwentyOneSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwentyOne;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("450 naira Big Pet Coke(3)")) {
+        } else if (price.contentEquals("200 naira WhiteBeans")) {
             TwentyOneString = button3.getText().toString();
             TwentyOneSubString = TwentyOneString.substring(TwentyOneString.indexOf(""), TwentyOneString.indexOf(" "));
             parseTwentyOne = Integer.parseInt(TwentyOneSubString);
             if (!app.prev.containsKey("20")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwentyOne;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("20", "450 naira Big Pet Coke(3)");
+                app.prev.put("20", "200 naira WhiteBeans");
             } else {
                 String val = app.prev.get("20");
                 TwentyOneSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwentyOneSubString) != parseTwentyOne) {
                     app.prev.remove("20");
-                    app.prev.put("20", "450 naira Big Pet Coke(3)");
+                    app.prev.put("20", "200 naira WhiteBeans");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwentyOneSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwentyOne;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("600 naira Big Pet Coke(4)")) {
+        } else if (price.contentEquals("250 naira WhiteBeans")) {
             TwentyOneString = button4.getText().toString();
             TwentyOneSubString = TwentyOneString.substring(TwentyOneString.indexOf(""), TwentyOneString.indexOf(" "));
             parseTwentyOne = Integer.parseInt(TwentyOneSubString);
             if (!app.prev.containsKey("20")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwentyOne;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("20", "600 naira Big Pet Coke(4)");
+                app.prev.put("20", "250 naira WhiteBeans");
             } else {
                 String val = app.prev.get("20");
                 TwentyOneSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwentyOneSubString) != parseTwentyOne) {
                     app.prev.remove("20");
-                    app.prev.put("20", "600 naira Big Pet Coke(4)");
+                    app.prev.put("20", "250 naira WhiteBeans");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwentyOneSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwentyOne;
                     feetag.setText("" + app.allinfoodcounter + "");
                 }
             }
 
-        } else if (price.contentEquals("750 naira Big Pet Coke(5)")) {
+        } else if (price.contentEquals("300 naira WhiteBeans")) {
             TwentyOneString = button5.getText().toString();
             TwentyOneSubString = TwentyOneString.substring(TwentyOneString.indexOf(""), TwentyOneString.indexOf(" "));
             parseTwentyOne = Integer.parseInt(TwentyOneSubString);
             if (!app.prev.containsKey("20")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwentyOne;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("20", "750 naira Big Pet Coke(5)");
+                app.prev.put("20", "300 naira WhiteBeans");
             } else {
                 String val = app.prev.get("20");
                 TwentyOneSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwentyOneSubString) != parseTwentyOne) {
                     app.prev.remove("20");
-                    app.prev.put("20", "750 naira Big Pet Coke(5)");
+                    app.prev.put("20", "300 naira WhiteBeans");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwentyOneSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwentyOne;
                     feetag.setText("" + app.allinfoodcounter + "");
@@ -2822,21 +2822,21 @@ public class ChosenplateCounter extends Fragment {
             }
 
         }
-        else if (price.contentEquals("900 naira Big Pet Coke(6)")) {
+        else if (price.contentEquals("350 naira WhiteBeans")) {
             TwentyOneString = button6.getText().toString();
             TwentyOneSubString = TwentyOneString.substring(TwentyOneString.indexOf(""), TwentyOneString.indexOf(" "));
             parseTwentyOne = Integer.parseInt(TwentyOneSubString);
             if (!app.prev.containsKey("20")) {
                 app.allinfoodcounter = app.allinfoodcounter + parseTwentyOne;
                 feetag.setText("" + app.allinfoodcounter + "");
-                app.prev.put("20", "900 naira Big Pet Coke(6)");
+                app.prev.put("20", "350 naira WhiteBeans");
             } else {
                 String val = app.prev.get("20");
                 TwentyOneSubString = val.substring(val.indexOf(""), val.indexOf(" "));
 
                 if (Integer.parseInt(TwentyOneSubString) != parseTwentyOne) {
                     app.prev.remove("20");
-                    app.prev.put("20", "900 naira Big Pet Coke(6)");
+                    app.prev.put("20", "350 naira WhiteBeans");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwentyOneSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwentyOne;
                     feetag.setText("" + app.allinfoodcounter + "");

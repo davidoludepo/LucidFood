@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Vendors_LoginActivityArchive.Vendor_LoginActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/log_out"
+        android:title="@string/log_out_Vendor_Login_Activity"
+        app:showAsAction="never"
+        android:onClick="mySectionIsOver"/>
+
+</menu>

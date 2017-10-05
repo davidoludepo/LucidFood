@@ -63,15 +63,15 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
     PowerManager.WakeLock wakeLock;
     Toolbar toolbar_foodmenu;
     private RelativeLayout relative;
-    public static TextView textView, textView2nd, textView3rd, textView4th, textView5th, textView6th, textView7th, textView8th, textView9th, textView10th;
+    public static TextView textView, textView2nd, textView3rd, textView4th, textView5th, textView6th, textView7th, textView8th, textView9th, textView10th, textView11th, textView12th, textView13th, textView14th, textView15th, textView16th, textView17th, textView18th, textView19th, textView20th, textView21st;
     Button button, button2, button3, button4, button5, button6;
     static Button Pcount, Purchase;
     ListView ShowForThis;
     TextView WelcomeSweet, fullUsername, Lucid;
+    TextView NoOfPlates;
     static TextView myOwnPay;
     static CheckBox pack;
     FoodHistoryDBHelper foodHistoryDBHelper;
-    MenuItem savior, salvation;
     private ImageView AnimatedImageView;
     CircleImageView circleImageView;
     public static int out = 0;
@@ -142,6 +142,7 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
     LucidApplication app;
 
     String update_url = "http://192.168.43.79/account_balance_difference.php";
+    String insert_url = "http://192.168.2.75/transaction_success.php";
     AlertDialog.Builder Dweezy;
 
 
@@ -175,16 +176,26 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
         textView8th = (Button) findViewById(R.id.Eightchosenbutton);
         textView9th = (Button) findViewById(R.id.Ninthchosenbutton);
         textView10th = (Button) findViewById(R.id.Tenthchosenbutton);
+        textView11th = (Button) findViewById(R.id.Eleventhchosenbutton);
+        textView12th = (Button) findViewById(R.id.Twelvthchosenbutton);
+        textView13th = (Button) findViewById(R.id.Thirteenthchosenbutton);
+        textView14th = (Button) findViewById(R.id.Fourteenthchosenbutton);
+        textView15th = (Button) findViewById(R.id.Fifteenthchosenbutton);
+        textView16th = (Button) findViewById(R.id.Sixteenthchosenbutton);
+        textView17th = (Button) findViewById(R.id.Seventeenthchosenbutton);
+        textView18th = (Button) findViewById(R.id.Eighteenthchosenbutton);
+        textView19th = (Button) findViewById(R.id.Nineteenthchosenbutton);
+        textView20th = (Button) findViewById(R.id.Twentiethchosenbutton);
+        textView21st = (Button) findViewById(R.id.TwentyIstchosenbutton);
 
+
+        NoOfPlates = (TextView) findViewById(R.id.CountMyPlate);
 
         WelcomeSweet = (TextView) findViewById(R.id.UserWelcome);
         fullUsername = (TextView) findViewById(R.id.fullUsername);
         Lucid = (RevealTextView) findViewById(R.id.AppName);
         Typeface blackface = Typeface.createFromAsset(getAssets(), "customfont/buttonfor.otf");
         Lucid.setTypeface(blackface);
-
-        savior = (MenuItem) findViewById(R.id.like_plate);
-        salvation = (MenuItem) findViewById(R.id.saved_plate);
 
         button = (Button) findViewById(R.id.Istpricebutton);
         button2 = (Button) findViewById(R.id.Secondpricebutton);
@@ -205,7 +216,10 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
         if (!textView.isShown() && !textView2nd.isShown() && !textView3rd.isShown()
                 && !textView4th.isShown() && !textView5th.isShown() && !textView6th.isShown()
                 && !textView7th.isShown() && !textView8th.isShown() && !textView9th.isShown()
-                && !textView10th.isShown()) {
+                && !textView10th.isShown() && !textView11th.isShown() && !textView12th.isShown()
+                && !textView13th.isShown() && !textView14th.isShown() && !textView15th.isShown()
+                && !textView16th.isShown() && !textView17th.isShown() && !textView18th.isShown()
+                && !textView19th.isShown() && !textView20th.isShown() && !textView21st.isShown()) {
             Pcount.setEnabled(false);
             Purchase.setEnabled(false);
         }
@@ -416,10 +430,151 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
                     david.putString("dhalson", textView10th.getText().toString());
                     intent.putExtras(david);
 
+                    Bundle obla = new Bundle();
+                    obla.putString("chikito", textView11th.getText().toString());
+                    intent.putExtras(obla);
+
+                    Bundle love = new Bundle();
+                    love.putString("blackdiamond", textView12th.getText().toString());
+                    intent.putExtras(love);
+
+                    Bundle ikechukwu = new Bundle();
+                    ikechukwu.putString("smilingfull", textView13th.getText().toString());
+                    intent.putExtras(ikechukwu);
+
+                    Bundle kaskas = new Bundle();
+                    kaskas.putString("versatile", textView14th.getText().toString());
+                    intent.putExtras(kaskas);
+
+                    Bundle havillah = new Bundle();
+                    havillah.putString("crazitivity", textView15th.getText().toString());
+                    intent.putExtras(havillah);
+
+                    Bundle samuel = new Bundle();
+                    samuel.putString("humility", textView16th.getText().toString());
+                    intent.putExtras(samuel);
+
+                    Bundle praise = new Bundle();
+                    praise.putString("omuaranprince", textView17th.getText().toString());
+                    intent.putExtras(praise);
+
+                    Bundle albert = new Bundle();
+                    albert.putString("zambian", textView18th.getText().toString());
+                    intent.putExtras(albert);
+
+                    Bundle akinfenwa = new Bundle();
+                    akinfenwa.putString("silentassasin", textView19th.getText().toString());
+                    intent.putExtras(akinfenwa);
+
+                    Bundle aize = new Bundle();
+                    aize.putString("speciallyunique", textView20th.getText().toString());
+                    intent.putExtras(aize);
+
+                    Bundle eruku = new Bundle();
+                    eruku.putString("oribee", textView21st.getText().toString());
+                    intent.putExtras(eruku);
+
 
                     Bundle PrincessFiancee = new Bundle();
                     PrincessFiancee.putString("prince", WelcomeSweet.getText().toString().substring(8));
                     intent.putExtras(PrincessFiancee);
+
+
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, insert_url,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    try {
+                                        JSONArray jsonArray = new JSONArray(response);
+                                        JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+                                        String code = jsonObject.getString("tranc_success");
+
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                        }
+                    }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+
+                            String[] MealNames = {
+                                    textView.isShown() ? textView.getText().toString().substring(textView.getText().toString().indexOf("naira")+6) : null,
+                                    textView2nd.isShown() ? textView2nd.getText().toString().substring(textView2nd.getText().toString().indexOf("naira")+6) : null,
+                                    textView3rd.isShown() ? textView3rd.getText().toString().substring(textView3rd.getText().toString().indexOf("naira")+6) : null,
+                                    textView4th.isShown() ? textView4th.getText().toString().substring(textView4th.getText().toString().indexOf("naira")+6) : null,
+                                    textView5th.isShown() ? textView5th.getText().toString().substring(textView5th.getText().toString().indexOf("naira")+6) : null,
+                                    textView6th.isShown() ? textView6th.getText().toString().substring(textView6th.getText().toString().indexOf("naira")+6) : null,
+                                    textView7th.isShown() ? textView7th.getText().toString().substring(textView7th.getText().toString().indexOf("naira")+6) : null,
+                                    textView8th.isShown() ? textView8th.getText().toString().substring(textView8th.getText().toString().indexOf("naira")+6) : null,
+                                    textView9th.isShown() ? textView9th.getText().toString().substring(textView9th.getText().toString().indexOf("naira")+6) : null,
+                                    textView10th.isShown() ? textView10th.getText().toString().substring(textView10th.getText().toString().indexOf("naira")+6) : null,
+                                    textView11th.isShown() ? textView11th.getText().toString().substring(textView11th.getText().toString().indexOf("naira")+6) : null,
+                                    textView12th.isShown() ? textView12th.getText().toString().substring(textView12th.getText().toString().indexOf("naira")+6) : null,
+                                    textView13th.isShown() ? textView13th.getText().toString().substring(textView13th.getText().toString().indexOf("naira")+6) : null,
+                                    textView14th.isShown() ? textView14th.getText().toString().substring(textView14th.getText().toString().indexOf("naira")+6) : null,
+                                    textView15th.isShown() ? textView15th.getText().toString().substring(textView15th.getText().toString().indexOf("naira")+6) : null,
+                                    textView16th.isShown() ? textView16th.getText().toString().substring(textView16th.getText().toString().indexOf("naira")+6) : null,
+                                    textView17th.isShown() ? textView17th.getText().toString().substring(textView17th.getText().toString().indexOf("naira")+6) : null,
+                                    textView18th.isShown() ? textView18th.getText().toString().substring(textView18th.getText().toString().indexOf("naira")+6) : null,
+                                    textView19th.isShown() ? textView19th.getText().toString().substring(textView19th.getText().toString().indexOf("naira")+6) : null,
+                                    textView20th.isShown() ? textView20th.getText().toString().substring(textView20th.getText().toString().indexOf("naira")+6) : null,
+                                    textView21st.isShown() ? textView21st.getText().toString().substring(textView21st.getText().toString().indexOf("naira")+6) : null,
+
+
+                            };
+
+                            String[] MealPrices = {
+                                    textView.isShown() ? textView.getText().toString().substring(textView.getText().toString().indexOf(""), textView.getText().toString().indexOf(" ")) : null,
+                                    textView2nd.isShown() ? textView2nd.getText().toString().substring(textView2nd.getText().toString().indexOf(""), textView2nd.getText().toString().indexOf(" ")) : null,
+                                    textView3rd.isShown() ? textView3rd.getText().toString().substring(textView3rd.getText().toString().indexOf(""), textView3rd.getText().toString().indexOf(" ")) : null,
+                                    textView4th.isShown() ? textView4th.getText().toString().substring(textView4th.getText().toString().indexOf(""), textView4th.getText().toString().indexOf(" ")) : null,
+                                    textView5th.isShown() ? textView5th.getText().toString().substring(textView5th.getText().toString().indexOf(""), textView5th.getText().toString().indexOf(" ")) : null,
+                                    textView6th.isShown() ? textView6th.getText().toString().substring(textView6th.getText().toString().indexOf(""), textView6th.getText().toString().indexOf(" ")) : null,
+                                    textView7th.isShown() ? textView7th.getText().toString().substring(textView7th.getText().toString().indexOf(""), textView7th.getText().toString().indexOf(" ")) : null,
+                                    textView8th.isShown() ? textView8th.getText().toString().substring(textView8th.getText().toString().indexOf(""), textView8th.getText().toString().indexOf(" ")) : null,
+                                    textView9th.isShown() ? textView9th.getText().toString().substring(textView9th.getText().toString().indexOf(""), textView9th.getText().toString().indexOf(" ")) : null,
+                                    textView10th.isShown() ? textView10th.getText().toString().substring(textView10th.getText().toString().indexOf(""), textView10th.getText().toString().indexOf(" ")) : null,
+                                    textView11th.isShown() ? textView11th.getText().toString().substring(textView11th.getText().toString().indexOf(""), textView11th.getText().toString().indexOf(" ")) : null,
+                                    textView12th.isShown() ? textView12th.getText().toString().substring(textView12th.getText().toString().indexOf(""), textView12th.getText().toString().indexOf(" ")) : null,
+                                    textView13th.isShown() ? textView13th.getText().toString().substring(textView13th.getText().toString().indexOf(""), textView13th.getText().toString().indexOf(" ")) : null,
+                                    textView14th.isShown() ? textView14th.getText().toString().substring(textView14th.getText().toString().indexOf(""), textView14th.getText().toString().indexOf(" ")) : null,
+                                    textView15th.isShown() ? textView15th.getText().toString().substring(textView15th.getText().toString().indexOf(""), textView15th.getText().toString().indexOf(" ")) : null,
+                                    textView16th.isShown() ? textView16th.getText().toString().substring(textView16th.getText().toString().indexOf(""), textView16th.getText().toString().indexOf(" ")) : null,
+                                    textView17th.isShown() ? textView17th.getText().toString().substring(textView17th.getText().toString().indexOf(""), textView17th.getText().toString().indexOf(" ")) : null,
+                                    textView18th.isShown() ? textView18th.getText().toString().substring(textView18th.getText().toString().indexOf(""), textView18th.getText().toString().indexOf(" ")) : null,
+                                    textView19th.isShown() ? textView19th.getText().toString().substring(textView19th.getText().toString().indexOf(""), textView19th.getText().toString().indexOf(" ")) : null,
+                                    textView20th.isShown() ? textView20th.getText().toString().substring(textView20th.getText().toString().indexOf(""), textView20th.getText().toString().indexOf(" ")) : null,
+                                    textView21st.isShown() ? textView21st.getText().toString().substring(textView21st.getText().toString().indexOf(""), textView21st.getText().toString().indexOf(" ")) : null,
+
+
+                            };
+
+                            Map<String, String> params = new HashMap<String, String>();
+                            for (String Names : MealNames) {
+                                if (!(Names == null))
+                                    params.put("meal_names", Arrays.toString(MealNames).replace(" ","").replace("null,", "").replace("null", "").replace(",","\n").replace("[","").replace("]",""));
+                            }
+                            for (String Prices : MealPrices) {
+                                if (!(Prices == null))
+                                    params.put("meal_prices", Arrays.toString(MealPrices).replace(" ","").replace("null,", "").replace("null", "").replace(",","\n").replace("[","").replace("]",""));
+                            }
+                            params.put("buyer_name", fullUsername.getText().toString());
+                            params.put("no_plates", NoOfPlates.getText().toString());
+                            params.put("total_price", ChosenplateCounter.feetag.getText().toString());
+                            params.put("vendor_id", app.Idtext.getText().toString());
+
+                            return params;
+                        }
+                    };
+                    MyCountlesston.getmInstance(FoodmenuActivity.this).addToRequestQueue(stringRequest);
+
 
                     startActivity(intent);
                 }
@@ -941,12 +1096,6 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
             case R.id.check_balance:
                 break;
 
-            case R.id.like_plate:
-                break;
-
-            case R.id.saved_plate:
-                break;
-
             case R.id.log_out:
                 break;
         }
@@ -959,88 +1108,6 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
         Snackbar CheckMyMoney = Snackbar.make(relative, "Your balance is: " + myMoney.getString("accountbalance"), Snackbar.LENGTH_LONG);
         CheckMyMoney.setActionTextColor(Color.GREEN);
         CheckMyMoney.show();
-    }
-
-    public void iLikeThisPlate(MenuItem item) {
-
-        String[] strings = {
-                textView.isShown() ? textView.getText().toString() : null,
-                textView2nd.isShown() ? textView2nd.getText().toString() : null,
-                textView3rd.isShown() ? textView3rd.getText().toString() : null,
-                textView4th.isShown() ? textView4th.getText().toString() : null,
-                textView5th.isShown() ? textView5th.getText().toString() : null,
-                textView6th.isShown() ? textView6th.getText().toString() : null,
-                textView7th.isShown() ? textView7th.getText().toString() : null,
-                textView8th.isShown() ? textView8th.getText().toString() : null,
-                textView9th.isShown() ? textView9th.getText().toString() : null,
-                textView10th.isShown() ? textView10th.getText().toString() : null};
-
-        Bundle bundle = new Bundle();
-        bundle.putString("string", Arrays.toString(strings));
-
-        if (!textView.isShown() && !textView2nd.isShown() && !textView3rd.isShown()
-                && !textView4th.isShown() && !textView5th.isShown() && !textView6th.isShown()
-                && !textView7th.isShown() && !textView8th.isShown() && !textView9th.isShown()
-                && !textView10th.isShown()) {
-
-            StyleableToast LikePlate = new StyleableToast(this, "No food selected yet, Select one foodtype at least ", Toast.LENGTH_SHORT);
-            LikePlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-            LikePlate.setTextColor(Color.WHITE);
-            LikePlate.show();
-        } else {
-            StyleableToast LikePlate = new StyleableToast(this, "I Like You Too", Toast.LENGTH_SHORT).spinIcon();
-            LikePlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-            LikePlate.setTextColor(Color.WHITE);
-            LikePlate.setIcon(R.drawable.fa_lovethisplaterotatingtoasticon);
-            LikePlate.show();
-            Snackbar meetpie = Snackbar.make(relative, "Plate Liked and Added to History", Snackbar.LENGTH_LONG);
-            meetpie.setAction("UNDO", new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //Here and Up add codes using (FabExample-tutorial) to add or remove food liked from ChosenfoodFragment into Settings.class, via listview
-                    Snackbar.make(relative, "Plate Removed Successfully", Snackbar.LENGTH_SHORT).show();
-                }
-            });
-            meetpie.setActionTextColor(Color.GREEN);
-            meetpie.show();
-        }
-
-    }
-
-    public void showRecentlyBoughtPlates(MenuItem item){
-
-        String[] strings = {
-                textView.isShown() ? textView.getText().toString() : null,
-                textView2nd.isShown() ? textView2nd.getText().toString() : null,
-                textView3rd.isShown() ? textView3rd.getText().toString() : null,
-                textView4th.isShown() ? textView4th.getText().toString() : null,
-                textView5th.isShown() ? textView5th.getText().toString() : null,
-                textView6th.isShown() ? textView6th.getText().toString() : null,
-                textView7th.isShown() ? textView7th.getText().toString() : null,
-                textView8th.isShown() ? textView8th.getText().toString() : null,
-                textView9th.isShown() ? textView9th.getText().toString() : null,
-                textView10th.isShown() ? textView10th.getText().toString() : null};
-
-        if (!textView.isShown() && !textView2nd.isShown() && !textView3rd.isShown()
-                && !textView4th.isShown() && !textView5th.isShown() && !textView6th.isShown()
-                && !textView7th.isShown() && !textView8th.isShown() && !textView9th.isShown()
-                && !textView10th.isShown()) {
-
-            StyleableToast LikePlate = new StyleableToast(this, "No food selected yet, Select one foodtype at least ", Toast.LENGTH_SHORT);
-            LikePlate.setBackgroundColor(Color.parseColor("#FF5A5F"));
-            LikePlate.setTextColor(Color.WHITE);
-            LikePlate.show();
-        }
-        else {
-          /*  StyleableToast RecentlyPurchased = new StyleableToast(this, "Please select from recently bought plates", Toast.LENGTH_LONG).spinIcon();
-            RecentlyPurchased.setBackgroundColor(Color.parseColor("#FF5A5F"));
-            RecentlyPurchased.setTextColor(Color.WHITE);
-            RecentlyPurchased.show();  */
-            Intent intent = new Intent(this, FoodhistoryActivity.class);
-            intent.putExtra("string", strings);
-          //  startActivity(intent);
-            overridePendingTransition(R.anim.slide_up_in, R.anim.slide_up_out);
-        }
     }
 
     public void AlrightImOff(MenuItem item) {

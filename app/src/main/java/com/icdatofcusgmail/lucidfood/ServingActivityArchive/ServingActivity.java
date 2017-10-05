@@ -31,8 +31,8 @@ public class ServingActivity extends AppCompatActivity {
      */
 
     PowerManager.WakeLock wakeLock;
-    TextView textViewun, textViewdo, textViewtrois, textViewquartz, textViewfive, textViewsix, textViewsept, textVieweight, textViewnous, textViewten, textViewPlateorPark;
-    TextView textView, textView2nd, textView3rd, textView4th, textView5th, textView6th, textView7th, textView8th, textView9th, textView10th;
+    TextView textViewun, textViewdo, textViewtrois, textViewquartz, textViewfive, textViewsix, textViewsept, textVieweight, textViewnous, textViewten, textVieweleven, textViewtwelve, textViewthirteen, textViewfourteen, textViewfifteen, textViewsixteen, textViewseventeen, textVieweighteen, textViewnineteen, textViewtwenty, textViewtwentyOne, textViewPlateorPark;
+    TextView textView, textView2nd, textView3rd, textView4th, textView5th, textView6th, textView7th, textView8th, textView9th, textView10th, textView11th, textView12th, textView13th, textView14th, textView15th, textView16th, textView17th, textView18th, textView19th, textView20th, textView21st;
     TextView pleaseServeMe;
     LucidApplication app;
 
@@ -79,6 +79,29 @@ public class ServingActivity extends AppCompatActivity {
         textViewnous.setVisibility(View.GONE);
         textViewten = (TextView) findViewById(R.id.plate10);
         textViewten.setVisibility(View.GONE);
+        textVieweleven = (TextView) findViewById(R.id.plate11);
+        textVieweleven.setVisibility(View.GONE);
+        textViewtwelve = (TextView) findViewById(R.id.plate12);
+        textViewtwelve.setVisibility(View.GONE);
+        textViewthirteen = (TextView) findViewById(R.id.plate13);
+        textViewthirteen.setVisibility(View.GONE);
+        textViewfourteen = (TextView) findViewById(R.id.plate14);
+        textViewfourteen.setVisibility(View.GONE);
+        textViewfifteen = (TextView) findViewById(R.id.plate15);
+        textViewfifteen.setVisibility(View.GONE);
+        textViewsixteen = (TextView) findViewById(R.id.plate16);
+        textViewsixteen.setVisibility(View.GONE);
+        textViewseventeen = (TextView) findViewById(R.id.plate17);
+        textViewseventeen.setVisibility(View.GONE);
+        textVieweighteen = (TextView) findViewById(R.id.plate18);
+        textVieweighteen.setVisibility(View.GONE);
+        textViewnineteen = (TextView) findViewById(R.id.plate19);
+        textViewnineteen.setVisibility(View.GONE);
+        textViewtwenty = (TextView) findViewById(R.id.plate20);
+        textViewtwenty.setVisibility(View.GONE);
+        textViewtwentyOne = (TextView) findViewById(R.id.plate21);
+        textViewtwentyOne.setVisibility(View.GONE);
+
         textViewPlateorPark = (TextView) findViewById(R.id.PackorPlate);
 
         textView = (Button) findViewById(R.id.Istchosenbutton);
@@ -91,6 +114,17 @@ public class ServingActivity extends AppCompatActivity {
         textView8th = (Button) findViewById(R.id.Eightchosenbutton);
         textView9th = (Button) findViewById(R.id.Ninthchosenbutton);
         textView10th = (Button) findViewById(R.id.Tenthchosenbutton);
+        textView11th = (Button) findViewById(R.id.Eleventhchosenbutton);
+        textView12th = (Button) findViewById(R.id.Twelvthchosenbutton);
+        textView13th = (Button) findViewById(R.id.Thirteenthchosenbutton);
+        textView14th = (Button) findViewById(R.id.Fourteenthchosenbutton);
+        textView15th = (Button) findViewById(R.id.Fifteenthchosenbutton);
+        textView16th = (Button) findViewById(R.id.Sixteenthchosenbutton);
+        textView17th = (Button) findViewById(R.id.Seventeenthchosenbutton);
+        textView18th = (Button) findViewById(R.id.Eighteenthchosenbutton);
+        textView19th = (Button) findViewById(R.id.Nineteenthchosenbutton);
+        textView20th = (Button) findViewById(R.id.Twentiethchosenbutton);
+        textView21st = (Button) findViewById(R.id.TwentyIstchosenbutton);
 
         Intent PorP = getIntent();
         String receivedvalue = PorP.getStringExtra("Roman");
@@ -374,11 +408,108 @@ public class ServingActivity extends AppCompatActivity {
             textViewten.setVisibility(View.GONE);
         }
 
+        Intent obla = getIntent();
+        String mami = obla.getStringExtra("chikito");
+        if (FoodmenuActivity.textView11th.getVisibility() == View.VISIBLE) {
+            textVieweleven.setText(mami);
+            textVieweleven.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView11th.getVisibility() == View.GONE) {
+            textVieweleven.setVisibility(View.GONE);
+        }
+
+        Intent love = getIntent();
+        String unfailing = love.getStringExtra("blackdiamond");
+        if (FoodmenuActivity.textView12th.getVisibility() == View.VISIBLE) {
+            textViewtwelve.setText(unfailing);
+            textViewtwelve.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView12th.getVisibility() == View.GONE) {
+            textViewtwelve.setVisibility(View.GONE);
+        }
+
+        Intent mrnoah = getIntent();
+        String studentdeveloper = mrnoah.getStringExtra("versatile");
+        if (FoodmenuActivity.textView13th.getVisibility() == View.VISIBLE) {
+            textViewthirteen.setText(studentdeveloper);
+            textViewthirteen.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView13th.getVisibility() == View.GONE) {
+            textViewthirteen.setVisibility(View.GONE);
+        }
+
+        Intent google = getIntent();
+        String android = google.getStringExtra("resourceful");
+        if (FoodmenuActivity.textView14th.getVisibility() == View.VISIBLE) {
+            textViewfourteen.setText(android);
+            textViewfourteen.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView14th.getVisibility() == View.GONE) {
+            textViewfourteen.setVisibility(View.GONE);
+        }
+
+        Intent havillah = getIntent();
+        String agadah = havillah.getStringExtra("crazitivity");
+        if (FoodmenuActivity.textView15th.getVisibility() == View.VISIBLE) {
+            textViewfifteen.setText(agadah);
+            textViewfifteen.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView15th.getVisibility() == View.GONE) {
+            textViewfifteen.setVisibility(View.GONE);
+        }
+
+        Intent samuel = getIntent();
+        String agbede = samuel.getStringExtra("humility");
+        if (FoodmenuActivity.textView16th.getVisibility() == View.VISIBLE) {
+            textViewsixteen.setText(agbede);
+            textViewsixteen.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView16th.getVisibility() == View.GONE) {
+            textViewsixteen.setVisibility(View.GONE);
+        }
+
+        Intent praise = getIntent();
+        String pop = praise.getStringExtra("omuaranprince");
+        if (FoodmenuActivity.textView17th.getVisibility() == View.VISIBLE) {
+            textViewseventeen.setText(pop);
+            textViewseventeen.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView17th.getVisibility() == View.GONE) {
+            textViewseventeen.setVisibility(View.GONE);
+        }
+
+        Intent albert = getIntent();
+        String mutale = albert.getStringExtra("zambian");
+        if (FoodmenuActivity.textView18th.getVisibility() == View.VISIBLE) {
+            textVieweighteen.setText(mutale);
+            textVieweighteen.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView18th.getVisibility() == View.GONE) {
+            textVieweighteen.setVisibility(View.GONE);
+        }
+
+        Intent akinfenwa = getIntent();
+        String dopest = akinfenwa.getStringExtra("silentassasin");
+        if (FoodmenuActivity.textView19th.getVisibility() == View.VISIBLE) {
+            textViewnineteen.setText(dopest);
+            textViewnineteen.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView19th.getVisibility() == View.GONE) {
+            textViewnineteen.setVisibility(View.GONE);
+        }
+
+        Intent aize = getIntent();
+        String obayan = aize.getStringExtra("speciallyunique");
+        if (FoodmenuActivity.textView20th.getVisibility() == View.VISIBLE) {
+            textViewtwenty.setText(obayan);
+            textViewtwenty.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView20th.getVisibility() == View.GONE) {
+            textViewtwenty.setVisibility(View.GONE);
+        }
+
+        Intent eruku = getIntent();
+        String bayo = eruku.getStringExtra("oribee");
+        if (FoodmenuActivity.textView21st.getVisibility() == View.VISIBLE) {
+            textViewtwentyOne.setText(bayo);
+            textViewtwentyOne.setVisibility(View.VISIBLE);
+        } else if (FoodmenuActivity.textView21st.getVisibility() == View.GONE) {
+            textViewtwentyOne.setVisibility(View.GONE);
+        }
+
     }
 
     public void NextTransactionPlease (View view) {
-        Intent StopFoodServicing = new Intent(this, FoodServicing.class);
-        stopService(StopFoodServicing);
 
         Intent lucid = new Intent(this, VendorActivity.class);
         startActivity(lucid);

@@ -4,22 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <group>
-        <item
-            android:id="@+id/like_plate"
-            android:icon="@drawable/a_saveplate"
-            android:checkable="true"
-            app:showAsAction="always"
-            android:orderInCategory="100"
-            android:onClick="iLikeThisPlate"
-            android:title="@string/plate_saved_FoodmenuActivity_Toolbar"/>
-
-        <item
-            android:icon="@drawable/a_showsaved"
-            android:id="@+id/saved_plate"
-            app:showAsAction="always"
-            android:orderInCategory="200"
-            android:onClick="showRecentlyBoughtPlates"
-            android:title="@string/saved_plate_selected_FoodmenuActivity_Toolbar"/>
 
         <item
             android:id="@+id/check_balance"
