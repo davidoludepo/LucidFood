@@ -111,6 +111,7 @@
     <string name="parseVendorId">Push Vendor Id</string>
     <string name="log_out_Vendor_Login_Activity">Log Out</string>
     <string name="id_no_display_Vendor_Activity">Id No</string>
+    <string name="PlateCountNo">1</string>
 
     <string-array name="AorR">
         <item>Update Items</item>

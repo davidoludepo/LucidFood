@@ -57,6 +57,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.http.POST;
 
 public class FoodmenuActivity extends AppCompatActivity implements Communicator, FoodpriceFragment.OnNameSetListener, ChosenfoodFragment.OnPriceSetListener, CompoundButton.OnCheckedChangeListener, AdapterView.OnItemClickListener {
 
@@ -67,11 +68,11 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
     Button button, button2, button3, button4, button5, button6;
     static Button Pcount, Purchase;
     ListView ShowForThis;
-    TextView WelcomeSweet, fullUsername, Lucid;
+    TextView WelcomeSweet, fullUsername, Lucid, EmailAddress;
     TextView NoOfPlates;
+    TextView BooleanInPackorInPlate;
     static TextView myOwnPay;
     static CheckBox pack;
-    FoodHistoryDBHelper foodHistoryDBHelper;
     private ImageView AnimatedImageView;
     CircleImageView circleImageView;
     public static int out = 0;
@@ -141,8 +142,11 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
 
     LucidApplication app;
 
-    String update_url = "http://192.168.43.79/account_balance_difference.php";
-    String insert_url = "http://192.168.2.75/transaction_success.php";
+    String update_balance = "http://192.168.43.79/my_accountbalance_diff.php";
+    String insert_bought_items = "http://192.168.43.79/my_transaction_success.php";
+    String webmail_tranc_details = "http://192.168.43.79/my_webmail_transaction_details.php";
+
+
     AlertDialog.Builder Dweezy;
 
 
@@ -160,7 +164,6 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
 
         Dweezy = new AlertDialog.Builder(FoodmenuActivity.this);
 
-        foodHistoryDBHelper = new FoodHistoryDBHelper(this);
         playtcount = stringplayti;
         ShowForThis = (ListView) findViewById(R.id.listView);
         PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
@@ -188,11 +191,13 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
         textView20th = (Button) findViewById(R.id.Twentiethchosenbutton);
         textView21st = (Button) findViewById(R.id.TwentyIstchosenbutton);
 
+        BooleanInPackorInPlate = (TextView) findViewById(R.id.InPackorPlate);
 
         NoOfPlates = (TextView) findViewById(R.id.CountMyPlate);
 
         WelcomeSweet = (TextView) findViewById(R.id.UserWelcome);
         fullUsername = (TextView) findViewById(R.id.fullUsername);
+        EmailAddress = (TextView) findViewById(R.id.emailAddress);
         Lucid = (RevealTextView) findViewById(R.id.AppName);
         Typeface blackface = Typeface.createFromAsset(getAssets(), "customfont/buttonfor.otf");
         Lucid.setTypeface(blackface);
@@ -238,6 +243,13 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
 
         }
 
+        Bundle ThirdParcel = getIntent().getExtras();
+        try {
+            EmailAddress.setText("" + ThirdParcel.getString("email") + "");
+        } catch (Exception ignored) {
+
+        }
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
@@ -274,8 +286,6 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
     }
 
     public void ConfirmMyPurchase(View v) {
-
-       // StringRequest stringRequest = new StringRequest()
 
         if (ChosenplateCounter.feetag.getCurrentTextColor() == Color.parseColor("#B71C1C")) {
             AlertDialog.Builder notExactly = new AlertDialog.Builder(FoodmenuActivity.this);
@@ -323,7 +333,7 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        StringRequest fromJingSun = new StringRequest(Request.Method.POST, update_url,
+                        StringRequest fromJingSun = new StringRequest(Request.Method.POST, update_balance,
                                 new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(final String response) {
@@ -348,7 +358,7 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
                             protected Map<String, String> getParams() throws AuthFailureError {
                                 Map<String,String> params = new HashMap<String, String>();
                                 params.put("accountbalance_diff", ChosenplateCounter.feetag.getText().toString());
-                                params.put("user_name", fullUsername.getText().toString());
+                                params.put("email", EmailAddress.getText().toString());
                                 return params;
                             }
                         };
@@ -356,6 +366,7 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
                     }
 
                 }).setIcon(R.drawable.a_announcement);
+
                 Dialog dialog = builder.create();
                 try {
                     dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.LTGRAY));
@@ -438,13 +449,13 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
                     love.putString("blackdiamond", textView12th.getText().toString());
                     intent.putExtras(love);
 
-                    Bundle ikechukwu = new Bundle();
-                    ikechukwu.putString("smilingfull", textView13th.getText().toString());
-                    intent.putExtras(ikechukwu);
+                    Bundle mrnoah = new Bundle();
+                    mrnoah.putString("versatile", textView13th.getText().toString());
+                    intent.putExtras(mrnoah);
 
-                    Bundle kaskas = new Bundle();
-                    kaskas.putString("versatile", textView14th.getText().toString());
-                    intent.putExtras(kaskas);
+                    Bundle google = new Bundle();
+                    google.putString("resourceful", textView14th.getText().toString());
+                    intent.putExtras(google);
 
                     Bundle havillah = new Bundle();
                     havillah.putString("crazitivity", textView15th.getText().toString());
@@ -480,7 +491,7 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
                     intent.putExtras(PrincessFiancee);
 
 
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, insert_url,
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, insert_bought_items,
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
@@ -567,6 +578,7 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
                             }
                             params.put("buyer_name", fullUsername.getText().toString());
                             params.put("no_plates", NoOfPlates.getText().toString());
+                            params.put("all_pack", BooleanInPackorInPlate.getText().toString());
                             params.put("total_price", ChosenplateCounter.feetag.getText().toString());
                             params.put("vendor_id", app.Idtext.getText().toString());
 
@@ -574,6 +586,104 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
                         }
                     };
                     MyCountlesston.getmInstance(FoodmenuActivity.this).addToRequestQueue(stringRequest);
+
+
+                    StringRequest LandMarkUniversity = new StringRequest(Request.Method.POST, webmail_tranc_details,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    try {
+                                        JSONArray johnson = new JSONArray(response);
+                                        JSONObject james = johnson.getJSONObject(0);
+
+                                        String code = james.getString("");
+
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                        }
+                    }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+
+                            String[] webmail_MealNames = {
+                                    textView.isShown() ? textView.getText().toString().substring(textView.getText().toString().indexOf("naira")+6) : null,
+                                    textView2nd.isShown() ? textView2nd.getText().toString().substring(textView2nd.getText().toString().indexOf("naira")+6) : null,
+                                    textView3rd.isShown() ? textView3rd.getText().toString().substring(textView3rd.getText().toString().indexOf("naira")+6) : null,
+                                    textView4th.isShown() ? textView4th.getText().toString().substring(textView4th.getText().toString().indexOf("naira")+6) : null,
+                                    textView5th.isShown() ? textView5th.getText().toString().substring(textView5th.getText().toString().indexOf("naira")+6) : null,
+                                    textView6th.isShown() ? textView6th.getText().toString().substring(textView6th.getText().toString().indexOf("naira")+6) : null,
+                                    textView7th.isShown() ? textView7th.getText().toString().substring(textView7th.getText().toString().indexOf("naira")+6) : null,
+                                    textView8th.isShown() ? textView8th.getText().toString().substring(textView8th.getText().toString().indexOf("naira")+6) : null,
+                                    textView9th.isShown() ? textView9th.getText().toString().substring(textView9th.getText().toString().indexOf("naira")+6) : null,
+                                    textView10th.isShown() ? textView10th.getText().toString().substring(textView10th.getText().toString().indexOf("naira")+6) : null,
+                                    textView11th.isShown() ? textView11th.getText().toString().substring(textView11th.getText().toString().indexOf("naira")+6) : null,
+                                    textView12th.isShown() ? textView12th.getText().toString().substring(textView12th.getText().toString().indexOf("naira")+6) : null,
+                                    textView13th.isShown() ? textView13th.getText().toString().substring(textView13th.getText().toString().indexOf("naira")+6) : null,
+                                    textView14th.isShown() ? textView14th.getText().toString().substring(textView14th.getText().toString().indexOf("naira")+6) : null,
+                                    textView15th.isShown() ? textView15th.getText().toString().substring(textView15th.getText().toString().indexOf("naira")+6) : null,
+                                    textView16th.isShown() ? textView16th.getText().toString().substring(textView16th.getText().toString().indexOf("naira")+6) : null,
+                                    textView17th.isShown() ? textView17th.getText().toString().substring(textView17th.getText().toString().indexOf("naira")+6) : null,
+                                    textView18th.isShown() ? textView18th.getText().toString().substring(textView18th.getText().toString().indexOf("naira")+6) : null,
+                                    textView19th.isShown() ? textView19th.getText().toString().substring(textView19th.getText().toString().indexOf("naira")+6) : null,
+                                    textView20th.isShown() ? textView20th.getText().toString().substring(textView20th.getText().toString().indexOf("naira")+6) : null,
+                                    textView21st.isShown() ? textView21st.getText().toString().substring(textView21st.getText().toString().indexOf("naira")+6) : null,
+
+
+                            };
+
+                            String[] webmail_MealPrices = {
+                                    textView.isShown() ? textView.getText().toString().substring(textView.getText().toString().indexOf(""), textView.getText().toString().indexOf(" ")) : null,
+                                    textView2nd.isShown() ? textView2nd.getText().toString().substring(textView2nd.getText().toString().indexOf(""), textView2nd.getText().toString().indexOf(" ")) : null,
+                                    textView3rd.isShown() ? textView3rd.getText().toString().substring(textView3rd.getText().toString().indexOf(""), textView3rd.getText().toString().indexOf(" ")) : null,
+                                    textView4th.isShown() ? textView4th.getText().toString().substring(textView4th.getText().toString().indexOf(""), textView4th.getText().toString().indexOf(" ")) : null,
+                                    textView5th.isShown() ? textView5th.getText().toString().substring(textView5th.getText().toString().indexOf(""), textView5th.getText().toString().indexOf(" ")) : null,
+                                    textView6th.isShown() ? textView6th.getText().toString().substring(textView6th.getText().toString().indexOf(""), textView6th.getText().toString().indexOf(" ")) : null,
+                                    textView7th.isShown() ? textView7th.getText().toString().substring(textView7th.getText().toString().indexOf(""), textView7th.getText().toString().indexOf(" ")) : null,
+                                    textView8th.isShown() ? textView8th.getText().toString().substring(textView8th.getText().toString().indexOf(""), textView8th.getText().toString().indexOf(" ")) : null,
+                                    textView9th.isShown() ? textView9th.getText().toString().substring(textView9th.getText().toString().indexOf(""), textView9th.getText().toString().indexOf(" ")) : null,
+                                    textView10th.isShown() ? textView10th.getText().toString().substring(textView10th.getText().toString().indexOf(""), textView10th.getText().toString().indexOf(" ")) : null,
+                                    textView11th.isShown() ? textView11th.getText().toString().substring(textView11th.getText().toString().indexOf(""), textView11th.getText().toString().indexOf(" ")) : null,
+                                    textView12th.isShown() ? textView12th.getText().toString().substring(textView12th.getText().toString().indexOf(""), textView12th.getText().toString().indexOf(" ")) : null,
+                                    textView13th.isShown() ? textView13th.getText().toString().substring(textView13th.getText().toString().indexOf(""), textView13th.getText().toString().indexOf(" ")) : null,
+                                    textView14th.isShown() ? textView14th.getText().toString().substring(textView14th.getText().toString().indexOf(""), textView14th.getText().toString().indexOf(" ")) : null,
+                                    textView15th.isShown() ? textView15th.getText().toString().substring(textView15th.getText().toString().indexOf(""), textView15th.getText().toString().indexOf(" ")) : null,
+                                    textView16th.isShown() ? textView16th.getText().toString().substring(textView16th.getText().toString().indexOf(""), textView16th.getText().toString().indexOf(" ")) : null,
+                                    textView17th.isShown() ? textView17th.getText().toString().substring(textView17th.getText().toString().indexOf(""), textView17th.getText().toString().indexOf(" ")) : null,
+                                    textView18th.isShown() ? textView18th.getText().toString().substring(textView18th.getText().toString().indexOf(""), textView18th.getText().toString().indexOf(" ")) : null,
+                                    textView19th.isShown() ? textView19th.getText().toString().substring(textView19th.getText().toString().indexOf(""), textView19th.getText().toString().indexOf(" ")) : null,
+                                    textView20th.isShown() ? textView20th.getText().toString().substring(textView20th.getText().toString().indexOf(""), textView20th.getText().toString().indexOf(" ")) : null,
+                                    textView21st.isShown() ? textView21st.getText().toString().substring(textView21st.getText().toString().indexOf(""), textView21st.getText().toString().indexOf(" ")) : null,
+
+
+                            };
+
+                            Map<String, String> params = new HashMap<String, String>();
+                            for (String Names : webmail_MealNames) {
+                                if (!(Names == null))
+                                    params.put("meal_names", Arrays.toString(webmail_MealNames).replace(" ","").replace("null,", "").replace("null", "").replace(",","\n").replace("[","").replace("]",""));
+                            }
+                            for (String Prices : webmail_MealPrices) {
+                                if (!(Prices == null))
+                                    params.put("meal_prices", Arrays.toString(webmail_MealPrices).replace(" ","").replace("null,", "").replace("null", "").replace(",","\n").replace("[","").replace("]",""));
+                            }
+                            params.put("no_plates", NoOfPlates.getText().toString());
+                            params.put("all_pack", BooleanInPackorInPlate.getText().toString());
+                            params.put("total_price", ChosenplateCounter.feetag.getText().toString());
+                            params.put("vendor_id", app.Idtext.getText().toString());
+                            params.put("email", EmailAddress.getText().toString());
+                            params.put("accountbalance", ChosenplateCounter.feetag.getText().toString());
+
+                            return params;
+                        }
+                    };
+                    MyCountlesston.getmInstance(FoodmenuActivity.this).addToRequestQueue(LandMarkUniversity);
 
 
                     startActivity(intent);
@@ -1044,6 +1154,7 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
             pack.setText("" + " Buy in Pack(s)" + "");
             pacque = pack.getText().toString();
             stringue = pacque;
+            BooleanInPackorInPlate.setText("" + "YES" + "");
             myOwnPay.setText("" + Integer.toString(out + fifty) + "");
             ChosenplateCounter.feetag.setText("" + Integer.toString(out + fifty) + "");
         }
@@ -1051,6 +1162,7 @@ public class FoodmenuActivity extends AppCompatActivity implements Communicator,
             pack.setText("" + " Buying in Plate(s)" + "");
             pacque = pack.getText().toString();
             stringue = pacque;
+            BooleanInPackorInPlate.setText("" + "NO" + "");
             myOwnPay.setText("" + Integer.toString(out) + "");
             ChosenplateCounter.feetag.setText("" + Integer.toString(out + fifty) + "");
         }

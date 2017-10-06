@@ -39,10 +39,11 @@ public class Vendor_LoginActivity extends AppCompatActivity {
     Toolbar toolbar_vendor_login;
     public EditText MyIdNo;
     TextView myIDWitness;
-    TextView VendorMotivation;
     ImageButton ConfirmID;
-    String IDCrossCheck_url = "http://192.168.2.75/my_id_confirmed.php";
     AlertDialog.Builder cicatrixElevation;
+
+    String IDCrossCheck_url = "http://192.168.2.75/vendor_login.php";
+
 
     LucidApplication app;
 
@@ -56,11 +57,8 @@ public class Vendor_LoginActivity extends AppCompatActivity {
 
         cicatrixElevation = new AlertDialog.Builder(Vendor_LoginActivity.this);
 
-      //  VendorMotivation = (TextView) findViewById(R.id.RandomMotivationForVendor);
-
         MyIdNo = (EditText) findViewById(R.id.idNumber);
         myIDWitness = (TextView) findViewById(R.id.RandomMotivationNVendorName);
-        myIDWitness.setVisibility(View.GONE);
         ConfirmID = (ImageButton) findViewById(R.id.confirmID);
 
         ConfirmID.setOnClickListener(new View.OnClickListener() {
@@ -81,17 +79,16 @@ public class Vendor_LoginActivity extends AppCompatActivity {
                                         JSONObject jsonObject = jsonArray.getJSONObject(0);
                                         String code = jsonObject.getString("code");
                                         switch (code) {
-                                            case "id_failed":
+                                            case "unsuccessful_move":
                                                 cicatrixElevation.setTitle("No Match");
-                                                elevateCicatrix(jsonObject.getString("message"));
+                                                elevateCicatrix(jsonObject.getString("rejection_message"));
                                                 MyIdNo.setText("");
-                                                VendorMotivation.setText("");
-                                                myIDWitness.setVisibility(View.GONE);
+                                                myIDWitness.setText("");
                                                 break;
-                                            case "id_success":
-                                                myIDWitness.setVisibility(View.INVISIBLE);
-                                                myIDWitness.setText(jsonObject.getString("seller_id"));
-                                                VendorMotivation.setText(jsonObject.getString("seller_name"));
+                                            case "successful_access":
+                                                myIDWitness.setVisibility(View.VISIBLE);
+                                               // myIDWitness.setText(jsonObject.getString("seller_id"));
+                                                myIDWitness.setText(jsonObject.getString("seller_name"));
                                                 app.sellerOruko = new Bundle();
                                                 app.sellerOruko.putString("seller_name", jsonObject.getString("seller_name"));
                                                 app.sellerOruko.putString("seller_id", jsonObject.getString("seller_id"));
@@ -126,7 +123,7 @@ public class Vendor_LoginActivity extends AppCompatActivity {
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String, String> param = new HashMap<String, String>();
                             param.put("seller_id", MyIdNo.getText().toString());
-                            param.put("seller_name", VendorMotivation.getText().toString());
+                            param.put("seller_name", myIDWitness.getText().toString());
                             return param;
                         }
                     };
@@ -182,15 +179,15 @@ public class Vendor_LoginActivity extends AppCompatActivity {
         else {
             AlertDialog.Builder HomelandSecurity = new AlertDialog.Builder(this);
             HomelandSecurity.setTitle("Confirm Id!");
-            HomelandSecurity.setMessage("By pressing YES you login as 'Id " + myIDWitness.getText().toString() + "' with the Name as '" + VendorMotivation.getText().toString() + "'. \nAre you the described one?");
+            HomelandSecurity.setMessage("By pressing YES you login as 'Id " + MyIdNo.getText().toString() + "' with the Name as '" + myIDWitness.getText().toString() + "'. \nAre you the described one?");
             HomelandSecurity.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
 
                     Intent IdConfirmed = new Intent(Vendor_LoginActivity.this, VendorActivity.class);
                     IdConfirmed.putExtras(app.sellerOruko);
-                    app.Nametext = VendorMotivation;
-                    app.Idtext = myIDWitness;
+                    app.Nametext = myIDWitness;
+                    app.Idtext = MyIdNo;
                     startActivity(IdConfirmed);
                 }
             });

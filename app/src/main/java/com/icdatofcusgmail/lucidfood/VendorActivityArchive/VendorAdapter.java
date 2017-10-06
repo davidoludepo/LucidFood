@@ -46,9 +46,6 @@ class VendorAdapter extends BaseAdapter implements Filterable {
         this.c = c;
         this.icdats = icdats;
 
-     //   this.icdats.addAll(icdats);
-    //    this.icdatsfiltered.addAll(icdats);
-
         app = LucidApplication.getInstance();
         configCheckMap(false);
     }

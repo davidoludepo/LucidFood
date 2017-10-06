@@ -1175,7 +1175,6 @@ public class ChosenfoodFragment extends Fragment {
             imageButton21st.setVisibility(View.VISIBLE);
         }
 
-  //      FoodmenuActivity.stringplayti = FoodmenuActivity.playtcount;
         FoodmenuActivity.Pcount.setText("" + "PLATE COUNT" + "");
     }
 }

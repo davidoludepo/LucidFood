@@ -51,8 +51,6 @@ public class UpdateItems extends DialogFragment {
                     UpdateItems.setBackgroundColor(Color.parseColor("#FF5A5F"));
                     UpdateItems.setTextColor(Color.WHITE);
                     UpdateItems.show();
-                    VendorActivity.All.setVisibility(View.VISIBLE);
-                    VendorActivity.All.setText("" + "Add All" + "");
                     VendorActivity.itemsState.setVisibility(View.VISIBLE);
                     VendorActivity.itemsState.setText("" + "Updating Items Available" + "");
                     VendorActivity.ShowInThis.setVisibility(View.VISIBLE);

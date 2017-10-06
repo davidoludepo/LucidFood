@@ -14,7 +14,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.FoodServicing;
 import com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.FoodmenuActivity;
 import com.icdatofcusgmail.lucidfood.LucidApplication;
 import com.icdatofcusgmail.lucidfood.R;
@@ -57,7 +56,18 @@ public class ServingActivity extends AppCompatActivity {
 
         pleaseServeMe = (TextView) findViewById(R.id.serveMePlease);
         Bundle SecondParcel = getIntent().getExtras();
-        pleaseServeMe.setText("Please serve " + SecondParcel.getString("prince") + " the following:" );
+        SecondParcel.getString("prince");
+
+        String azubike = SecondParcel.toString();
+
+        String Azubike = azubike.substring(0,1).toUpperCase() + azubike.substring(1).toLowerCase();
+
+        String vendorName = app.Nametext.getText().toString();
+        String VendorName = vendorName.substring(0,1).toUpperCase() + vendorName.substring(1).toLowerCase();
+
+        pleaseServeMe.setText(VendorName + "Please serve " + Azubike + " the following:" );
+
+
 
         textViewun = (TextView) findViewById(R.id.plate1);
         textViewun.setVisibility(View.GONE);

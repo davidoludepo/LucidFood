@@ -153,6 +153,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        android:text="1" />
+        android:text="@string/PlateCountNo" />
+
+    <TextView
+        android:id="@+id/emailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/FragmentFoodprice"
+        android:layout_alignEnd="@+id/animatedImages"
+        android:layout_marginBottom="21dp"
+        android:visibility="invisible"
+        android:elevation="5dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/InPackorPlate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/emailAddress"
+        android:layout_marginEnd="38dp"
+        android:layout_toStartOf="@+id/textClock"
+        android:elevation="5dp"
+        android:visibility="invisible"
+        android:text="TextView" />
 
 </RelativeLayout>

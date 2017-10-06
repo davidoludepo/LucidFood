@@ -24,7 +24,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.GridView;
 import android.widget.RadioButton;
@@ -32,7 +31,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.icdatofcusgmail.lucidfood.FoodmenuActivityArchive.FoodServicing;
 import com.icdatofcusgmail.lucidfood.LoginActivityArchive.LoginActivity;
 import com.icdatofcusgmail.lucidfood.LucidApplication;
 import com.icdatofcusgmail.lucidfood.R;
@@ -49,7 +47,6 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
     Toolbar toolbar_vendor;
     VendorAdapter vendorAdapter;
     public static GridView ShowInThis;
-    public static CheckBox All;
     public static TextView itemsState, pleaseWork, itemsBeenSelected;
     Button PassDataAlso;
     final String[] foodnames = new String[]{"White Rice", "Jollof Rice", "Fried Rice", "Vegetable Rice", "Coconut Rice", "Small Beef", "Big Beef", "Assorted Meat", "Ponmo", "Small Chicken", "Big Chicken", "Small GoatMeat", "Big GoatMeat", "Titus Fish", "Sawa Fish", "Panla Fish", "Moi Moi", "Plantain", "Boiled Egg", "Coleslaw", "WhiteBeans"};
@@ -115,8 +112,6 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
         wakeLock.acquire();
         WifiManager wifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         wifi.setWifiEnabled(true);
-        Intent StartFoodServicing = new Intent(this, FoodServicing.class);
-        startService(StartFoodServicing);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -128,10 +123,6 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
         setSupportActionBar(toolbar_vendor);
 
         getSupportActionBar().setTitle("");
-
-      //  All = (CheckBox) findViewById(R.id.checkboxAll);
-      //  All.setVisibility(View.GONE);
-      //  All.setOnCheckedChangeListener(this);
 
         itemsState = (TextView) findViewById(R.id.itemsState);
         itemsState.setVisibility(View.INVISIBLE);
@@ -149,8 +140,6 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
         ShowInThis.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE);
         vendorAdapter = new VendorAdapter(getApplicationContext(), getIcdats());
         ShowInThis.setAdapter(vendorAdapter);
-
-      //  getIcdats().get(3).setSelected(true);
 
         smoothy = (SmoothCheckBox) findViewById(R.id.smoothie);
 
@@ -217,8 +206,6 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
         icdats.add(new Icdat(foodnames[18], foodimages[18], smoothy));
         icdats.add(new Icdat(foodnames[19], foodimages[19], smoothy));
         icdats.add(new Icdat(foodnames[20], foodimages[20], smoothy));
-
-    //    icdats.get(2).setSelected(true);
 
         return icdats;
     }
@@ -2613,7 +2600,6 @@ public class VendorActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//        if (isChecked)
-//            getIcdats()
+
     }
 }

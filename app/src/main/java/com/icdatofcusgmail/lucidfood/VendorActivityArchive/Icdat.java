@@ -6,31 +6,13 @@ package com.icdatofcusgmail.lucidfood.VendorActivityArchive;
  */
 
 
-public class Icdat /* implements Parcelable */{
+public class Icdat {
 
     private String foodname;
     private int foodimage;
     private boolean selected;
     private SmoothCheckBox smooth;
 
-//    private Icdat (Parcel in) {
-//        foodname = in.readString();
-//        foodimage = in.readInt();
-//      //  selected = in.readByte() != 0;
-//    }
-
-
-//    public static final Creator<Icdat> CREATOR = new Creator<Icdat>() {
-//        @Override
-//        public Icdat createFromParcel(Parcel in) {
-//            return new Icdat(in);
-//        }
-//
-//        @Override
-//        public Icdat[] newArray(int size) {
-//            return new Icdat[size];
-//        }
-//    };
 
 
     Icdat(String foodname, int foodimage, SmoothCheckBox smoothe) {
@@ -72,24 +54,5 @@ public class Icdat /* implements Parcelable */{
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
-
-//    @Override
-//    public int describeContents() {
-//        return 0;
-//    }
-//
-//    @Override
-//    public void writeToParcel(Parcel dest, int flags) {
-//        dest.writeString(foodname);
-//        dest.writeInt(foodimage);
-//        dest.writeByte((byte) (selected ? 1 : 0));
-//    }
-
-
-
-
-
-
-
 
 }

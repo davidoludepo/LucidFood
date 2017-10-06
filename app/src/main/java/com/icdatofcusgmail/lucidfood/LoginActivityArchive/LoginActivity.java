@@ -60,10 +60,11 @@ public class LoginActivity extends AppCompatActivity {
     public EditText PasswordField;
     Button login;
     public ImageButton clearAllUsername, clearAllPin;
-    String turnUp_url = "http://192.168.43.79/my_login_okay.php";
     AlertDialog.Builder quantumElevation;
     Date whoShouldIDate;
     TextView actuallyTime;
+
+    String turnUp_url = "http://192.168.43.79/my_login_okay.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -467,6 +468,7 @@ public class LoginActivity extends AppCompatActivity {
             this.arrayRandom.add("No matter how good you get you can always get better, and that's the exciting part.");
             this.arrayRandom.add("The man who moves a mountain begins by carrying away small stones.");
             this.arrayRandom.add("Necessity is the mother of taking chances.");
+            this.arrayRandom.add("Those that will fly tomorrow are already running today");
             this.arrayRandom.add("You are here to enable the divine purpose of the universe to unfold. That's how important you are!");
             this.arrayRandom.add("Don't wish it were easier. Wish you were better.");
             this.arrayRandom.add("The only way of finding the limits of the possible is by going beyond them into the impossible.");
@@ -561,8 +563,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void AccessifCorrect(View view) {
 
-        /* Use MonitorApp to study sql storing user's data*/
-
         String[] weddingRing = getIntent().getStringArrayExtra("diamond");
         final Parcelable[] parcel = getIntent().getParcelableArrayExtra("selectedItems");
 
@@ -574,6 +574,7 @@ public class LoginActivity extends AppCompatActivity {
 
         final String UsernameContent = UsernameField.getText().toString();
         final String UsernameString = UsernameContent.substring(UsernameContent.indexOf(".")+1);
+        final String UserName = UsernameString.substring(0,1).toUpperCase() + UsernameString.substring(1).toLowerCase();
 
         if (UsernameField.getText().toString().equals("admin") && PasswordField.getText().toString().equals("1234")) {
 
@@ -649,18 +650,19 @@ public class LoginActivity extends AppCompatActivity {
                                         break;
                                     case "short_balance":
                                         quantumElevation.setTitle("Short Balance");
-                                        exhibitElevation(jsonObject.getString("balance_message"));
+                                        exhibitElevation(jsonObject.getString("short_balance_message"));
                                         break;
                                     default:
                                         Intent serverTent = new Intent(LoginActivity.this, FoodmenuActivity.class);
                                         Bundle ICDAT = new Bundle();
                                         ICDAT.putString("name", jsonObject.getString("name"));
+                                        ICDAT.putString("email", jsonObject.getString("email"));
                                         ICDAT.putString("accountbalance", jsonObject.getString("accountbalance"));
                                         ICDAT.putString("image", jsonObject.getString("image"));
-                                        ICDAT.putString("king", UsernameString);
+                                        ICDAT.putString("king", UserName);
                                         ICDAT.putString("kingDavid", UsernameContent);
                                         serverTent.putExtra("diamond", engagementRing);
-                                        StyleableToast VeriefiedKorQ = new StyleableToast(LoginActivity.this, "Welcome " + UsernameString, Toast.LENGTH_SHORT).spinIcon();
+                                        StyleableToast VeriefiedKorQ = new StyleableToast(LoginActivity.this, "Welcome " + UserName, Toast.LENGTH_SHORT).spinIcon();
                                         VeriefiedKorQ.setBackgroundColor(Color.parseColor("#FF5A5F"));
                                         VeriefiedKorQ.setTextColor(Color.WHITE);
                                         VeriefiedKorQ.show();
@@ -746,8 +748,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         this.intRandom = new Random().nextInt(45);
-         if (actuallyTime.getText().toString().contentEquals("2017 - 06 - 23"))
-             this.textRandom.setText("" + "Happy Day Dweezy" + "");
+         if (actuallyTime.getText().toString().contentEquals("2017 - 11 - 27"))
+             this.textRandom.setText("" + "Happy Birthday Dweezy" + "");
         else if (actuallyTime.getText().toString().contentEquals("2017 - 06 - 25"))
              this.textRandom.setText("" + "Happy Third Day Dweezy" + "");
         else

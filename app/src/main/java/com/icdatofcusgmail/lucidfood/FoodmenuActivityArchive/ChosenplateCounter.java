@@ -25,7 +25,6 @@ public class ChosenplateCounter extends Fragment {
 
     public static int balance_exceeded_checker, items_been_selected;
     public static TextView feetag;
- //   public static EasyMoneyTextView feetag;
 
     Spinner spinner;
     TextView textView, textView2nd, textView3rd, textView4th, textView5th, textView6th, textView7th, textView8th, textView9th, textView10th;
@@ -35,7 +34,6 @@ public class ChosenplateCounter extends Fragment {
     public static String FirstSubString, SecondSubString, ThirdSubString, FourthSubString, FifthSubString, SixthSubString, SeventhSubString, EightSubString, NineSubString, TenSubString, EleventhSubString, TwelvethSubString, ThirteenthSubString, FourteenthSubString, FifteenthSubString, SixteenthSubString, SeventeenthSubString, EighteenthSubString, NineteenthSubString, TwentiethSubString, TwentyOneSubString;
 
     LucidApplication app;
-    //String balance_exceeded_checker = "http://192.168.43.79/account_balance_difference.php";
 
     @Nullable
     @Override
@@ -76,26 +74,6 @@ public class ChosenplateCounter extends Fragment {
         button6 = (Button) getActivity().findViewById(R.id.Sixthpricebutton);
 
         feetag = (TextView) getActivity().findViewById(R.id.counter);
-        spinner = (Spinner) getActivity().findViewById(R.id.spinnerCurrency);
-
-
-        //<!--For currency textview--- !>
-//        feetag.showCommas();
-//        feetag.showCurrencySymbol();
-
-    /*    spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String itemName = spinner.getSelectedItem().toString();
-                String symbol = itemName.substring(itemName.indexOf("(")+1, itemName.indexOf(")"));
-                feetag.setCurrency(symbol);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });   */
 
         feetag.addTextChangedListener(new TextWatcher() {
             @Override
@@ -130,30 +108,6 @@ public class ChosenplateCounter extends Fragment {
                 } catch (Exception ignored) {
 
                 }
-
-                //                StringRequest stringRequest = new StringRequest(Request.Method.POST, balance_exceeded_checker,
-//                        new Response.Listener<String>() {
-//                            @Override
-//                            public void onResponse(String response) {
-//                                try {
-//                                    JSONArray jsonArray = new JSONArray(response);
-//                                    JSONObject jsonObject = jsonArray.getJSONObject(0);
-//                                    String code = jsonObject.getString("code");
-//                                    switch (code) {
-//                                        case "fetched_balance":
-//
-//                                            break;
-//                                    }
-//                                } catch (JSONException e) {
-//                                    e.printStackTrace();
-//                                }
-//                            }
-//                        }, new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//
-//                    }
-//                });
             }
         });
 
@@ -2707,7 +2661,7 @@ public class ChosenplateCounter extends Fragment {
 
                 if (Integer.parseInt(TwentiethSubString) != parseTwenty) {
                     app.prev.remove("19");
-                    app.prev.put("19", "350 naira Coleslaw`");
+                    app.prev.put("19", "350 naira Coleslaw");
                     app.allinfoodcounter = app.allinfoodcounter - Integer.parseInt(TwentiethSubString);
                     app.allinfoodcounter = app.allinfoodcounter + parseTwenty;
                     feetag.setText("" + app.allinfoodcounter + "");
